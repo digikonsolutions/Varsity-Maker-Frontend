@@ -1,0 +1,585 @@
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.leather-jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .leather-jacket-preview-container {
+    height: 760px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.leather-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.leather-brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.leather-pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.leather-offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.leather-offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.leather-offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.leather-viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  /* margin-top: 40px; */
+}
+
+@media (min-width: 768px) {
+  .leather-viewport-frame {
+    min-height: 440px;
+  }
+}
+
+.leather-viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.leather-jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.leather-layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.leather-bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.leather-bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.leather-sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.leather-sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.leather-body-panel {
+  filter: url(#colorize-body);
+}
+
+.leather-body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.leather-shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.leather-shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.leather-pockets {
+  filter: url(#colorize-pocket);
+}
+
+.leather-pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.leather-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   SKIN REQUIRED — WARNING TOAST
+   (user ne skin select kiye baghair change kiya)
+   ============================================ */
+.leather-skin-warning {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  margin: 0 auto;
+  max-width: 400px;
+  z-index: 30;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background-color: #fffbeb;
+  border: 1px solid #f59e0b;
+  box-shadow: 0 12px 30px rgba(120, 53, 15, 0.16);
+  color: #78350f;
+  pointer-events: none;
+}
+
+.leather-skin-warning-icon {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #f59e0b;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+}
+
+.leather-skin-warning-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.leather-skin-warning-text strong {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SKIN REQUIRED — EMPTY STATE
+   (jab tak skin select na ho, jacket ki jagah ye dikhta hai)
+   ============================================ */
+.leather-skin-empty {
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+  border: 1.5px dashed rgba(168, 162, 158, 0.7);
+  border-radius: 20px;
+  background-color: #fafaf9;
+  color: #a8a29e;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.leather-skin-empty-alert {
+  border-color: #f59e0b;
+  background-color: #fffbeb;
+  color: #d97706;
+}
+
+.leather-skin-empty-art {
+  width: 46%;
+  max-width: 170px;
+  height: auto;
+}
+
+.leather-skin-empty-title {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.leather-skin-empty-hint {
+  margin: 0;
+  max-width: 280px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #78716c;
+}
+
+/* ============================================
+   SKIN LOADING (naye skin ke 4 sides load ho rahe hain)
+   ============================================ */
+.leather-skin-loading {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: rgba(15, 23, 42, 0.88);
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.leather-skin-spinner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #caa35a;
+  animation: leatherSkinSpin 0.8s linear infinite;
+}
+
+@keyframes leatherSkinSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leather-skin-spinner {
+    animation-duration: 2.4s;
+  }
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.leather-view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.leather-view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.leather-view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.leather-view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.leather-view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* Skin select hone se pehle tabs locked dikhte hain (click par warning aati hai) */
+.leather-view-btn-locked,
+.leather-view-btn-locked:hover {
+  background-color: #fafaf9;
+  color: #a8a29e;
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.leather-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .leather-jacket-preview-container {
+    padding: 16px;
+    height: 400px;
+  }
+  
+  .leather-viewport-frame {
+    min-height: 280px;
+  }
+  
+  .leather-offer-price {
+    font-size: 20px;
+  }
+  
+  .leather-brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .leather-pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .leather-view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  .leather-skin-warning {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 10px 12px;
+  }
+
+  .leather-skin-warning-text,
+  .leather-skin-warning-text strong {
+    font-size: 11px;
+  }
+
+  .leather-skin-empty {
+    max-width: 280px;
+    padding: 16px;
+    gap: 6px;
+  }
+
+  .leather-skin-empty-art {
+    width: 36%;
+  }
+
+  .leather-skin-empty-title {
+    font-size: 16px;
+  }
+
+  .leather-skin-empty-hint {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .leather-jacket-preview-container {
+    padding: 12px;
+    height: 340px;
+  }
+  
+  .leather-viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+  
+  .leather-offer-price {
+    font-size: 16px;
+  }
+  
+  .leather-offer-label {
+    font-size: 8px;
+  }
+  
+  .leather-offer-retail {
+    font-size: 10px;
+  }
+  
+  .leather-view-selectors {
+    gap: 6px;
+  }
+  
+  .leather-view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+
+  .leather-skin-warning {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .leather-skin-warning-text,
+  .leather-skin-warning-text strong {
+    font-size: 10px;
+  }
+
+  .leather-skin-empty {
+    max-width: 210px;
+    padding: 12px;
+  }
+
+  .leather-skin-empty-art {
+    display: none;
+  }
+
+  .leather-skin-empty-title {
+    font-size: 14px;
+  }
+
+  .leather-skin-empty-hint {
+    font-size: 10px;
+  }
+
+  .leather-skin-loading {
+    font-size: 8px;
+    padding: 4px 10px;
+  }
+}
+
+
+svg .jk-collar-group[data-collar="zippered_hood"],
+svg .jk-knit-base[data-collar="zippered_hood"] {
+  position: relative;
+  z-index: 999999;
+  isolation: isolate;
+}

@@ -1,0 +1,679 @@
+:root {
+  --bg-main: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F1F5F9;
+  --accent-primary: #caa35a;
+  --accent-primary-hover: #9d7f47;
+  --text-main: #0f172a;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --glass-glow: rgba(37, 99, 235, 0.1);
+  --danger: #EF4444;
+  --success: #10B981;
+  --warning: #F59E0B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* Dashboard Layout Structure */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  padding-top: 100px;
+}
+
+.sidebar {
+  width: 250px; 
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  padding: 2.5rem 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding-top: 40px !important;
+}
+
+.sidebar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.sidebar-brand h2 {
+  font-size: 16px;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-primary);
+}
+
+/* Sidebar Navigation Layout Wrapper */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Pushes the logout block downwards */
+  justify-content: space-between;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Custom Navigation Buttons */
+.menu-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.menu-item-btn:hover {
+  color: var(--accent-primary);
+  background-color: var(--bg-surface-hover);
+}
+
+.menu-item-btn.active {
+  background-color: var(--text-main) !important;
+  color: var(--bg-main) !important;
+  font-weight: 600;
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0 8px 8px 0;
+}
+
+.menu-icon {
+  font-size: 16px;
+}
+
+/* Sidebar Bottom Logout Block */
+.sidebar-logout-wrapper {
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.sidebar-divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin-bottom: 15px;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.logout-text {
+  color: var(--danger);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.logout-icon-fa {
+  color: var(--danger);
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.08) !important;
+}
+
+.logout-btn:hover .logout-icon-fa {
+  transform: translateX(3px); /* Interactive slide effect */
+}
+
+/* Main Content Styling */
+.main-content {
+  flex: 1;
+  padding: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.header-title h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Global Actions Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--glass-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-main);
+}
+
+/* Metrics Dashboard Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.stat-card h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Module Sub-Panels Context Adjustments */
+.unique-spent-card {
+  background: var(--text-main);
+  color: #FFFFFF !important;
+}
+
+.unique-spent-card h3 {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.unique-spent-card .stat-number {
+  color: #FFFFFF;
+}
+
+/* Filter Controls Container */
+.table-controls {
+  margin-bottom: 1.5rem;
+}
+
+.search-input-dashboard {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input-dashboard:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--glass-glow);
+}
+
+/* Tables Container Component Layout */
+.table-container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #F8FAFC;
+  padding: 1rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.user-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Custom Table Dynamic Elements */
+.order-id-badge {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.order-date-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.order-price-tag {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.tracking-code {
+  font-family: monospace;
+  font-size: 0.9rem;
+  background-color: var(--bg-surface-hover);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: #334155;
+  border: 1px solid var(--border-color);
+}
+
+.tracking-code.pending-track {
+  background: #FEF3C7;
+  color: #D97706;
+  border: none;
+}
+
+.user-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Phase Indicators Status Badges */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+}
+
+.status-pending, .status-order-confirmed {
+  color: #0369A1;
+}
+
+.status-shipped {
+  background-color: #FEF3C7;
+  color: #B45309;
+}
+
+.status-delivered {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+/* Action Trigger Buttons */
+.text-right { text-align: right; }
+
+.btn-action {
+  background: #EDF2F7;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.btn-edit { color: var(--accent-primary); }
+.btn-edit:hover { background-color: var(--accent-primary); color: #FFF; }
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem !important;
+}
+
+/* Light Address Panel Visual Card */
+.address-card-mock {
+  background-color: var(--bg-main);
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+/* Modal Core Components Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+
+.items-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem;
+  background-color: var(--bg-main);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.item-title-text {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.item-price-breakdown {
+  display: flex;
+  gap: 10px;
+}
+
+.item-price-breakdown span {
+  color: var(--text-muted);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Micro Animations Switching Screens Layout */
+.tab-fade-in {
+  animation: fadeInEffect 0.35s ease-out;
+}
+
+@keyframes fadeInEffect {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   📱 RESPONSIVE MEDIA QUERIES SYSTEM 
+   ========================================== */
+
+/* 1️⃣ TABLET LANDSCAPE & DESKTOP COMPACT (Max-Width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .main-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on small laptops/tablets */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column; /* Pushes sidebar to top or bottom */
+    padding-top: 60px; /* Reduces top overhead gap */
+  }
+
+  /* Converting Sidebar to Top Sticky Navigation Header */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    padding: 0.75rem 1rem !important;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top:40px !important;
+  }
+
+  .sidebar-brand {
+    margin-bottom: 0;
+  }
+  
+  .sidebar-brand h2 {
+    font-size: 14px;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex: unset;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu-links {
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .menu-item-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .menu-item-btn.active {
+    border-left: none;
+    border-radius: 8px 8px 0 0;
+    background-color: rgba(37, 99, 235, 0.05) !important;
+  }
+
+  /* Top Bar Logout Action Controls */
+  .sidebar-logout-wrapper {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .sidebar-divider {
+    display: none; /* Removes structural line divider from mobile top header */
+  }
+
+  .logout-btn {
+    padding: 8px 12px;
+  }
+
+  .logout-text {
+    display: none; /* Hides text to save screen estate on smaller devices */
+  }
+  
+  .logout-icon-fa {
+    font-size: 18px;
+  }
+
+  /* Main Section Fluid Layout adjustments */
+  .main-content {
+    padding-top: 4rem !important; /* Prevents text from slipping behind the header */
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.75rem;
+  }
+
+  /* Table Scroller Configuration */
+  .table-container {
+    overflow-x: auto; /* Activates clean finger dragging scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .user-table th, .user-table td {
+    padding: 1rem; /* Compact scaling padding */
+  }
+}
+
+/* 3️⃣ SMARTPHONES BREAKPOINT (Max-Width: 480px) */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Text hiding to make mobile view cleanly icon-driven if required */
+  .menu-item-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr; /* 100% full stretch vertical block rows */
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .search-input-dashboard {
+    max-width: 100%; /* Search container scale optimization */
+  }
+
+  .modal-content {
+    width: 92%;
+    padding: 1.25rem;
+    margin: 0 auto;
+  }
+
+  .item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .item-price-breakdown {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 6px;
+  }
+}

@@ -1,0 +1,320 @@
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.jvp-jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .jvp-jacket-preview-container {
+    height: 600px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.jvp-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.jvp-brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.jvp-pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.jvp-offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.jvp-offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.jvp-offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.jvp-viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .jvp-viewport-frame {
+    min-height: 440px;
+  }
+}
+
+.jvp-viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.jvp-jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.jvp-layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.jvp-bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.jvp-bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.jvp-sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.jvp-sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.jvp-body-panel {
+  filter: url(#colorize-body);
+}
+
+.jvp-body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.jvp-shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.jvp-shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.jvp-pockets {
+  filter: url(#colorize-pocket);
+}
+
+.jvp-pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.jvp-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.jvp-view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.jvp-view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.jvp-view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.jvp-view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.jvp-view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.jvp-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .jvp-jacket-preview-container {
+    padding: 16px;
+    height: 400px;
+  }
+  
+  .jvp-viewport-frame {
+    min-height: 280px;
+  }
+  
+  .jvp-offer-price {
+    font-size: 20px;
+  }
+  
+  .jvp-brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .jvp-pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .jvp-view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .jvp-jacket-preview-container {
+    padding: 12px;
+    height: 340px;
+  }
+  
+  .jvp-viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+  
+  .jvp-offer-price {
+    font-size: 16px;
+  }
+  
+  .jvp-offer-label {
+    font-size: 8px;
+  }
+  
+  .jvp-offer-retail {
+    font-size: 10px;
+  }
+  
+  .jvp-view-selectors {
+    gap: 6px;
+  }
+  
+  .jvp-view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}

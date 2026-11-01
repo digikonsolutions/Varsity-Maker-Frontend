@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Section: Trusted Brands Logo Slider - Premium Light Luxury Minimalist
+   ========================================================================== */
+
+.v-maker-trusted-section {
+  width: 100%;
+  background: #f8fafc; /* Crisp Modern Luxury Off-White */
+  padding: 40px 0; /* Strict adherence to your current layout height */
+  position: relative;
+  overflow: hidden;
+}
+
+.v-maker-trusted-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ================= HEADER STYLE SUITE ================= */
+.v-maker-trusted-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.v-maker-trusted-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.v-maker-trusted-pill {
+  align-self: flex-start;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #b58936; /* Sharper Rich Gold Tint for Light BG */
+  font-weight: 700;
+  background: rgba(181, 137, 54, 0.08);
+  border: 1px solid rgba(181, 137, 54, 0.2);
+  padding: 5px 14px;
+  border-radius: 30px;
+}
+
+.v-maker-trusted-title {
+  font-size: 38px;
+  font-weight: 100;
+  color: var(--blue); 
+  margin: 0;
+  letter-spacing: 0px;
+  line-height: 1.1;
+  margin-top:10px;
+}
+
+
+
+.v-maker-nav-circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  z-index: 10;
+}
+
+.v-maker-nav-circle-btn:hover {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.15);
+}
+
+/* ================= AUTOMATED INFINITE ENGINE ================= */
+.v-maker-slider-viewport-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+/* Studio Vignette Fades revised for Light Matte blending */
+.v-maker-slider-fade-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.v-maker-slider-fade-overlay.left-edge {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc 20%, rgba(248, 250, 252, 0) 100%);
+}
+
+.v-maker-slider-fade-overlay.right-edge {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc 20%, rgba(248, 250, 252, 0) 100%);
+}
+
+/* Track container optimized for both manual overlay and native shifts */
+.v-maker-slider-scroll-track {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+}
+
+.v-maker-slider-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+.v-maker-slider-scroll-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Internal Inner Mover for Non-Stop Performance CSS Loops */
+.v-maker-ticker-mover-inner {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: modernMarquee 45s linear infinite;
+}
+
+/* Hover over entire track pauses the animation seamlessly */
+.v-maker-slider-viewport-wrapper:hover .v-maker-ticker-mover-inner {
+  animation-play-state: paused;
+}
+
+/* 6 standard cards * alignment matrix */
+@keyframes modernMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1752px, 0, 0);
+  }
+}
+
+/* ================= MODERN LOGO CARD EMBLEM FRAMING ================= */
+.v-maker-logo-card-frame {
+  flex-shrink: 0;
+  width: 230px;
+  height: 135px; /* Ultra compact clean aesthetic */
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+}
+
+/* Inner Geometric Circle Masking */
+.v-maker-brand-image-canvas {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v-maker-brand-logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+/* Micro-Typography Engine */
+.v-maker-logo-hover-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b; /* Soft gray typography */
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: all 0.4s ease;
+  opacity: 0.8;
+}
+
+/* Clean Sunburst Radial Spotlight Glow */
+.v-maker-logo-card-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(181, 137, 54, 0.06) 0%, rgba(181, 137, 54, 0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ================= HOVER INTERLOCK EFFECTS ================= */
+.v-maker-logo-card-frame:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: rgba(181, 137, 54, 0.4); /* Premium soft gold outline */
+  box-shadow: 0 15px 30px rgba(181, 137, 54, 0.08), 0 4px 8px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+
+.v-maker-logo-card-frame:hover .v-maker-brand-image-canvas {
+  transform: scale(1.05);
+  border-color: #b58936;
+  box-shadow: 0 6px 14px rgba(181, 137, 54, 0.15);
+}
+
+
+.v-maker-logo-card-frame:hover .v-maker-logo-hover-title {
+  color: #b58936;
+  opacity: 1;
+  letter-spacing: 1.5px;
+}
+
+.v-maker-logo-card-frame:hover .v-maker-logo-card-glow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* ================= RESPONSIVE SYSTEM ================= */
+@media (max-width: 768px) {
+  .v-maker-trusted-section {
+    padding: 35px 0;
+  }
+  
+  .v-maker-trusted-container {
+    padding: 0 20px;
+  }
+
+  .v-maker-trusted-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  
+  .v-maker-slider-nav-actions {
+    display: none;
+  }
+
+  .v-maker-trusted-title {
+    font-size: 28px;
+  }
+  
+  .v-maker-logo-card-frame {
+    width: 200px;
+    height: 120px;
+  }
+  
+  .v-maker-brand-image-canvas {
+    width: 48px;
+    height: 48px;
+  }
+
+  .v-maker-slider-fade-overlay {
+    width: 50px;
+  }
+}

@@ -1,0 +1,882 @@
+/* ============================================
+   MATERIALS CONTAINER
+   ============================================ */
+.matcol-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================
+   SECTION CARD
+   ============================================ */
+.matcol-section-card {
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.matcol-section-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: left;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.matcol-section-header:hover {
+  background-color: #f8fafc;
+}
+
+.matcol-section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.matcol-section-number {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.matcol-section-number-completed {
+  background-color: #10b981;
+  color: white;
+  border: none;
+}
+
+.matcol-section-number-pending {
+  border: 1px solid #d6d3d1;
+  color: #a8a29e;
+  background-color: #fafaf9;
+}
+
+.matcol-number-text {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  font-weight: 800;
+}
+
+.matcol-check-icon {
+  stroke-width: 3.5;
+}
+
+.matcol-section-title {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.matcol-section-status {
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  margin: 4px 0 0 0;
+}
+
+.matcol-status-completed {
+  color: #059669;
+  font-weight: 600;
+}
+
+.matcol-status-pending {
+  font-weight: 600;
+}
+
+.matcol-status-optional {
+  color: #78716c;
+  font-weight: 600;
+}
+
+.matcol-section-chevron {
+  color: rgba(15, 23, 42, 0.6);
+  transition: transform 0.3s;
+}
+
+.matcol-section-chevron-active {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   SECTION CONTENT
+   ============================================ */
+.matcol-section-content {
+  padding: 20px;
+  background-color: rgba(250, 250, 249, 0.5);
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.matcol-sub-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin: 0 0 10px 0;
+}
+
+/* ============================================
+   STYLE GRID
+   ============================================ */
+.matcol-style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .matcol-style-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.matcol-style-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.matcol-style-card:hover {
+  border-color: #caa35a;
+}
+
+.matcol-style-card-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.matcol-style-card-inactive {
+  /* Default styles */
+}
+
+.matcol-style-image-wrap {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 120px;
+  border-radius: 8px;
+  border: 1px solid #f1f5f9;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.matcol-style-image-wrap:hover {
+  transform: scale(1.05);
+}
+
+.matcol-style-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.matcol-style-info {
+  width: 100%;
+}
+
+.matcol-style-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 0;
+}
+
+.matcol-style-desc {
+  font-size: 10px;
+  color: #a8a29e;
+  margin: 4px auto 0;
+  max-width: 110px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.3;
+}
+
+/* ============================================
+   MATERIAL BUTTONS
+   ============================================ */
+.matcol-material-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.matcol-material-btn {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  transition: all 0.2s;
+  background-color: white;
+  color: #475569;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.matcol-material-btn:hover {
+  border-color: #cbd5e1;
+}
+
+.matcol-material-btn-active {
+  background-color: #0f172a;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.matcol-material-btn-inactive {
+  /* Default styles */
+}
+
+.matcol-material-btn-disabled {
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  cursor: default;
+}
+
+.matcol-material-btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  background-color: white;
+  color: #475569;
+  cursor: pointer;
+}
+
+.matcol-material-btn-small:hover {
+  border-color: #cbd5e1;
+}
+
+.matcol-material-btn-small-active {
+  background-color: #1e293b;
+  color: white;
+}
+
+.matcol-material-btn-small-inactive {
+  /* Default styles */
+}
+
+/* ============================================
+   COLOR GRID
+   ============================================ */
+.matcol-color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .matcol-color-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+.matcol-color-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.matcol-color-btn:hover {
+  transform: scale(1.05);
+}
+
+.matcol-color-check-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matcol-color-check-icon-inner {
+  color: #1e293b;
+  stroke-width: 4;
+}
+
+/* ============================================
+   COLOR GRID SMALL
+   ============================================ */
+.matcol-color-grid-small {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .matcol-color-grid-small {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+.matcol-color-btn-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.matcol-color-btn-small:hover {
+  transform: scale(1.05);
+}
+
+.matcol-color-check-small {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matcol-color-check-icon-small {
+  color: #1e293b;
+  stroke-width: 4;
+}
+
+/* ============================================
+   INSERTS
+   ============================================ */
+.matcol-inserts-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.matcol-inserts-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  background-color: white;
+  color: #475569;
+  cursor: pointer;
+}
+
+.matcol-inserts-btn-active {
+  background-color: #0f172a;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.matcol-inserts-btn-inactive {
+  /* Default styles */
+}
+
+.matcol-inserts-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* ============================================
+   FASTENERS
+   ============================================ */
+.matcol-fasteners-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.matcol-fasteners-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  background-color: white;
+  color: #475569;
+  cursor: pointer;
+}
+
+.matcol-fasteners-btn-active {
+  background-color: #0f172a;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.matcol-fasteners-btn-inactive {
+  /* Default styles */
+}
+
+/* ============================================
+   KNIT GRID
+   ============================================ */
+.matcol-knit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .matcol-knit-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.matcol-knit-btn {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.matcol-knit-btn:hover {
+  border-color: #caa35a;
+}
+
+.matcol-knit-btn-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.matcol-knit-btn-inactive {
+  /* Default styles */
+}
+
+.matcol-knit-preview {
+  width: 32px;
+  height: 16px;
+  margin: 0 auto 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+}
+
+.matcol-knit-rainbow {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.matcol-knit-rainbow-bar {
+  flex: 1;
+}
+
+.matcol-red { background-color: #ef4444; }
+.matcol-yellow { background-color: #eab308; }
+.matcol-blue { background-color: #3b82f6; }
+.matcol-purple { background-color: #a855f7; }
+
+.matcol-knit-solid {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a;
+}
+
+.matcol-knit-single {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+}
+
+.matcol-knit-stripe {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.matcol-knit-double {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2px 0;
+}
+
+.matcol-knit-stripe-double {
+  width: 100%;
+  height: 1.5px;
+  background-color: white;
+}
+
+.matcol-knit-feather {
+  width: 100%;
+  height: 100%;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2px 0;
+}
+
+.matcol-knit-feather-bar {
+  height: 2px;
+}
+
+.matcol-gold { background-color: #caa35a; }
+.matcol-white { background-color: white; }
+
+.matcol-knit-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  display: block;
+  text-transform: uppercase;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+/* ============================================
+   LINING
+   ============================================ */
+.matcol-lining-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.matcol-lining-card {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  transition: all 0.2s;
+  background-color: white;
+  cursor: pointer;
+}
+
+.matcol-lining-card:hover {
+  border-color: #caa35a;
+}
+
+.matcol-lining-card-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.matcol-lining-card-inactive {
+  /* Default styles */
+}
+
+.matcol-lining-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 0;
+}
+
+.matcol-lining-desc {
+  font-size: 10px;
+  color: #a8a29e;
+  margin: 4px 0 0;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+}
+
+/* ============================================
+   LOCK SECTION
+   ============================================ */
+.matcol-lock-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.matcol-lock-alert {
+  padding: 16px;
+  background-color: rgba(255, 251, 235, 0.7);
+  border: 1px solid rgba(251, 191, 36, 0.8);
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #92400e;
+  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.matcol-lock-alert-icon {
+  color: #d97706;
+  flex-shrink: 0;
+  margin-top: 2px;
+  animation: bounce 2s infinite;
+}
+
+.matcol-lock-alert-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0 0 4px 0;
+}
+
+.matcol-lock-alert-text {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #78716c;
+  margin: 0;
+}
+
+.matcol-lock-alert-highlight {
+  color: #b45309;
+  font-weight: 700;
+}
+
+/* ============================================
+   NEXT BUTTON
+   ============================================ */
+.matcol-next-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.matcol-next-btn-active {
+  background-color: #0f172a;
+  color: white;
+  box-shadow: 0 4px 6px rgba(15, 23, 42, 0.1);
+}
+
+.matcol-next-btn-active:hover {
+  background-color: #1e293b;
+  border-color: rgba(202, 163, 90, 0.2);
+}
+
+.matcol-next-btn-locked {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+  border-color: rgba(203, 213, 225, 0.5);
+  box-shadow: none;
+}
+
+.matcol-lock-icon {
+  color: #94a3b8;
+  margin-right: 6px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.matcol-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+
+
+.matcol-animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .matcol-section-header {
+    padding: 16px;
+  }
+  
+  .matcol-section-content {
+    padding: 16px;
+  }
+  
+  .matcol-style-grid {
+    gap: 12px;
+  }
+  
+  .matcol-style-card {
+    padding: 10px;
+  }
+  
+  .matcol-color-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .matcol-color-grid-small {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .matcol-knit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .matcol-lining-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .matcol-inserts-btns {
+    flex-direction: column;
+  }
+  
+  .matcol-fasteners-btns {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .matcol-section-title {
+    font-size: 12px;
+  }
+  
+  .matcol-section-status {
+    font-size: 10px;
+  }
+  
+  .matcol-style-name {
+    font-size: 10px;
+  }
+  
+  .matcol-style-desc {
+    font-size: 8px;
+  }
+  
+  .matcol-material-btn {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+  
+  .matcol-color-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .matcol-color-btn-small {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .matcol-next-btn {
+    font-size: 10px;
+    padding: 14px;
+  }
+}

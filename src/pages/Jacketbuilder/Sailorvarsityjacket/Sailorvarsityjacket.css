@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   TOKENS  — editorial varsity, crimson accent
+   Saari classes `sailor-` prefix ke saath.
+   Keyframes unique: sailor-app-fadeIn / sailor-app-dropIn
+   ============================================ */
+.sailor-app-container {
+  --ink:        #111111;
+  --ink-soft:   #3D3D3D;
+  --accent:     var(--gold);   /* varsity crimson */
+  --accent-dim: #E8B4BC;
+  --sand:       #C4B4A0;   /* inactive tab tan */
+  --line:       #E6E2DC;
+  --line-dark:  #111111;
+  --paper:      #FBFAF8;
+  --stage:      #F2F0EC;
+  --muted:      #8A8378;
+
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body:    'Poppins', system-ui, sans-serif;
+}
+
+/* ============================================
+   SHELL
+   ============================================ */
+.sailor-app-container {
+  min-height: 100vh;
+  background-color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--body);
+  color: var(--ink);
+  user-select: none;
+  padding-bottom: 48px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sailor-app-container button { font-family: inherit; }
+
+/* ============================================
+   TOAST
+   ============================================ */
+.sailor-notification-banner {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: calc(100% - 32px);
+  max-width: 440px;
+  padding: 13px 18px;
+  background-color: var(--ink);
+  color: #fff;
+  border-radius: 4px;
+  border-left: 3px solid var(--accent);
+  box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .5);
+  animation: sailor-app-dropIn .3s ease-out;
+}
+
+.sailor-notification-icon { color: var(--accent-dim); flex-shrink: 0; }
+
+.sailor-notification-text {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.sailor-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(251, 250, 248, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 24px;
+}
+
+.sailor-header-inner {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sailor-brand-container { display: flex; align-items: center; gap: 11px; }
+
+.sailor-brand-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 3px;
+  background-color: var(--ink);
+  display: grid;
+  place-items: center;
+}
+
+.sailor-brand-letter {
+  color: #fff;
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.sailor-brand-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.sailor-brand-subtitle {
+  margin: 2px 0 0;
+  font-family: var(--body);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--sand);
+}
+
+.sailor-header-actions { display: flex; align-items: center; gap: 14px; }
+
+.sailor-promo-tag {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+}
+
+@media (min-width: 640px) { .sailor-promo-tag { display: inline-flex; } }
+
+.sailor-promo-icon { color: var(--accent); }
+
+.sailor-promo-text {
+  font-family: var(--display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sailor-cart-indicator {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+.sailor-cart-indicator:hover { border-color: var(--ink); }
+.sailor-cart-icon { color: var(--ink); }
+
+.sailor-cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 10.5px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--paper);
+}
+
+/* ============================================
+   LAYOUT — preview left (wide), controls right
+   ============================================ */
+.sailor-main-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 22px;
+  flex: 1;
+  margin-top: 70px;
+}
+
+@media (min-width: 1024px) {
+  .sailor-main-content {
+    padding: 30px 28px;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sailor-main-content {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 44px;
+  }
+}
+
+/* ============================================
+   PREVIEW
+   ============================================ */
+.sailor-preview-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .sailor-preview-column { position: sticky; top: 92px; align-self: start; }
+}
+
+.sailor-preview-stage {
+  position: relative;
+  width: 100%;
+  background: var(--stage);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sailor-preview-stage > * {
+  flex: 1 1 auto;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0;
+}
+
+.sailor-preview-stage svg,
+.sailor-preview-stage img,
+.sailor-preview-stage canvas {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .sailor-preview-stage {
+    padding: 24px;
+    min-height: calc(100vh - 210px);
+    justify-content: space-between;
+  }
+}
+
+.sailor-helper-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 2px;
+}
+
+.sailor-helper-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+
+.sailor-helper-text {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.sailor-helper-text b { color: var(--ink); font-weight: 600; }
+
+/* ============================================
+   CONFIG COLUMN
+   ============================================ */
+.sailor-config-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sailor-builder-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.sailor-builder-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(24px, 3.4vw, 28px);
+  font-weight: 900;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.sailor-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--display);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease;
+  flex-shrink: 0;
+}
+
+.sailor-reset-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ============================================
+   TABS — underline, no chrome
+   ============================================ */
+.sailor-tab-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 2px solid var(--line-dark);
+  margin-bottom: 4px;
+}
+
+.sailor-tab-button {
+  position: relative;
+  padding: 4px 6px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.3;
+  transition: color .18s ease;
+}
+
+.sailor-tab-button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 4px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transition: transform .22s ease;
+}
+
+.sailor-tab-button-active { color: var(--ink); }
+.sailor-tab-button-active::after { transform: scaleX(1); }
+
+.sailor-tab-button-inactive { color: var(--sand); }
+.sailor-tab-button-inactive:hover { color: var(--ink-soft); }
+
+.sailor-tab-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.sailor-tab-icon-active { color: var(--accent); }
+.sailor-tab-icon-inactive { color: currentColor; }
+
+.sailor-tab-step { display: none; }
+
+/* ============================================
+   PANEL
+   ============================================ */
+.sailor-panel-container {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.sailor-panel-content { animation: sailor-app-fadeIn .24s ease-out; }
+
+.sailor-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  padding: 20px 0 14px;
+}
+
+.sailor-panel-title {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  font-style: bold;
+  text-transform: uppercase;
+}
+
+.sailor-panel-subtitle {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.sailor-step-badge {
+  flex-shrink: 0;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ============================================
+   MOTION
+   ============================================ */
+@keyframes sailor-app-fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sailor-app-dropIn {
+  from { opacity: 0; transform: translate(-50%, -12px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sailor-app-container *, .sailor-app-container *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR + SELECTION
+   ============================================ */
+.sailor-app-container ::-webkit-scrollbar { width: 7px; height: 7px; }
+.sailor-app-container ::-webkit-scrollbar-track { background: var(--stage); }
+.sailor-app-container ::-webkit-scrollbar-thumb { background: #D5D0C8; border-radius: 8px; }
+.sailor-app-container ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+.sailor-app-container ::selection { background-color: rgba(200, 16, 46, .16); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .sailor-app-header { padding: 12px 16px; }
+  .sailor-brand-title { font-size: 14px; }
+  .sailor-brand-logo { width: 34px; height: 34px; }
+  .sailor-brand-letter { font-size: 18px; }
+  .sailor-tab-button { font-size: 10.5px; padding: 4px 2px 13px; gap: 5px; letter-spacing: .04em; }
+  .sailor-tab-button svg { width: 12px; height: 12px; }
+  .sailor-builder-head { margin-bottom: 18px; }
+  .sailor-panel-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+@media (max-width: 400px) {
+  .sailor-tab-button svg { display: none; }
+  .sailor-reset-btn { padding: 9px 12px; font-size: 9.5px; }
+}

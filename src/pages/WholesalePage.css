@@ -1,0 +1,701 @@
+/* WholesalePage.css */
+:root {
+  --base-light: #f2f0e6;
+  --dark-navy: #111d3d;
+  --gold: #b89a5b;
+  --muted-text: #4a4a4a;
+  --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Times New Roman', Times, serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wholesale-page-wrapper {
+  background-color: var(--base-light);
+  font-family: var(--font-main);
+  color: var(--dark-navy);
+  overflow-x: clip; 
+}
+
+.wholesale-container {
+  margin: 0 auto;
+  padding-top:100px;
+}
+
+/* Fade-in Animation */
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== SECTION TEXT ========== */
+.section-text {
+  padding: 60px 0;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.wrapper--narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text__heading {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.text__heading.large-heading {
+  font-size: 2.5rem;
+}
+
+.text__content {
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.text__content p {
+  margin-bottom: 20px;
+}
+
+.text-subheading {
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ========== STICKY IMAGES SECTION ========== */
+.sticky-images-section {
+  position: relative;
+  padding: 80px 0;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.sticky-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Isse elements full height stretch nahi honge */
+  gap: 80px;
+  position: relative;
+}
+
+/* LEFT SIDE - YEH STICKY RAHEGA JAB TAK IMAGES SCROLL HONGI */
+.sticky-text-panel {
+  width: 50%;
+  position: -webkit-sticky; 
+  position: sticky;
+  top: 22vh; 
+  z-index: 10;
+  padding: 20px 40px 40px 0;
+}
+
+.sticky-text-inner {
+  max-width: 550px;
+}
+
+.sticky-tagline {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.sticky-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.serif-accent {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.divider-line {
+  width: 60px;
+  height: 2px;
+  background-color: var(--gold);
+  margin-bottom: 35px;
+  opacity: 0.6;
+}
+
+.sticky-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+.sticky-sub-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted-text);
+  margin-bottom: 25px;
+  max-width: 460px;
+}
+
+.contact-line {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+}
+
+.btn-luxury {
+  display: inline-block;
+  background-color: var(--dark-navy);
+  color: #ffffff;
+  border: 1px solid var(--dark-navy);
+  padding: 18px 40px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-luxury:hover {
+  background-color: transparent;
+  color: var(--dark-navy);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.sticky-images-stream {
+  width: 50%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-image-item {
+  position: relative; 
+  width: 100%;
+  margin-bottom: 120px; 
+  opacity: 1;
+  transform: scale(0.96);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sticky-image-item.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sticky-image-item:last-child {
+  margin-bottom: 0; 
+}
+
+.image-frame {
+  position: relative;
+  height: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #eae7dc;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-frame:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.image-frame:hover img {
+  transform: scale(1.02);
+}
+
+.stitch-accent {
+  position: absolute;
+  inset: 16px;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(17, 29, 61, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: #fff;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.image-frame:hover .image-caption {
+  opacity: 1;
+}
+
+/* ========== MULTICOLUMN LOGOS SECTION ========== */
+.section-multicolumn {
+  padding: 30px 0;
+  display: block;
+  position: relative;
+  z-index: 5;      /* Isko upar layen taaki image stream layout ke piche na dhab jaye */
+  clear: both;     /* Kisi bhi float collapse ko wrap karne ke liye */
+  width: 100%;
+  background:var(--blue);
+}
+
+.logos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Logos ko vertically perfectly center karne ke liye */
+  gap: 60px;
+  flex-wrap: wrap;
+  min-height: 100px;    /* Element height tracking guarantee karne ke liye */
+}
+
+.logo-item {
+  flex: 0 1 150px;      /* Fixed modern approach */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-item img {
+  max-width: 100%;     
+  height: auto;
+  object-fit: contain;  
+  display: block;
+}
+
+
+
+/* ========== IMAGE ACCORDIONS ========== */
+.section-image-accordions {
+  padding: 0;
+}
+
+.accordions-container {
+  display: flex;
+  flex-direction: row;
+  height: 70vh;
+  min-height: 500px;
+}
+
+.accordion-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-item.is-active {
+  flex: 3;
+}
+
+.accordion-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.accordion-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.accordion-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.accordion-text {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.accordion-heading {
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ========== PRESS SECTION ========== */
+.section-press {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.press-quote {
+  font-size: 2.5rem;
+  color: #001937;
+  font-weight: 700;
+}
+
+.press-logo img {
+  height: 50px;
+  width: auto;
+  opacity: 0.6;
+}
+
+/* ========== MARQUEE TICKER ========== */
+.section-marquee {
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: ticker 20s linear infinite;
+}
+
+.marquee-item {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+.marquee-item img {
+  height: 40px;
+  width: auto;
+  vertical-align: middle;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== BANNER SLIDER ========== */
+.section-banner-slider {
+  padding: 0;
+}
+
+.banner-wrapper {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.banner-media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.banner-image.is-selected {
+  opacity: 1;
+  z-index: 1;
+}
+
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-text-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 60px;
+}
+
+.banner-text-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.banner-text-item.is-active {
+  opacity: 1;
+}
+
+.banner-heading {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== VIDEO SECTION ========== */
+.section-video {
+  padding: 60px 0 0;
+}
+
+.video-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.bg-video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== RESPONSIVE (MOBILE/TABLET) ========== */
+@media (max-width: 1024px) {
+  .wholesale-container {
+    padding: 0 30px;
+  }
+  
+  .sticky-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .sticky-text-panel,
+  .sticky-images-stream {
+    width: 100%;
+  }
+  
+  .sticky-text-panel {
+    position: relative;
+    top: 0;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .sticky-text-inner {
+    margin: 0 auto;
+  }
+  
+  .divider-line {
+    margin: 0 auto 35px auto;
+  }
+  
+  .sticky-description,
+  .sticky-sub-description,
+  .contact-line {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
+  }
+  
+  .sticky-image-item {
+    position: relative;
+    top: 0;
+    margin-bottom: 40px;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .logo-item {
+    width: 45%;
+  }
+  
+  .accordions-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .accordion-item {
+    min-height: 300px;
+  }
+  
+  .banner-wrapper {
+    height: 50vh;
+  }
+  
+  .banner-text-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .banner-heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .wholesale-container {
+    padding: 0 20px;
+  }
+  
+  .text__heading {
+    font-size: 2rem;
+  }
+  
+  .text__heading.large-heading {
+    font-size: 1.8rem;
+  }
+  
+  .sticky-heading {
+    font-size: 2.2rem;
+  }
+  
+  .btn-luxury {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .logo-item {
+    width: 100%;
+  }
+  
+  .press-quote {
+    font-size: 1.5rem;
+  }
+  
+  .marquee-item {
+    padding: 0 15px;
+  }
+  
+  .marquee-item img {
+    height: 25px;
+  }
+  
+  .banner-heading {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+
+
+/* Wholesale CTA Wrapper */
+.wholesale-hero-cta {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Base Button Styling with Wholesale Namespace */
+.wholesale-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Text aur Arrow ke darmiyan spacing */
+  padding: 14px 36px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 9999px; /* Perfect pill shape */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Wholesale Primary Hero Button (Premium Gold Theme) */
+.wholesale-btn-primary-hero {
+  background-color: #caa35a; /* Golden Accent */
+  color: #0f172a; /* Slate Dark Base */
+  border: 1px solid #caa35a;
+  box-shadow: 0 4px 15px rgba(202, 163, 90, 0.15);
+}
+
+/* Arrow Icon Transition */
+.wholesale-btn-primary-hero .arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  flex-shrink: 0;
+}
+
+/* Hover Effects */
+.wholesale-btn-primary-hero:hover {
+  background-color: transparent;
+  color: #caa35a; /* Text and Border turns Gold */
+  transform: translateY(-2.5px); /* Smooth subtle lift up */
+  box-shadow: 0 8px 25px rgba(202, 163, 90, 0.3);
+}
+
+/* Hover par Arrow Diagonal Move karega (↗) */
+.wholesale-btn-primary-hero:hover .arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+/* Press click feedback */
+.wholesale-btn-primary-hero:active {
+  transform: translateY(0) scale(0.97);
+}

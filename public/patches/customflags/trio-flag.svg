@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="2.9799in" height="2.1082in" viewBox="0 0 214.55 151.79">
+  <polygon id="FELT" points="0 0 0 151.79 214.55 151.78 214.55 0 0 0" style="fill: #101010; fill-rule: evenodd;"/>
+  <polygon id="RHINESTONES" points="5.7598 5.7598 208.79 5.7598 208.79 146.0205 5.7598 146.0303 5.7598 5.7598" style="fill: none; fill-rule: evenodd;"/>
+  <g id="x">
+    <polygon id="embroidery2Color" points="10.28 141.5 204.62 141.5 204.26 9.93 203.91 9.93 10.28 9.93 10.28 141.5" style="fill: none;"/>
+    <polygon id="embroidery3Color" points="13.47 75.53 201.07 75.53 201.07 13.12 13.47 13.12 13.47 75.53" style="fill: #ffd200; fill-rule: evenodd;"/>
+    <polygon id="embroidery4Color" points="201.07 106.74 13.47 106.74 13.47 138.3 200.36 138.3 201.07 138.3 201.07 106.74" style="fill: #f00922; fill-rule: evenodd;"/>
+    <polygon id="embroidery5Color" points="13.47 106.74 201.07 106.74 201.07 75.53 13.47 75.53 13.47 106.74" style="fill: #093498; fill-rule: evenodd;"/>
+  </g>
+</svg>

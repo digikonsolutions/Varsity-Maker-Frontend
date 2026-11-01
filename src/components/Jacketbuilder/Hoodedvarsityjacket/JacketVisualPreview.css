@@ -1,0 +1,382 @@
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.hooded-jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hooded-jacket-preview-container {
+    height: 760px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.hooded-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.hooded-brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.hooded-pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hooded-offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hooded-offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.hooded-offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.hooded-viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  /* margin-top: 40px; */
+}
+
+@media (min-width: 768px) {
+  .hooded-viewport-frame {
+    min-height: 440px;
+  }
+  .hooded-viewport-content {
+ padding-top: 70px;
+  
+}
+}
+
+.hooded-viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.hooded-jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hooded-layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.hooded-bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.hooded-bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.hooded-sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.hooded-sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.hooded-body-panel {
+  filter: url(#colorize-body);
+}
+
+.hooded-body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.hooded-shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.hooded-shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.hooded-pockets {
+  filter: url(#colorize-pocket);
+}
+
+.hooded-pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.hooded-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.hooded-view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.hooded-view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.hooded-view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.hooded-view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.hooded-view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hooded-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .hooded-jacket-preview-container {
+    padding: 16px;
+    height: 600px;
+  }
+  
+  .hooded-viewport-frame {
+    min-height: 280px;
+  }
+  
+  .hooded-offer-price {
+    font-size: 20px;
+  }
+  
+  .hooded-brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .hooded-pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .hooded-view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  .hooded-viewport-content{
+    padding-top:70px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hooded-jacket-preview-container {
+    padding: 12px;
+    height: 440px;
+  }
+   .hooded-viewport-content{
+    padding-top:70px;
+  }
+  
+  .hooded-viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+  
+  .hooded-offer-price {
+    font-size: 16px;
+  }
+  
+  .hooded-offer-label {
+    font-size: 8px;
+  }
+  
+  .hooded-offer-retail {
+    font-size: 10px;
+  }
+  
+  .hooded-view-selectors {
+    gap: 6px;
+  }
+  
+  .hooded-view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}

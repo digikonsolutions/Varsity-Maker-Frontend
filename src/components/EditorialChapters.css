@@ -1,0 +1,288 @@
+/* ==========================================================================
+   Project: Varsity Maker - High Fidelity Editorial Layouts
+   Design Aesthetic: Soft Luxury Minimalism & High Contrast Accentuation
+   Color Palette: Deep Slate (#0f172a) | Luxury Gold (#caa24b) | Vivid Red (#ff0000)
+   Author Handles: creativetips | Name: fawad ahmad
+   ========================================================================== */
+
+/* SYSTEM RESET & LUXURY CORE STYLING (UNCHANGED) */
+
+.v-maker-editorial-chapters-section {
+  background: #fdfbf7;
+  padding: 90px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 140px; 
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* =========================================================================================
+   CHAPTER 01: THE MAISON - WHITE TICKET ARCHITECTURE (UNCHANGED) 
+   ========================================================================================= */
+
+/* ROW STRUCTURE */
+.v-maker-chapter-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.v-maker-chapter-row.v-maker-row-reverse {
+  direction: rtl;
+}
+
+.v-maker-chapter-row.v-maker-row-reverse .v-maker-chapter-meta-wrap {
+  direction: ltr;
+}
+
+/* MEDIA WRAPPERS */
+.v-maker-chapter-media-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  padding: 30px 0;
+}
+
+.v-maker-decorative-wireframe-box {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(202, 162, 75, 0.35);
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.v-maker-wireframe-right { right: -15px; }
+.v-maker-wireframe-left { left: -15px; }
+
+.v-maker-chapter-video-wrapper,
+.v-maker-chapter-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 55px rgba(20, 33, 61, 0.05);
+  background: transparent; 
+  z-index: 2;
+}
+
+.v-maker-chapter-video,
+.v-maker-chapter-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.v-maker-chapter-media-container:hover .v-maker-chapter-video,
+.v-maker-chapter-media-container:hover .v-maker-chapter-img {
+  transform: scale(1.06);
+}
+
+/* VIDEO CONTROLLER */
+.v-maker-video-control-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 5;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.v-maker-video-control-overlay:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #caa24b;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* FLOATING BANNER */
+.v-maker-floating-metric-banner {
+  position: absolute;
+  bottom: 5px;
+  background: #ffffff;
+  padding: 16px 28px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(20, 33, 61, 0.06);
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 140px;
+  transition: transform 0.4s ease;
+}
+
+.v-maker-metric-left { left: -20px; }
+.v-maker-metric-right { right: -20px; }
+
+.v-maker-chapter-media-container:hover .v-maker-floating-metric-banner {
+  transform: translateY(-5px);
+}
+
+.v-maker-metric-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #caa24b;
+  line-height: 1;
+}
+
+.v-maker-metric-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #5c677d;
+  font-weight: 500;
+}
+
+/* TYPOGRAPHY */
+.v-maker-chapter-meta-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.v-maker-chapter-index {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #caa24b;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.v-maker-chapter-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #14213d;
+  margin: 0 0 28px 0;
+}
+
+.v-maker-chapter-paragraph {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #5c677d;
+  font-weight: 400;
+  margin: 0 0 40px 0;
+  max-width: 520px;
+}
+
+/* STATS GRID */
+.v-maker-brand-mini-stats-grid {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid rgba(20, 33, 61, 0.06);
+  padding-top: 36px;
+  margin-bottom: 45px;
+}
+
+.v-maker-mini-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.v-maker-mini-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: #caa24b;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.v-maker-mini-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #5c677d;
+}
+
+/* ACTIONS */
+.v-maker-btn-heritage-action {
+  height: 52px;
+  padding: 0 44px;
+  background: transparent;
+  color: #caa24b;
+  border: 1px solid #caa24b;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.4s ease;
+}
+
+.v-maker-btn-heritage-action:hover {
+  background: #caa24b;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(202, 162, 75, 0.25);
+  transform: translateY(-2px);
+}
+
+
+
+
+/* ================= HIGH FIDELITY RESPONSIVE ADAPTATION (UPDATED FOR STUDIO) ================= */
+@media (max-width: 1200px) {
+  .v-maker-studio-architecture { padding: 40px; }
+  .v-maker-studio-architecture .v-maker-chapter-heading { font-size: 42px; }
+  .v-maker-chapter-video-wrapper, .v-maker-chapter-img-wrapper { height: 500px; }
+}
+
+@media (max-width: 992px) {
+  .v-maker-editorial-chapters-section { padding: 80px 24px; gap: 100px; }
+  .v-maker-chapter-row { gap: 40px; }
+  .v-maker-brand-mini-stats-grid { gap: 24px; }
+  .v-maker-studio-architecture { gap: 30px; }
+}
+
+@media (max-width: 768px) {
+  .v-maker-chapter-row, 
+  .v-maker-chapter-row.v-maker-row-reverse,
+  .v-maker-studio-architecture {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    direction: ltr;
+  }
+  .v-maker-chapter-video-wrapper, .v-maker-chapter-img-wrapper { height: 420px; }
+  .v-maker-decorative-wireframe-box { display: none; }
+  .v-maker-floating-metric-banner { left: 20px; right: auto; bottom: -15px; }
+  .v-maker-3d-studio-action-hud { top: auto; bottom: 60px; right: 20px; flex-direction: row; }
+  .v-maker-studio-architecture .v-maker-chapter-meta-wrap { order: -1; } /* Text first on mobile */
+}
+
+@media (max-width: 576px) {
+  .v-maker-studio-architecture { border-radius: 24px; padding: 30px 20px; }
+  .v-maker-studio-architecture .v-maker-chapter-heading { font-size: 30px; }
+  .v-maker-studio-feature-list { grid-template-columns: 1fr; gap: 14px; }
+}

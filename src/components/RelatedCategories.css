@@ -1,0 +1,333 @@
+/* ==========================================================================
+   Design Style: Bento-Style Asymmetric Grid & Soft Luxury Aesthetics
+   Palette: Gold (#caa35a) | Deep Navy (#0f172a) | High-Contrast Red (#ff0000)
+   Typography: Montserrat, Serif
+   Author Handles: creativetips | Name: fawad ahmad
+   ========================================================================== */
+
+.v-maker-related-categories-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(15, 23, 42, 0.05);
+  padding-bottom:80px;
+}
+.v-maker-cat-discover-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+}
+
+/* Structural Line Canvas Behind Grid */
+.v-maker-section-axis-line-x {
+  position: absolute;
+  top: 340px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.04) 20%, rgba(15, 23, 42, 0.04) 80%, transparent);
+  pointer-events: none;
+}
+
+.v-maker-section-mesh-matrix {
+  position: absolute;
+  inset: 0;
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.01) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.01) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent);
+  pointer-events: none;
+}
+
+.v-maker-categories-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Modern Left-Aligned Asymmetric Header Suite */
+.v-maker-categories-architectural-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.v-maker-header-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.v-maker-section-pill-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #caa35a;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.v-maker-section-display-title {
+  font-size: 48px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.v-maker-header-context-clause {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 480px;
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+/* Premium Bento Grid Asymmetry Logic */
+.v-maker-categories-bento-stream {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+
+.v-maker-category-sleek-card {
+  position: relative;
+  height: 480px;
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  
+}
+
+/* Bento Sizing Allocations */
+.v-maker-size-large {
+  grid-column: span 7;
+}
+
+.v-maker-size-standard {
+  grid-column: span 5;
+}
+
+.v-maker-size-wide {
+  grid-column: span 7;
+}
+
+/* Media Handling Systems */
+.v-maker-cat-image-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.v-maker-cat-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luxury Dynamic Gradients */
+.v-maker-cat-glass-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, 
+    rgba(15, 23, 42, 0.15) 0%, 
+    rgba(15, 23, 42, 0.35) 50%, 
+    rgba(9, 13, 26, 0.9) 100__
+  );
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.v-maker-cat-chromatic-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(202, 163, 90, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+/* Content Mechanics */
+.v-maker-cat-top-meta-hub {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+
+.v-maker-cat-item-counter {
+  font-size: 11px;
+  font-weight: 600;
+  color: #caa35a;
+  background: #fff;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.v-maker-action-hud-trigger {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v-maker-cat-content-suite {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.v-maker-cat-display-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  font-family: "Montserrat", sans-serif !important;
+  width:70%;
+}
+
+.v-maker-cat-discover-link {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+
+.v-maker-cat-discover-link span {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.v-maker-cat-discover-link span::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 0; height: 1px;
+  background: #caa35a;
+  transition: width 0.4s ease;
+}
+
+/* Subtle Structural HUD Line Marks on Cards */
+.v-maker-card-hud-marker-tr {
+  position: absolute; top: 12px; right: 12px; width: 6px; height: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2); border-right: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0; transition: opacity 0.4s ease; z-index: 4;
+}
+.v-maker-card-hud-marker-bl {
+  position: absolute; bottom: 12px; left: 12px; width: 6px; height: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); border-left: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0; transition: opacity 0.4s ease; z-index: 4;
+}
+
+/* Hover Physics Engine rules */
+.v-maker-category-sleek-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(202, 163, 90, 0.3);
+  box-shadow: 
+    0 24px 50px rgba(9, 13, 26, 0.25),
+    0 0 40px rgba(202, 163, 90, 0.04);
+}
+
+.v-maker-category-sleek-card:hover .v-maker-cat-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.v-maker-category-sleek-card:hover .v-maker-cat-glass-gradient-overlay {
+  background: linear-gradient(to bottom, 
+    rgba(15, 23, 42, 0.2) 0%, 
+    rgba(15, 23, 42, 0.4) 40%, 
+    rgba(9, 13, 26, 0.95) 100%
+  );
+}
+
+.v-maker-category-sleek-card .v-maker-cat-glass-gradient-overlay {
+  background: linear-gradient(to bottom, 
+    rgba(15, 23, 42, 0.2) 0%, 
+    rgba(15, 23, 42, 0.3) 40%, 
+    rgba(9, 13, 26, 0.7) 100%
+  );
+}
+
+
+.v-maker-category-sleek-card:hover .v-maker-cat-chromatic-glow {
+  opacity: 1;
+}
+
+.v-maker-category-sleek-card:hover .v-maker-action-hud-trigger {
+  background: #caa35a;
+  border-color: #caa35a;
+  color: #0f172a;
+  transform: rotate(45deg);
+}
+
+.v-maker-category-sleek-card:hover .v-maker-cat-discover-link {
+  color: #caa35a;
+}
+
+.v-maker-category-sleek-card:hover .v-maker-cat-discover-link span::after {
+  width: 100%;
+}
+
+.v-maker-category-sleek-card:hover .v-maker-card-hud-marker-tr,
+.v-maker-category-sleek-card:hover .v-maker-card-hud-marker-bl {
+  opacity: 1;
+}
+
+/* ================= RESPONSIVE STRUCTURAL BREAKPOINTS ================= */
+@media (max-width: 1200px) {
+  .v-maker-categories-architectural-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .v-maker-categories-bento-stream { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .v-maker-size-large, .v-maker-size-standard, .v-maker-size-wide { grid-column: span 1; }
+  .v-maker-category-sleek-card { height: 420px; }
+}
+
+@media (max-width: 768px) {
+  .v-maker-related-categories-section { padding: 80px 0; }
+  .v-maker-section-display-title { font-size: 36px; }
+  .v-maker-categories-bento-stream { grid-template-columns: 1fr; gap: 20px; }
+  .v-maker-category-sleek-card { height: 380px; padding: 28px; }
+  .v-maker-cat-display-name { font-size: 22px; }
+}

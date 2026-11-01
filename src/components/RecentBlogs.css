@@ -1,0 +1,296 @@
+/* ==========================================================================
+   Section: Recent Blogs (The Journal) - Soft Luxury Minimalism Style
+   ========================================================================== */
+
+.v-maker-editorial-blogs-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 0;
+  overflow: hidden;
+  padding-bottom:50px;
+}
+
+.v-maker-blogs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ================= HEADER ROW SYSTEM ================= */
+.v-maker-blogs-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 60px;
+}
+
+.v-maker-blogs-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.v-maker-section-pill-tag {
+  align-self: flex-start;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #caa35a;
+  font-weight: 700;
+  background: rgba(202, 162, 75, 0.08);
+  border: 1px solid rgba(202, 162, 75, 0.15);
+  padding: 6px 16px;
+  border-radius: 30px;
+}
+
+.v-maker-section-display-title {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #0f172a;
+  margin: 0;
+  margin-top: 30px;
+}
+
+/* Luxury View All Button */
+.v-maker-view-all-journal-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 28px;
+  background: transparent;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.v-maker-view-all-journal-btn svg {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.v-maker-view-all-journal-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+}
+
+.v-maker-view-all-journal-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ================= ASYMMETRIC GRID SYSTEM ================= */
+.v-maker-blogs-asymmetric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* ================= PREMIUM BLOG CARD CARD DESIGN ================= */
+.v-maker-blog-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+/* Image Frame Handling */
+.v-maker-blog-img-frame {
+  width: 100%;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.v-maker-blog-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.v-maker-blog-floating-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* Card Details Suite */
+.v-maker-blog-card-details {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Meta Stamps (Date & Time) */
+.v-maker-blog-meta-stamps {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.v-maker-meta-stamp-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.v-maker-meta-stamp-item svg {
+  color: #caa35a;
+  font-size: 13px;
+}
+
+/* Typography Suite inside Card */
+.v-maker-blog-title-link {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  transition: color 0.3s ease;
+  /* Multi-line clamp so long titles don't break heights */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.v-maker-blog-excerpt-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #5c677d;
+  margin: 0 0 28px 0;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Micro-Interaction Action Trigger Trigger */
+.v-maker-blog-action-trigger {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.v-maker-trigger-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.v-maker-trigger-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  font-size: 11px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ================= MASTER HOVER STATE SUITE ================= */
+.v-maker-blog-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(202, 162, 75, 0.25);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+}
+
+.v-maker-blog-card:hover .v-maker-blog-img-frame img {
+  transform: scale(1.05);
+}
+
+.v-maker-blog-card:hover .v-maker-blog-title-link {
+  color: #caa35a;
+}
+
+.v-maker-blog-card:hover .v-maker-blog-action-trigger .v-maker-trigger-text {
+  color: #caa35a;
+}
+
+.v-maker-blog-card:hover .v-maker-trigger-circle {
+  background: #caa35a;
+  border-color: #caa35a;
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 6px 15px rgba(202, 162, 75, 0.3);
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+@media (max-width: 1200px) {
+  .v-maker-blogs-asymmetric-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .v-maker-editorial-blogs-section {
+    padding: 60px 0;
+  }
+  
+  .v-maker-blogs-container {
+    padding: 0 24px;
+  }
+
+  .v-maker-blogs-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .v-maker-view-all-journal-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .v-maker-blogs-asymmetric-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .v-maker-section-display-title {
+    font-size: 32px;
+  }
+
+  .v-maker-blog-card-details {
+    padding: 24px;
+  }
+}

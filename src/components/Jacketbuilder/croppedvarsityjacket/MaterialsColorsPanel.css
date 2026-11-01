@@ -1,0 +1,927 @@
+/* ============================================
+   MATERIALS & COLORS — editorial rows
+   Fonts: Montserrat (labels) + Poppins (text) only
+   All classes prefixed with `cropped-`
+   ============================================ */
+.cropped-materials-container {
+  --ink:        #111111;
+  --ink-soft:   #3D3D3D;
+  --accent:     var(--gold);
+  --line:       #E6E2DC;
+  --line-soft:  #F0EDE8;
+  --muted:      #8A8378;
+  --paper:      #FBFAF8;
+  --stage:      #F5F3EF;
+
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body:    'Poppins', system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0px !important;
+  font-family: var(--body);
+  color: var(--ink);
+}
+
+.cropped-materials-container button,
+.cropped-materials-container select,
+.cropped-materials-container input { font-family: inherit; }
+
+/* ============================================
+   SECTION ROW  (no card — a rule underneath)
+   ============================================ */
+.cropped-section-card {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.cropped-section-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity .18s ease;
+}
+
+.cropped-section-header:hover { opacity: .72; }
+.cropped-section-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.cropped-section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* title + summary sit on ONE line, like the reference */
+.cropped-section-header-left > div:last-child {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+/* numbered circle removed — completion shows as a small crimson tick */
+.cropped-section-number { display: none; }
+
+.cropped-section-number-completed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  flex-shrink: 0;
+}
+
+.cropped-number-text { display: none; }
+.cropped-check-icon { stroke-width: 3.5; }
+
+.cropped-section-title {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.cropped-section-status {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.cropped-status-completed { color: var(--accent); font-weight: 700; }
+.cropped-status-pending   { color: #BFB8AC; font-weight: 700; }
+.cropped-status-optional  { color: var(--muted); font-weight: 700; }
+
+.cropped-section-chevron {
+  color: #B9B2A6;
+  flex-shrink: 0;
+  transition: transform .25s ease, color .18s ease;
+}
+
+.cropped-section-chevron-active { transform: rotate(180deg); color: var(--accent); }
+
+/* ============================================
+   SECTION BODY
+   ============================================ */
+.cropped-section-content {
+  padding: 0 0 22px;
+  background: transparent;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: cropped-rowOpen .22s ease-out;
+}
+
+@keyframes cropped-rowOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cropped-sub-label {
+  margin: 0 0 10px;
+  font-family: var(--body) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================
+   SWATCHES — rounded squares, ring on select
+   ============================================ */
+.cropped-color-grid,
+.cropped-color-grid-small {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 7px;
+  justify-items: stretch;
+}
+
+.cropped-color-btn,
+.cropped-color-btn-small {
+  position: relative;
+  width: 100%;
+  max-width: 34px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, .14);
+  box-shadow: none;
+  cursor: pointer;
+  display: block;
+  transition: transform .15s ease;
+}
+
+.cropped-color-btn:hover,
+.cropped-color-btn-small:hover { transform: translateY(-2px); }
+
+.cropped-color-btn:focus-visible,
+.cropped-color-btn-small:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* selected = outer ring with a white gap */
+.cropped-color-check-inner,
+.cropped-color-check-small {
+  position: absolute;
+  inset: -3px;
+  width: auto;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.cropped-color-check-icon-inner,
+.cropped-color-check-icon-small { display: none; }
+
+/* ============================================
+   MATERIAL / OPTION PILLS
+   ============================================ */
+.cropped-material-btns,
+.cropped-inserts-btns,
+.cropped-fasteners-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cropped-material-btn,
+.cropped-material-btn-small,
+.cropped-inserts-btn,
+.cropped-fasteners-btn {
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+}
+
+.cropped-inserts-btn,
+.cropped-fasteners-btn { flex: 1; text-align: center; min-width: 96px; }
+
+.cropped-material-btn:hover,
+.cropped-material-btn-small:hover,
+.cropped-inserts-btn:hover,
+.cropped-fasteners-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.cropped-material-btn-active,
+.cropped-material-btn-small-active,
+.cropped-inserts-btn-active,
+.cropped-fasteners-btn-active {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.cropped-material-btn-disabled {
+  padding: 9px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.cropped-inserts-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ============================================
+   STYLE / MATERIAL CARDS
+   ============================================ */
+.cropped-style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0;
+}
+
+@media (min-width: 1440px) {
+  .cropped-style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.cropped-style-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.cropped-style-card:hover { border-color: var(--ink); }
+
+.cropped-style-card-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.cropped-style-image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 110px;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  background: var(--stage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.cropped-style-image { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.cropped-style-info { width: 100%; }
+
+.cropped-style-name {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.cropped-style-desc {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: none;
+}
+
+/* ============================================
+   VISUAL PICKER CARDS  (pocket + knit styles)
+   ============================================ */
+.cropped-picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.cropped-picker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 68px;
+  padding: 11px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.cropped-picker-card:hover { border-color: var(--ink); }
+
+.cropped-picker-card-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.cropped-picker-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.cropped-picker-card-active .cropped-picker-label { color: var(--ink); }
+
+.cropped-picker-current {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.cropped-picker-current span {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ============================================
+   SELECT FIELD
+   ============================================ */
+.cropped-field-select {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  margin-bottom: 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.cropped-field-select:focus { outline: none; border-color: var(--ink); }
+
+/* ============================================
+   CHECKBOX ROW
+   ============================================ */
+.cropped-check-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+.cropped-check-row:hover { border-color: var(--ink); }
+.cropped-check-row-active { border-color: var(--ink); background-color: var(--stage); }
+
+.cropped-check-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1.5px solid #B9B2A6;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all .15s ease;
+}
+
+.cropped-check-box-active { border-color: var(--accent); background: var(--accent); }
+
+.cropped-check-label {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.cropped-check-help {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #C9C2B6;
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: help;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.cropped-hint-text {
+  margin: 8px 0 0;
+  font-family: var(--body);
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.cropped-option-block { margin-top: 16px; }
+
+/* ============================================
+   KNIT PREVIEW BLOCKS (legacy classes)
+   ============================================ */
+.cropped-knit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .cropped-knit-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.cropped-knit-btn {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color .18s ease;
+}
+
+.cropped-knit-btn:hover { border-color: var(--ink); }
+.cropped-knit-btn-active { border-color: var(--ink); background-color: var(--stage); }
+
+.cropped-knit-preview {
+  width: 32px;
+  height: 16px;
+  margin: 0 auto 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+}
+
+.cropped-knit-rainbow { width: 100%; height: 100%; display: flex; }
+.cropped-knit-rainbow-bar { flex: 1; }
+.cropped-red { background-color: #dc2626; }
+.cropped-yellow { background-color: #eab308; }
+.cropped-blue { background-color: #3b82f6; }
+.cropped-purple { background-color: #a855f7; }
+.cropped-gold { background-color: #d4af37; }
+.cropped-white { background-color: #fff; }
+
+.cropped-knit-solid { width: 100%; height: 100%; background-color: var(--ink); }
+
+.cropped-knit-single {
+  width: 100%; height: 100%; background-color: var(--ink);
+  display: flex; align-items: center; padding: 0 2px;
+}
+
+.cropped-knit-stripe { width: 100%; height: 2px; background-color: #fff; }
+
+.cropped-knit-double,
+.cropped-knit-feather {
+  width: 100%; height: 100%; background-color: var(--ink);
+  display: flex; flex-direction: column; justify-content: space-around; padding: 2px 0;
+}
+
+.cropped-knit-stripe-double { width: 100%; height: 1.5px; background-color: #fff; }
+.cropped-knit-feather-bar { height: 2px; }
+
+.cropped-knit-label {
+  display: block;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+/* ============================================
+   LINING CARDS (legacy classes)
+   ============================================ */
+.cropped-lining-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.cropped-lining-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+.cropped-lining-card:hover { border-color: var(--ink); }
+.cropped-lining-card-active { border-color: var(--ink); background-color: var(--stage); }
+
+.cropped-lining-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.cropped-lining-desc {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ============================================
+   LOCK + NEXT
+   ============================================ */
+.cropped-lock-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 26px;
+}
+
+.cropped-lock-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.cropped-lock-alert-icon { color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+
+.cropped-lock-alert-title {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.cropped-lock-alert-text {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.cropped-lock-alert-highlight { color: var(--accent); font-weight: 600; }
+
+.cropped-next-btn {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.cropped-next-btn-active { background-color: var(--ink); color: #fff; }
+.cropped-next-btn-active:hover { background-color: var(--accent); }
+
+.cropped-next-btn-locked {
+  background-color: transparent;
+  color: #BFB8AC;
+  border-color: var(--line);
+  cursor: not-allowed;
+}
+
+.cropped-lock-icon { color: #BFB8AC; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .cropped-section-header { padding: 17px 0; }
+  .cropped-section-content { padding: 0 0 22px; }
+  .cropped-style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cropped-lining-grid { grid-template-columns: 1fr; }
+  .cropped-inserts-btn, .cropped-fasteners-btn { min-width: 0; }
+  .cropped-color-grid, .cropped-color-grid-small { gap: 6px; }
+}
+
+@media (max-width: 400px) {
+  .cropped-section-title { font-size: 12.5px; }
+  .cropped-section-status { font-size: 10.5px; }
+  .cropped-material-btn, .cropped-inserts-btn, .cropped-fasteners-btn { font-size: 9.5px; padding: 8px 11px; }
+  .cropped-color-grid, .cropped-color-grid-small { gap: 5px; }
+  .cropped-next-btn { font-size: 10.5px; padding: 15px; }
+}
+
+/* ============================================
+   PRICING CSS
+   Only the new pricing bits — imported AFTER the base rules.
+   ============================================ */
+
+/* ── inline price badge ── */
+.cropped-price-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.cropped-price-tag-plus  { background: #F1EDE5; color: #6B5B3E; }
+.cropped-price-tag-minus { background: #E7F2EA; color: #2F6B44; }
+.cropped-price-tag-free  { background: #F3F3F1; color: #8A8378; }
+
+/* keep badges readable on selected (dark) buttons */
+.cropped-material-btn-active .cropped-price-tag,
+.cropped-fasteners-btn-active .cropped-price-tag,
+.cropped-style-card-active .cropped-price-tag,
+.cropped-picker-card-active .cropped-price-tag {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* ── buttons need to hold label + badge ── */
+.cropped-material-btn,
+.cropped-fasteners-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.cropped-btn-label { display: inline-block; }
+
+.cropped-style-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cropped-picker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.cropped-picker-card .cropped-price-tag {
+  margin-left: 0;
+  font-size: 9px;
+  padding: 2px 5px;
+}
+
+/* ── section header subtotal ── */
+.cropped-section-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cropped-section-subtotal {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4A4A46;
+  letter-spacing: 0.01em;
+}
+
+/* ── premium colour swatch marker ── */
+.cropped-color-btn-premium { position: relative; }
+
+.cropped-color-fee-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1F1D1A;
+  color: #F5D07A;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 12px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── price summary bar ── */
+.cropped-price-bar {
+  border: 1px solid #E6E2DC;
+  border-radius: 10px;
+  background: #FBFAF8;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.cropped-price-bar-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cropped-price-bar-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1F1D1A;
+}
+
+.cropped-price-bar-hint {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #8A8378;
+}
+
+.cropped-price-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cropped-price-bar-total {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1F1D1A;
+  font-variant-numeric: tabular-nums;
+}
+
+.cropped-price-bar-chevron {
+  color: #8A8378;
+  transition: transform 0.18s ease;
+}
+
+.cropped-price-bar-chevron-open { transform: rotate(180deg); }
+
+.cropped-price-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px 14px;
+  border-top: 1px solid #EFEBE4;
+}
+
+.cropped-price-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #4A4A46;
+  border-bottom: 1px dashed #EFEBE4;
+}
+
+.cropped-price-line-label { flex: 1; }
+
+.cropped-price-line-amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #1F1D1A;
+}
+
+.cropped-price-line-amount.cropped-is-minus { color: #2F6B44; }
+
+.cropped-price-line-total {
+  border-bottom: none;
+  padding-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1F1D1A;
+}
+
+/* ── next button price ── */
+.cropped-next-btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+.cropped-next-btn-price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 480px) {
+  .cropped-price-bar-total { font-size: 19px; }
+  .cropped-price-tag { font-size: 9px; padding: 2px 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cropped-price-bar-chevron { transition: none; }
+}

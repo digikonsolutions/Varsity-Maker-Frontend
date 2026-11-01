@@ -1,0 +1,284 @@
+/* Core Section Base Config */
+.tb {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 20px 24px;
+  padding-bottom: 40px;
+  overflow: hidden;
+  perspective: 1500px; /* Essential mapping parameter for clean 3D card layout effects */
+}
+
+.tb-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tb-badge-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+/* Modern Split Layout Header Grid Matrix */
+.tb-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  padding-bottom: 24px;
+}
+
+.tb-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tb-title {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.tb-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(15, 23, 42, 0.6);
+  font-weight: 500;
+}
+
+.tb-badge-platform {
+  font-weight: 700;
+  color: #1b2a3f;
+}
+
+/* Right-aligned Navigation Unit Row styling */
+.tb-header-nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.tb-nav-arrow {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #1b2a3f;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tb-nav-arrow:hover:not(:disabled) {
+  background: #1b2a3f;
+  color: #ffffff;
+  border-color: #1b2a3f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 42, 63, 0.15);
+}
+
+.tb-nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.tb-nav-arrow svg {
+  font-size: 20px;
+}
+
+/* Instagram Reels Carousel Viewport Block */
+.tb-grid-viewport {
+  width: 100%;
+  overflow: hidden; /* Allows complex dynamic 3D depth shadows to cast cleanly outside borders */
+}
+
+.tb-slider-track {
+  display: flex;
+  width: 100%;
+}
+
+/* 3-Column Grid Dynamic Calculation Frame layout configuration */
+.tb-reel-card {
+  flex: 0 0 calc(33.333% - 16px);
+  margin-right: 18px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 9:16 Instagram Cinematic Aspect Scaling Frame block template */
+.tb-reel-media-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  background: #090d16;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+  height:90%;
+  border-radius: 20px;
+}
+
+.tb-reel-native-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Multi-Layered Masking overlay config */
+.tb-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 2;
+}
+
+/* Premium 3D Multi-axis interactive scale matrix engine */
+.tb-reel-card:hover .tb-reel-media-box {
+  box-shadow: 0 30px 60px rgba(27, 42, 63, 0.22);
+}
+
+/* Elite Animated Aura Wave Play Center Button node */
+.tb-modern-play-hub {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+}
+
+.tb-play-icon-center {
+  color: #1b2a3f;
+  font-size: 16px;
+  margin-left: 4px;
+  z-index: 3;
+  transition: transform 0.3s ease;
+}
+
+/* Double layered constant ripple waves engine mapping setup */
+.tb-pulse-ring-ambient {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: tbAuraRipple 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tb-pulse-ring-ambient.slower {
+  inset: -16px;
+  animation: tbAuraRipple 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes tbAuraRipple {
+  0% { transform: scale(0.92); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Micro interaction spin effects on main trigger overlay */
+.tb-modern-play-hub:hover {
+  transform: scale(1.12);
+  background: #cca43b; /* Premium brand gold conversion token */
+}
+
+.tb-modern-play-hub:hover .tb-play-icon-center {
+  color: #ffffff;
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* Minimalist floating asset context reference text tag */
+.tb-reel-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(27, 42, 63, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tb-bottom-dots-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.tb-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #e2e8f0;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tb-dot.active {
+  background: #cca43b;
+  transform: scale(1.25);
+  width: 24px;
+  border-radius: 6px;
+  height: 6px;
+}
+
+/* Comprehensive Responsive Layout Systems Overrides */
+@media (max-width: 1024px) {
+  .tb-reel-card {
+    flex: 0 0 calc(50% - 12px); /* 2 Column fallback layout on tablet viewport systems */
+  }
+  .tb-title { font-size: 36px; }
+}
+
+@media (max-width: 640px) {
+  .tb-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .tb-header-nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .tb-reel-card {
+    flex: 0 0 100%; /* Clean pure single element mobile stack view frame layout */
+    margin-right: 0;
+  }
+  .tb-title { font-size: 28px; }
+}

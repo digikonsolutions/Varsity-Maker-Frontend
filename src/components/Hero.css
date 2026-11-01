@@ -1,0 +1,287 @@
+/* ==========================================================================
+   Project: Varsity Maker - Cinematic Full-Screen Video Design System
+   Color Palette: Deep Slate BG (#0f172a) | Luxury Gold (#caa35a)
+   Author Handles: creativetips | Name: fawad ahmad
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --v-hero-gold: #caa35a;
+  --v-hero-dark: #0f172a;
+  --v-hero-glass-bg: rgba(15, 23, 42, 0.4);
+  --v-hero-glass-border: rgba(255, 255, 255, 0.08);
+  --v-hero-text-muted: #cbd5e1;
+}
+
+/* MASTER CINEMATIC VIEWPORT ENGINE */
+.v-hero-master-container.full-screen-variant {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--v-hero-dark);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: flex-end; /* Locks content to the bottom */
+  padding-bottom: 60px;
+  margin-top: 100px;
+}
+
+/* FULL-SCREEN VIDEO UNDERLAY SYSTEM */
+.v-hero-bg-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.v-hero-fullscreen-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* GRADIENTS FOR TEXT READABILITY */
+.v-hero-video-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, rgba(15, 23, 42, 0.6) 100%);
+}
+
+.v-hero-bottom-shading {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.4) 40%, transparent 100%);
+}
+
+.v-hero-grid-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at bottom left, black 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* CONTAINER LAYOUT BOUNDS */
+.v-hero-inner-bounds-cinematic {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4%;
+  z-index: 10;
+}
+
+.v-hero-content-deck-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+/* TYPOGRAPHY */
+.v-hero-badge-row {
+  margin-bottom: 16px;
+}
+
+.v-hero-mini-pill {
+  background: rgba(202, 163, 90, 0.12);
+  border: 1px solid rgba(202, 163, 90, 0.3);
+  color: var(--v-hero-gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+}
+
+.v-hero-pill-pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--v-hero-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--v-hero-gold);
+}
+
+.v-hero-title-main {
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.v-hero-title-stroke-effect {
+  color: #ffffff;
+  font-weight: 300;
+}
+
+.v-hero-subtitle {
+  font-size: 15px;
+  color: var(--v-hero-text-muted);
+  max-width: 520px;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* CTA LAYOUT INTERFACE */
+.v-hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.v-hero-btn {
+  height: 54px;
+  padding: 0 36px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v-btn-primary-gold {
+  background: var(--v-hero-gold);
+  color: #000000;
+  box-shadow: 0 8px 30px rgba(202, 163, 90, 0.25);
+}
+
+.v-btn-primary-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(202, 163, 90, 0.4);
+}
+
+.v-btn-glass {
+  background: var(--v-hero-glass-bg);
+  color: #ffffff;
+  border: 1px solid var(--v-hero-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.v-btn-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.v-hero-arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v-hero-btn:hover .v-hero-arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+/* ── SOCIAL PROOF PILL DESIGN CONTAINER ── */
+.v-hero-social-proof-pill {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 10px 24px 10px 14px;
+  border-radius: 100px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.v-hero-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.v-hero-stack-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0f172a;
+  margin-right: -10px;
+  transition: transform 0.2s ease;
+}
+
+.v-hero-stack-avatar:hover {
+  transform: translateY(-4px);
+  z-index: 10;
+}
+
+.v-hero-proof-text {
+  font-size: 13.5px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.v-highlight-gold {
+  color: var(--v-hero-gold);
+  font-weight: 700;
+}
+
+/* RESPONSIVE OPTIMIZATION LAYERS */
+@media (max-width: 768px) {
+  .v-hero-master-container.full-screen-variant {
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .v-hero-content-deck-bottom {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .v-hero-subtitle {
+    margin: 0 auto 28px auto;
+  }
+
+  .v-hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .v-hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .v-hero-social-proof-pill {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  .v-hero-avatar-stack {
+    margin-right: 10px; /* Offset final negative space alignment */
+  }
+}

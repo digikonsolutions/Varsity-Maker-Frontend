@@ -1,0 +1,378 @@
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.raglan-jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .raglan-jacket-preview-container {
+    height: 760px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.raglan-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.raglan-brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.raglan-pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.raglan-offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.raglan-offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.raglan-offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  /* margin-top: 40px; */
+}
+
+@media (min-width: 768px) {
+  .viewport-frame {
+    min-height: 440px;
+  }
+}
+
+.raglan-viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.raglan-jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.raglan-layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.raglan-bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.raglan-bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.raglan-sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.raglan-sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.raglan-body-panel {
+  filter: url(#colorize-body);
+}
+
+.raglan-body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.raglan-shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.raglan-shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.raglan-pockets {
+  filter: url(#colorize-pocket);
+}
+
+.raglan-pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.raglan-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.raglan-view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.raglan-view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.raglan-view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.raglan-view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.raglan-view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.raglan-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .raglan-jacket-preview-container {
+    padding: 16px;
+    height: 600px;
+  }
+
+    .raglan-viewport-content{
+    padding-top:70px;
+  }
+  
+  .viewport-frame {
+    min-height: 280px;
+  }
+  
+  .raglan-offer-price {
+    font-size: 20px;
+  }
+  
+  .raglan-brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .raglan-pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .raglan-view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .raglan-jacket-preview-container {
+    padding: 12px;
+    height: 440px;
+  }
+
+  .raglan-viewport-content{
+    padding-top:70px;
+  }
+  
+  .viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+  
+  .raglan-offer-price {
+    font-size: 16px;
+  }
+  
+  .raglan-offer-label {
+    font-size: 8px;
+  }
+  
+  .raglan-offer-retail {
+    font-size: 10px;
+  }
+  
+  .raglan-view-selectors {
+    gap: 6px;
+  }
+  
+  .raglan-view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}

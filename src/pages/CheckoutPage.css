@@ -1,0 +1,477 @@
+
+.checkoutContainer {
+  background-color: #0b0f19; 
+  color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top:90px;
+}
+
+.checkoutLayout {
+  width: 100%;
+  max-width: 1560px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+}
+
+.checkoutFormSide {
+  padding: 64px 60px 64px 100px;
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.checkoutSummarySide {
+  background-color: #0b0f19; 
+  padding: 64px 100px 64px 60px;
+}
+
+.checkoutBrandHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.brandLogo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #dfba73; 
+  margin: 0;
+}
+
+.brandEst {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.formSection {
+  margin-bottom: 44px;
+}
+
+.formSection h2 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+  color: #ffffff;
+  letter-spacing: 0px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sectionHeader h2 { margin: 0; }
+
+.inlineSignInBtn {
+  background: none;
+  border: none;
+  color: #dfba73;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.inputRow {
+  display: flex;
+  gap: 16px;
+}
+
+.inputGrid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.floatingInputGroup {
+  position: relative;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.floatingInputGroup select {
+  width: 100%;
+  height: 56px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+
+  color: #f8fafc;
+  font-size: 14px;
+  font-weight: 500;
+
+  padding: 24px 50px 8px 16px;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+.floatingInputGroup input, 
+.floatingInputGroup select, 
+.floatingInputGroup textarea {
+  width: 100%;
+  height: 56px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 24px 16px 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floatingInputGroup textarea {
+  height: auto;
+  padding-top: 28px;
+  resize: none;
+}
+
+.floatingInputGroup select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.floatingInputGroup input:focus, 
+.floatingInputGroup select:focus,
+.floatingInputGroup textarea:focus {
+  border-color: #dfba73;
+  background-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 0 4px rgba(223, 186, 115, 0.1);
+}
+
+.floatingInputGroup label {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  font-size: 14px;
+  color: #64748b;
+  pointer-events: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), font-size 0.2s ease, color 0.2s ease;
+}
+
+/* Floating Label Mechanics triggers */
+.floatingInputGroup input:focus ~ label,
+.floatingInputGroup input:not(:placeholder-shown) ~ label,
+.floatingInputGroup select:focus ~ label,
+.floatingInputGroup select:not([value=""]) ~ label,
+.floatingInputGroup select:valid ~ label,
+.floatingInputGroup textarea:focus ~ label,
+.floatingInputGroup textarea:not(:placeholder-shown) ~ label {
+  transform: translateY(-12px);
+  font-size: 11px;
+  color: #dfba73;
+}
+
+/* Custom Dropdown Arrow for modern select layout */
+.floatingInputGroup select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2364748b'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.addressInputContainer { position: relative; }
+
+.searchIconHint, .infoIconHint {
+  position: absolute;
+  right: 16px;
+  top: 19px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+/* Smart Dropdown Autocomplete Overlay */
+.addressAutocompleteDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #111726;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  z-index: 100;
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.addressAutocompleteDropdown li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  color: #cbd5e1;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.addressAutocompleteDropdown li:hover {
+  background: rgba(223, 186, 115, 0.1);
+  color: #dfba73;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  width: 18px;
+  height: 18px;
+  accent-color: #dfba73;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.customCheckText {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+.shippingDisclaimer {
+  font-size: 13px;
+  color: #dfba73;
+  background: rgba(223, 186, 115, 0.04);
+  padding: 14px 18px;
+  border-left: 3px solid #dfba73;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.shippingOptionsList {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.01);
+  overflow: hidden;
+}
+
+.shippingRow {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shippingRow:last-child { border-bottom: none; }
+.shippingRow:hover, .activeRow { background: rgba(255, 255, 255, 0.03); }
+
+.shippingRow input[type="radio"] {
+  margin-right: 16px;
+  accent-color: #dfba73;
+  width: 18px;
+  height: 18px;
+}
+
+.shippingRowDetails {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+}
+
+.shipTitle { color: #cbd5e1; font-weight: 500; }
+.shipPrice { font-weight: 700; color: #ffffff; }
+
+.checkoutFormFooter {
+  margin-top: 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 36px;
+}
+
+.mainPayNowBtn {
+  width: 100%;
+  height: 58px;
+  background-color: #dfba73; 
+  color: #0b0f19;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(223, 186, 115, 0.15);
+  transition: all 0.2s ease;
+}
+
+.mainPayNowBtn:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(223, 186, 115, 0.25);
+}
+
+.footerPolicies {
+  display: flex;
+  gap: 28px;
+  margin-top: 36px;
+  justify-content: center;
+}
+
+.footerPolicies a {
+  color: #475569;
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footerPolicies a:hover { color: #dfba73; }
+
+.stickySummaryWrapper {
+  position: sticky;
+  top: 150px;
+}
+
+.productRowSummary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.productImgBadgeContainer {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productImgBadgeContainer img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.productQtyCircle {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #dfba73;
+  color: #0b0f19;
+  font-size: 11px;
+  font-weight: 800;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.productTitleInfo {
+  flex: 1;
+}
+
+.pTitleName {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  line-height: 1.5;
+  color: #f8fafc;
+}
+
+.pSizeLabel {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.productFinalPrice {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pricingCalculationsBlock {
+  padding-top: 28px;
+}
+
+.calcLine {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+
+.calcVal {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.totalLine {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.mainTotalText {
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.mainTotalVal {
+  font-size: 28px;
+  font-weight: 800;
+  color: #dfba73;
+}
+
+.currencyCodeLabel {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+@media (max-width: 1120px) {
+  .checkoutFormSide { padding: 48px 32px 48px 48px; }
+  .checkoutSummarySide { padding: 48px 48px 48px 32px; }
+}
+
+@media (max-width: 960px) {
+  .checkoutLayout { grid-template-columns: 1fr; }
+  .checkoutFormSide { padding: 40px 24px; border-right: none; }
+  .checkoutSummarySide { padding: 40px 24px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+  .stickySummaryWrapper { position: relative; top: 0; }
+}

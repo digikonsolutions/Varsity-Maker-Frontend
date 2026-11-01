@@ -1,0 +1,197 @@
+/* --- PRIVACY GATE PAGE OVERRIDES --- */
+.privacy-gate-page {
+  background-color: var(--white, #fafafa);
+  padding-top: 60px;
+}
+
+.privacy-hero-header {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  margin-bottom: 60px;
+  padding-top: 100px;
+}
+
+/* Breadcrumb Layout */
+.luxury-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted-text, #64748b);
+  margin-bottom: 30px;
+}
+
+.breadcrumb-link {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--gold, #c5a880);
+}
+
+.breadcrumb-separator {
+  color: rgba(15, 23, 42, 0.2);
+}
+
+.breadcrumb-current {
+  color: var(--dark-navy, #0f172a);
+  font-weight: 600;
+}
+
+.large-title {
+  font-size: 48px;
+  margin-top: 10px;
+}
+
+
+
+.privacy-text-block {
+  text-align: left;
+}
+.editorial-content-block {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.legal-fine-print {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted-text, #64748b);
+}
+
+/* Premium Blockquote for US States Notice */
+.jurisdiction-note {
+  margin: 40px 0 0 0;
+  padding: 24px;
+  border-left: 2px solid var(--gold, #c5a880);
+  background-color: rgba(197, 168, 128, 0.05);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--dark-navy, #0f172a);
+}
+
+/* Right Side Interaction Panel */
+.privacy-control-panel {
+  width: 100%;
+  position: sticky;
+  top: 40px;
+}
+
+.control-card-luxury {
+  background-color: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.03);
+  text-align: left;
+}
+
+.control-header h5 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold, #c5a880);
+  margin: 0 0 8px 0;
+}
+
+.control-header h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--dark-navy, #0f172a);
+  margin: 0 0 20px 0;
+}
+
+.control-desc {
+  font-size: 14px;
+  color: var(--muted-text, #64748b);
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Custom Interactive Opt-Out Row */
+.opt-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--white, #f8fafc);
+  border-radius: 12px;
+  margin-bottom: 35px;
+}
+
+.status-label {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--dark-navy, #0f172a);
+}
+
+.status-label strong {
+  color: var(--gold, #c5a880);
+  margin-left: 4px;
+}
+
+/* Luxury Toggle Engine */
+.btn-luxury-toggle {
+  width: 56px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: rgba(15, 23, 42, 0.1);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.toggle-ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Active Toggle State */
+.btn-luxury-toggle.active-opt {
+  background-color: var(--dark-navy, #0f172a);
+}
+
+.btn-luxury-toggle.active-opt .toggle-ball {
+  transform: translateX(26px);
+  background-color: var(--gold, #c5a880);
+}
+
+/* Utilities */
+.w-100 {
+  width: 100%;
+}
+
+.centered {
+  margin: 20px auto 0 auto;
+  display: block;
+}
+
+.privacy-values-bar {
+  margin-top: 100px !important;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Responsive Adaptive Setup */
+@media (max-width: 992px) {
+  .privacy-grid-box {
+    grid-template-columns: 1fr !important;
+    gap: 50px !important;
+  }
+  .large-title {
+    font-size: 36px;
+  }
+  .privacy-control-panel {
+    position: relative;
+    top: 0;
+  }
+}

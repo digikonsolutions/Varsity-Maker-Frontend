@@ -1,0 +1,200 @@
+:root {
+  --border-glow: rgba(255, 255, 255, 0.12);
+}
+
+.testimonials {
+  color: #fff;
+  padding: 40px 0;
+  background: #090d16; 
+  position: relative;
+  overflow: hidden;
+}
+
+
+.t-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.t-head {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+
+.t-heading {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  background: linear-gradient(180deg, #ffffff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.t-sub {
+  margin: 14px 0 0;
+  color: #94a3b8;
+  max-width: 480px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ================= THE FIX: ULTRA-FORCE INFRASTRUCTURE FADE MASK ================= */
+.t-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hard overlays combined with mask layers ensures 100% smooth fading on edges */
+.t-marquee-wrapper::before,
+.t-marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15%; /* Control absolute fade range depth */
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.t-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #090d16 0%, transparent 100%);
+}
+
+.t-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #090d16 0%, transparent 100%);
+}
+
+.t-marquee-container {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  padding: 24px 0;
+  cursor: grab;
+  
+  /* Double Layer Mask Safety */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.t-marquee-container:active {
+  cursor: grabbing;
+}
+
+.t-track {
+  display: flex;
+  gap: 28px;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* Glassmorphism Card Layout */
+.t-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f8fafc;
+  border-radius: 20px;
+  padding: 32px;
+  position: relative;
+  width: 380px;
+  min-width: 380px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.t-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.t-cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.t-stars {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.t-starBox {
+  color: #f59e0b;
+  font-size: 14px;
+}
+
+.t-time {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.t-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+  color: #fff;
+  white-space: normal;
+}
+
+.t-text {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 400;
+  font-size: 15px;
+  white-space: normal;
+}
+
+.t-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 20px;
+}
+
+.t-name {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+
+.t-cardIndex {
+  font-size: 12px;
+  font-family: monospace;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .t-heading { font-size: 38px; }
+  .testimonials { padding: 70px 0; }
+  .t-card { width: 310px; min-width: 310px; padding: 24px; }
+  .t-marquee-wrapper::before, .t-marquee-wrapper::after { width: 10%; }
+  .t-marquee-container {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+}

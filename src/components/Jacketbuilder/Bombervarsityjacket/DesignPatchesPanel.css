@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN CONTAINER — editorial theme
+   Tokens identical to .materials-container so both
+   panels render as one continuous visual system.
+   ============================================ */
+.bomber-design-container {
+  --ink:        #111111;
+  --ink-soft:   #3D3D3D;
+  --accent:     var(--gold);
+  --line:       #E6E2DC;
+  --line-soft:  #F0EDE8;
+  --muted:      #8A8378;
+  --paper:      #FBFAF8;
+  --stage:      #F5F3EF;
+
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body:    'Poppins', system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--body);
+  color: var(--ink);
+}
+
+.bomber-design-container button,
+.bomber-design-container select,
+.bomber-design-container input,
+.bomber-design-container textarea { font-family: inherit; }
+
+/* ============================================
+   DESIGN SEGMENT — row, not a card
+   (matches .section-card)
+   ============================================ */
+.bomber-design-segment {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* ============================================
+   SEGMENT HEADER
+   (matches .section-header)
+   ============================================ */
+.bomber-segment-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity .18s ease;
+}
+
+.bomber-segment-header:hover { opacity: .72; background: transparent; }
+.bomber-segment-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.bomber-segment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* title + subtitle sit together like section-title/section-status */
+.bomber-segment-header-left > div:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* completion mark — same crimson filled circle as
+   .section-number-completed in MaterialsColorsPanel */
+.bomber-segment-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  flex-shrink: 0;
+}
+
+.bomber-segment-check-icon {
+  color: #ffffff;
+  stroke-width: 3.5;
+  width: 9px;
+  height: 9px;
+}
+
+.bomber-segment-title {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.bomber-segment-subtitle {
+  margin: 4px 0 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.bomber-segment-chevron {
+  color: #B9B2A6;
+  flex-shrink: 0;
+  transition: transform .25s ease, color .18s ease;
+}
+
+.bomber-segment-chevron-active { transform: rotate(180deg); color: var(--accent); }
+
+/* ============================================
+   SEGMENT CONTENT
+   (matches .section-content)
+   ============================================ */
+.bomber-segment-content {
+  padding: 0 0 22px;
+  background: transparent;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: rowOpen .22s ease-out;
+}
+
+@keyframes rowOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bomber-segment-label {
+  margin: 0 0 10px;
+  font-family: var(--body) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================
+   DECOR GRID (None / Text / Emblem / Patch)
+   styled like .picker-card / .style-card
+   ============================================ */
+.bomber-decor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.bomber-decor-btn {
+  padding: 11px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  transition: border-color .18s ease, background-color .18s ease, color .18s ease;
+  cursor: pointer;
+}
+
+.bomber-decor-btn:hover { border-color: var(--ink); }
+
+.bomber-decor-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.bomber-decor-btn-inactive { color: var(--ink-soft); }
+
+.bomber-decor-icon-active { color: var(--ink); }
+.bomber-decor-icon-inactive { color: var(--muted); }
+
+.bomber-decor-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+.bomber-decor-btn-active .bomber-decor-label { color: var(--ink); }
+
+/* ============================================
+   TEXT OPTIONS
+   ============================================ */
+.bomber-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bomber-text-options-row {
+  display: flex;
+  gap: 12px;
+}
+
+.bomber-text-options-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  font-family: var(--display);
+  margin-bottom: 10px;
+}
+
+.bomber-text-input-group { flex: 1; }
+
+.bomber-text-input {
+  width: 100%;
+  padding: 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color .18s ease;
+}
+
+.bomber-text-input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.bomber-text-input::placeholder {
+  color: #BFB8AC;
+  font-weight: 400;
+}
+
+.bomber-font-group { flex-shrink: 0; }
+
+.bomber-font-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bomber-font-btn {
+  padding: 9px 14px;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+
+.bomber-font-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.bomber-font-btn-active {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+
+.bomber-font-btn-inactive { color: var(--ink-soft); }
+
+/* ============================================
+   COLOR GRID — ring on select, identical to
+   .bomber-color-grid / .bomber-color-btn in MaterialsColorsPanel
+   ============================================ */
+.bomber-color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+@media (min-width: 640px) {
+  .bomber-color-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+}
+
+.bomber-color-btn {
+  position: relative;
+  width: 100%;
+  max-width: 34px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, .14);
+  box-shadow: none;
+  cursor: pointer;
+  display: block;
+  transition: transform .15s ease;
+}
+
+.bomber-color-btn:hover { transform: translateY(-2px); }
+.bomber-color-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* selected = outer ring with a gap, matches materials panel swatches */
+.bomber-color-check {
+  position: absolute;
+  inset: -3px;
+  width: auto;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  display: block;
+}
+
+.bomber-color-check-icon { display: none; }
+
+/* ============================================
+   EMBLEM OPTIONS
+   ============================================ */
+.bomber-emblem-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bomber-emblem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.bomber-emblem-btn {
+  padding: 11px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .18s ease, background-color .18s ease;
+  cursor: pointer;
+}
+
+.bomber-emblem-btn:hover { border-color: var(--ink); }
+
+.bomber-emblem-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.bomber-emblem-btn-inactive { color: var(--ink-soft); }
+
+.bomber-emblem-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: var(--stage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--display);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.bomber-emblem-btn-active .bomber-emblem-icon {
+  background-color: var(--ink);
+  color: #ffffff;
+}
+
+.bomber-emblem-name {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bomber-emblem-btn-active .bomber-emblem-name { color: var(--ink); }
+
+/* ============================================
+   PATCH OPTIONS
+   ============================================ */
+.bomber-patch-design-options { width: 100%; min-width: 0; }
+
+.bomber-patch-options {
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bomber-patch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .bomber-patch-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.bomber-patch-btn {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .18s ease;
+  cursor: pointer;
+}
+
+.bomber-patch-btn:hover { border-color: var(--ink); }
+
+.bomber-patch-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.bomber-patch-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.bomber-patch-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bomber-patch-category {
+  display: block;
+  font-size: 9.5px;
+  color: var(--muted);
+  font-family: var(--body);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ============================================
+   BACK STYLE GRID
+   ============================================ */
+.bomber-back-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.bomber-back-style-btn {
+  padding: 11px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  transition: border-color .18s ease, background-color .18s ease;
+  cursor: pointer;
+}
+
+.bomber-back-style-btn:hover { border-color: var(--ink); }
+
+.bomber-back-style-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.bomber-back-style-btn-inactive { color: var(--ink-soft); }
+
+.bomber-back-style-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+.bomber-back-style-btn-active .bomber-back-style-label { color: var(--ink); }
+
+/* ============================================
+   BACK TEXT OPTIONS
+   ============================================ */
+.bomber-back-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.bomber-back-text-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .bomber-back-text-row { grid-template-columns: 1fr 1fr; }
+}
+
+.bomber-back-text-input {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color .18s ease;
+}
+
+.bomber-back-text-input:focus { outline: none; border-color: var(--ink); }
+
+.bomber-back-color-select {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.bomber-back-color-select:focus { outline: none; border-color: var(--ink); }
+
+/* ============================================
+   NEXT BUTTON — identical to .next-btn-active
+   in MaterialsColorsPanel
+   ============================================ */
+.bomber-next-btn {
+  width: 100%;
+  margin-top: 26px;
+  padding: 17px;
+  background-color: var(--ink);
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  box-shadow: none;
+  transition: background-color .18s ease, color .18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.bomber-next-btn:hover { background-color: var(--accent); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.bomber-animate-fade-in { animation: fadeIn 0.3s ease-out; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .bomber-segment-header { padding: 17px 0; }
+  .bomber-segment-content { padding: 0 0 22px; }
+  .bomber-decor-grid { grid-template-columns: repeat(2, 1fr); }
+  .bomber-emblem-grid { grid-template-columns: repeat(2, 1fr); }
+  .bomber-text-options-row { flex-direction: column; }
+  .bomber-color-grid { grid-template-columns: repeat(5, 1fr); }
+  .bomber-back-style-grid { grid-template-columns: repeat(3, 1fr); }
+  .bomber-patch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .bomber-segment-title { font-size: 12.5px; }
+  .bomber-segment-subtitle { font-size: 10.5px; }
+  .bomber-decor-btn { padding: 9px 5px; }
+  .bomber-decor-label { font-size: 8.5px; }
+  .bomber-color-grid { gap: 5px; }
+  .bomber-patch-btn { padding: 5px; }
+  .bomber-patch-img { width: 32px; height: 32px; }
+  .bomber-next-btn { font-size: 10.5px; padding: 15px; }
+}
+
+/* ============================================
+   COLLAR SELECTOR — editorial version, matches
+   .field-select in MaterialsColorsPanel
+   ============================================ */
+.bomber-collar-select-wrapper {
+  margin-bottom: 24px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+
+.bomber-collar-dropdown-group { margin-bottom: 14px; }
+
+.bomber-collar-select-dropdown {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .18s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.bomber-collar-select-dropdown:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.bomber-collar-select-dropdown:hover { border-color: var(--ink); }
+
+.bomber-collar-color-group { margin-top: 12px; }
+
+.bomber-collar-preview-wrapper {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--stage);
+  border-radius: 6px;
+  border: 1px solid var(--line-soft);
+}
+
+.bomber-collar-preview-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-family: var(--display);
+  margin-bottom: 8px;
+}
+
+.bomber-collar-preview-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  padding: 8px;
+  background: var(--paper);
+  border-radius: 4px;
+}
+
+.bomber-collar-preview-svg-large {
+  width: 200px;
+  height: 120px;
+}
+
+.bomber-collar-preview-svg-large svg {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 120px;
+}

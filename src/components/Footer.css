@@ -1,0 +1,293 @@
+/* ================= LUXURY LIGHT FOOTER STRUCTURE ================= */
+.vm-luxury-footer {
+  background: #ffffff; /* Shifted to clean crisp sheet white background */
+  color: #14213d;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(20, 33, 61, 0.06); /* Sharp top outline boundary */
+}
+
+.vm-footer-upper-wrapper {
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+.vm-footer-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+/* ================= EDITORIAL NEWSLETTER COMPARTMENT ================= */
+.vm-newsletter-area {
+  flex: 1.3;
+  display: flex;
+  flex-direction: column;
+}
+
+.vm-newsletter-title {
+  font-size: 44px;
+  font-weight: 400;
+  color: #14213d;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.5px;
+}
+
+.vm-newsletter-desc {
+  font-size: 14px;
+  color: #5c677d;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  font-weight: 400;
+}
+
+/* Luxury minimal underline border input fields */
+.vm-newsletter-input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 460px;
+  border-bottom: 1px solid rgba(20, 33, 61, 0.15); /* Clean dark-tint accent divider */
+  padding-bottom: 10px;
+  margin-bottom: 45px;
+  transition: border-color 0.4s ease;
+}
+
+.vm-newsletter-input-container:focus-within {
+  border-color: #caa24b; /* Glow to premium brand asset gold */
+}
+
+.vm-newsletter-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #14213d;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.vm-newsletter-field::placeholder {
+  color: rgba(92, 103, 125, 0.5);
+}
+
+.vm-newsletter-submit-btn {
+  background: transparent;
+  border: none;
+  color: #caa24b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.vm-newsletter-input-container:hover .vm-newsletter-submit-btn {
+  transform: translateX(4px) translateY(-4px);
+}
+
+/* Studio metadata communication links */
+.vm-studio-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vm-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-size: 13px;
+  color: #caa24b; /* Subtle brand asset gold color link signature */
+  font-weight: 400;
+}
+
+.vm-contact-row span {
+  color: #5c677d;
+  transition: color 0.3s ease;
+}
+
+.vm-contact-row:hover span {
+  color: #14213d;
+}
+
+/* ================= LINKS GRID PATTERN ================= */
+.vm-footer-links-grid {
+  flex: 1.7;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.vm-footer-column-title {
+  font-size: 22px;
+  font-weight: 200;
+  color: #14213d;
+  margin: 0 0 24px 0;
+  letter-spacing: 0.5px;
+}
+
+.vm-footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vm-footer-anchor {
+  text-decoration: none;
+  font-size: 13px;
+  color: #5c677d;
+  font-weight: 400;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.vm-footer-anchor:hover {
+  color: #caa24b;
+  transform: translateX(4px);
+}
+
+/* ================= LOWER ARCHITECTURAL TIMELINE BAR ================= */
+.vm-footer-bottom-wrapper {
+  border-top: 1px solid rgba(20, 33, 61, 0.06);
+  background: #fdfbf7; /* Light luxury sheet ivory baseline tone to pop up elements */
+}
+
+.vm-footer-bottom-bar {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 35px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.vm-copyright-text {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #5c677d;
+  margin: 0;
+}
+
+.vm-bottom-legal-links {
+  display: flex;
+  gap: 28px;
+}
+
+.vm-bottom-legal-links a {
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #5c677d;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.vm-bottom-legal-links a:hover {
+  color: #caa24b;
+}
+
+/* Premium Minimalist Light Social Circles */
+.vm-social-wireframe-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.vm-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(20, 33, 61, 0.08);
+  color: #5c677d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  background: #ffffff;
+}
+
+.vm-social-btn:hover {
+  color: #ffffff;
+  border-color: #caa24b;
+  background: #caa24b;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(202, 162, 75, 0.18);
+}
+
+/* ================= MODERN CLEAN RESPONSIVE WRAPPERS ================= */
+@media (max-width: 1200px) {
+  .vm-footer-main {
+    gap: 60px;
+  }
+  .vm-newsletter-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .vm-footer-main {
+    flex-direction: column;
+    gap: 64px;
+  }
+  .vm-newsletter-area {
+    width: 100%;
+    max-width: 600px;
+  }
+  .vm-footer-links-grid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .vm-luxury-footer {
+    padding-top: 70px;
+  }
+  .vm-footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+  .vm-footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  .vm-bottom-legal-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vm-footer-main {
+    padding: 0 20px;
+  }
+  .vm-footer-bottom-bar {
+    padding: 30px 20px;
+  }
+  .vm-newsletter-title {
+    font-size: 32px;
+  }
+  .vm-footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .vm-bottom-legal-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

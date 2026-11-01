@@ -1,0 +1,766 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN CONTAINER — editorial theme
+   Tokens identical to .leather-materials-container so both
+   panels render as one continuous visual system.
+   ============================================ */
+.leather-design-container {
+  --ink:        #111111;
+  --ink-soft:   #3D3D3D;
+  --accent:     var(--gold);
+  --line:       #E6E2DC;
+  --line-soft:  #F0EDE8;
+  --muted:      #8A8378;
+  --paper:      #FBFAF8;
+  --stage:      #F5F3EF;
+
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body:    'Poppins', system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--body);
+  color: var(--ink);
+}
+
+.leather-design-container button,
+.leather-design-container select,
+.leather-design-container input,
+.leather-design-container textarea { font-family: inherit; }
+
+/* ============================================
+   DESIGN SEGMENT — row, not a card
+   (matches .leather-section-card)
+   ============================================ */
+.leather-design-segment {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+/* ============================================
+   SEGMENT HEADER
+   (matches .leather-section-header)
+   ============================================ */
+.leather-segment-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity .18s ease;
+}
+
+.leather-segment-header:hover { opacity: .72; background: transparent; }
+.leather-segment-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.leather-segment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* title + subtitle sit together like section-title/section-status */
+.leather-segment-header-left > div:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* completion mark — same crimson filled circle as
+   .leather-section-number-completed in MaterialsColorsPanel */
+.leather-segment-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  flex-shrink: 0;
+}
+
+.leather-segment-check-icon {
+  color: #ffffff;
+  stroke-width: 3.5;
+  width: 9px;
+  height: 9px;
+}
+
+.leather-segment-title {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: #64748b;
+  line-height: 1.2;
+}
+
+.leather-segment-subtitle {
+  margin: 4px 0 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.leather-segment-chevron {
+  color: #B9B2A6;
+  flex-shrink: 0;
+  transition: transform .25s ease, color .18s ease;
+}
+
+.leather-segment-chevron-active { transform: rotate(180deg); color: var(--accent); }
+
+/* ============================================
+   SEGMENT CONTENT
+   (matches .leather-section-content)
+   ============================================ */
+.leather-segment-content {
+  padding: 0 0 22px;
+  background: transparent;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: rowOpen .22s ease-out;
+}
+
+@keyframes rowOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.leather-segment-label {
+  margin: 0 0 10px;
+  font-family: var(--body) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================
+   DECOR GRID (None / Text / Emblem / Patch)
+   styled like .leather-picker-card / .leather-style-card
+   ============================================ */
+.leather-decor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.leather-decor-btn {
+  padding: 11px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  transition: border-color .18s ease, background-color .18s ease, color .18s ease;
+  cursor: pointer;
+}
+
+.leather-decor-btn:hover { border-color: var(--ink); }
+
+.leather-decor-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.leather-decor-btn-inactive { color: var(--ink-soft); }
+
+.leather-decor-icon-active { color: var(--ink); }
+.leather-decor-icon-inactive { color: var(--muted); }
+
+.leather-decor-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+.leather-decor-btn-active .leather-decor-label { color: var(--ink); }
+
+/* ============================================
+   TEXT OPTIONS
+   ============================================ */
+.leather-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.leather-text-options-row {
+  display: flex;
+  gap: 12px;
+}
+
+.leather-text-options-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--muted);
+  font-family: var(--display);
+  margin-bottom: 10px;
+}
+
+.leather-text-input-group { flex: 1; }
+
+.leather-text-input {
+  width: 100%;
+  padding: 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color .18s ease;
+}
+
+.leather-text-input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.leather-text-input::placeholder {
+  color: #BFB8AC;
+  font-weight: 400;
+}
+
+.leather-font-group { flex-shrink: 0; }
+
+.leather-font-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.leather-font-btn {
+  padding: 9px 14px;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+
+.leather-font-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.leather-font-btn-active {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+
+.leather-font-btn-inactive { color: var(--ink-soft); }
+
+/* ============================================
+   COLOR GRID — ring on select, identical to
+   .leather-color-grid / .leather-color-btn in MaterialsColorsPanel
+   ============================================ */
+.leather-color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 7px;
+}
+
+@media (min-width: 640px) {
+  .leather-color-grid { grid-template-columns: repeat(10, minmax(0, 1fr)); }
+}
+
+.leather-color-btn {
+  position: relative;
+  width: 100%;
+  max-width: 34px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, .14);
+  box-shadow: none;
+  cursor: pointer;
+  display: block;
+  transition: transform .15s ease;
+}
+
+.leather-color-btn:hover { transform: translateY(-2px); }
+.leather-color-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* selected = outer ring with a gap, matches materials panel swatches */
+.leather-color-check {
+  position: absolute;
+  inset: -3px;
+  width: auto;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  display: block;
+}
+
+.leather-color-check-icon { display: none; }
+
+/* ============================================
+   EMBLEM OPTIONS
+   ============================================ */
+.leather-emblem-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.leather-emblem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.leather-emblem-btn {
+  padding: 11px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .18s ease, background-color .18s ease;
+  cursor: pointer;
+}
+
+.leather-emblem-btn:hover { border-color: var(--ink); }
+
+.leather-emblem-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.leather-emblem-btn-inactive { color: var(--ink-soft); }
+
+.leather-emblem-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background-color: var(--stage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--display);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.leather-emblem-btn-active .leather-emblem-icon {
+  background-color: var(--ink);
+  color: #ffffff;
+}
+
+.leather-emblem-name {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leather-emblem-btn-active .leather-emblem-name { color: var(--ink); }
+
+/* ============================================
+   PATCH OPTIONS
+   ============================================ */
+.leather-patch-design-options { width: 100%; min-width: 0; }
+
+.leather-patch-options {
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.leather-patch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .leather-patch-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.leather-patch-btn {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .18s ease;
+  cursor: pointer;
+}
+
+.leather-patch-btn:hover { border-color: var(--ink); }
+
+.leather-patch-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.leather-patch-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.leather-patch-name {
+  display: block;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leather-patch-category {
+  display: block;
+  font-size: 9.5px;
+  color: var(--muted);
+  font-family: var(--body);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ============================================
+   BACK STYLE GRID
+   ============================================ */
+.leather-back-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.leather-back-style-btn {
+  padding: 11px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  transition: border-color .18s ease, background-color .18s ease;
+  cursor: pointer;
+}
+
+.leather-back-style-btn:hover { border-color: var(--ink); }
+
+.leather-back-style-btn-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.leather-back-style-btn-inactive { color: var(--ink-soft); }
+
+.leather-back-style-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+.leather-back-style-btn-active .leather-back-style-label { color: var(--ink); }
+
+/* ============================================
+   BACK TEXT OPTIONS
+   ============================================ */
+.leather-back-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.leather-back-text-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .leather-back-text-row { grid-template-columns: 1fr 1fr; }
+}
+
+.leather-back-text-input {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  transition: border-color .18s ease;
+}
+
+.leather-back-text-input:focus { outline: none; border-color: var(--ink); }
+
+.leather-back-color-select {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.leather-back-color-select:focus { outline: none; border-color: var(--ink); }
+
+/* ============================================
+   NEXT BUTTON — identical to .leather-next-btn-active
+   in MaterialsColorsPanel
+   ============================================ */
+.leather-next-btn {
+  width: 100%;
+  margin-top: 26px;
+  padding: 17px;
+  background-color: var(--ink);
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  box-shadow: none;
+  transition: background-color .18s ease, color .18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+}
+
+.leather-next-btn:hover { background-color: var(--accent); }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.leather-animate-fade-in { animation: fadeIn 0.3s ease-out; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .leather-segment-header { padding: 17px 0; }
+  .leather-segment-content { padding: 0 0 22px; }
+  .leather-decor-grid { grid-template-columns: repeat(2, 1fr); }
+  .leather-emblem-grid { grid-template-columns: repeat(2, 1fr); }
+  .leather-text-options-row { flex-direction: column; }
+  .leather-color-grid { grid-template-columns: repeat(5, 1fr); }
+  .leather-back-style-grid { grid-template-columns: repeat(3, 1fr); }
+  .leather-patch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 400px) {
+  .leather-segment-title { font-size: 12.5px; }
+  .leather-segment-subtitle { font-size: 10.5px; }
+  .leather-decor-btn { padding: 9px 5px; }
+  .leather-decor-label { font-size: 8.5px; }
+  .leather-color-grid { gap: 5px; }
+  .leather-patch-btn { padding: 5px; }
+  .leather-patch-img { width: 32px; height: 32px; }
+  .leather-next-btn { font-size: 10.5px; padding: 15px; }
+}
+
+/* ============================================
+   COLLAR SELECTOR — editorial version, matches
+   .leather-field-select in MaterialsColorsPanel
+   ============================================ */
+.leather-collar-select-wrapper {
+  margin-bottom: 24px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+
+.leather-collar-dropdown-group { margin-bottom: 14px; }
+
+.leather-collar-select-dropdown {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .18s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.leather-collar-select-dropdown:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.leather-collar-select-dropdown:hover { border-color: var(--ink); }
+
+.leather-collar-color-group { margin-top: 12px; }
+
+.leather-collar-preview-wrapper {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--stage);
+  border-radius: 6px;
+  border: 1px solid var(--line-soft);
+}
+
+.leather-collar-preview-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  font-family: var(--display);
+  margin-bottom: 8px;
+}
+
+.leather-collar-preview-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  padding: 8px;
+  background: var(--paper);
+  border-radius: 4px;
+}
+
+.leather-collar-preview-svg-large {
+  width: 200px;
+  height: 120px;
+}
+
+.leather-collar-preview-svg-large svg {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 120px;
+}

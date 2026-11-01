@@ -1,0 +1,590 @@
+/* ============================================
+   CART SUMMARY CONTAINER
+   ============================================ */
+.classic-cart-summary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   SUCCESS MESSAGE
+   ============================================ */
+.classic-success-message {
+  padding: 16px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.classic-success-message-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.classic-success-icon {
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.classic-success-text {
+  font-weight: 700;
+}
+
+.classic-success-subtext {
+  color: #78716c;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.classic-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+/* ============================================
+   SUMMARY CARD
+   ============================================ */
+.classic-summary-card {
+  border: 1px solid #f1f5f9;
+  background-color: rgba(250, 250, 249, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.classic-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .classic-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.classic-summary-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+@media (min-width: 768px) {
+  .classic-summary-left {
+    padding-bottom: 0;
+    border-bottom: none;
+    padding-right: 16px;
+    border-right: 1px solid #f1f5f9;
+  }
+}
+
+.classic-summary-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.classic-summary-subtitle {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #caa35a;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+.classic-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.classic-summary-label {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.classic-summary-value {
+  font-weight: 700;
+  color: #0f172a;
+  text-align: right;
+}
+
+.classic-summary-value-subtle {
+  font-weight: 600;
+  color: #57534e;
+  text-align: right;
+}
+
+.classic-truncate {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.classic-no-personalization {
+  color: #a8a29e;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  display: block;
+}
+
+/* ============================================
+   COSTING SECTION
+   ============================================ */
+.classic-costing-section {
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.classic-cost-item {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.classic-cost-label {
+  /* Default styling */
+}
+
+.classic-cost-value {
+  /* Default styling */
+}
+
+.classic-cost-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.classic-cost-total-label {
+  /* Default styling */
+}
+
+.classic-cost-total-value {
+  color: #caa35a;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ============================================
+   SIZING SECTION
+   ============================================ */
+.classic-sizing-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.classic-sizing-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.classic-sizing-control {
+  display: flex;
+  gap: 8px;
+}
+
+.classic-sizing-select {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.classic-sizing-select:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.classic-sizing-select option {
+  font-weight: 500;
+}
+
+.classic-sizing-chart-btn {
+  padding: 0 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.classic-sizing-chart-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.classic-chart-icon {
+  color: #caa35a;
+}
+
+.classic-chart-text {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   SIZE CHART
+   ============================================ */
+.classic-size-chart {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 12px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.classic-size-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.classic-size-chart-title {
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+}
+
+.classic-size-chart-sub {
+  font-size: 10px;
+  color: #a8a29e;
+  font-family: 'Courier New', monospace;
+}
+
+.classic-size-chart-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.classic-size-chart-table {
+  width: 100%;
+  text-align: left;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  border-collapse: collapse;
+}
+
+.classic-size-chart-head {
+  background-color: #fafaf9;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.classic-size-chart-cell {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.classic-size-chart-body {
+  color: #0f172a;
+}
+
+.classic-size-chart-body tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.classic-size-chart-body tr:last-child {
+  border-bottom: none;
+}
+
+.classic-size-chart-data {
+  padding: 8px;
+}
+
+.classic-size-chart-bold {
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   CART BUTTON
+   ============================================ */
+.classic-cart-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.15);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.classic-cart-button:hover:not(:disabled) {
+  background-color: #1e293b;
+  border-color: rgba(202, 163, 90, 0.3);
+}
+
+.classic-cart-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.classic-cart-button-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SHARE SECTION
+   ============================================ */
+.classic-share-section {
+  border: 1px solid #f1f5f9;
+  background-color: rgba(250, 250, 249, 0.2);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.classic-share-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.classic-share-icon {
+  color: #caa35a;
+}
+
+.classic-share-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+}
+
+.classic-share-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.classic-share-input {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color 0.2s;
+}
+
+.classic-share-input:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.classic-share-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.classic-share-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  cursor: pointer;
+}
+
+.classic-share-submit:hover:not(:disabled) {
+  background-color: #1e293b;
+}
+
+.classic-share-submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.classic-share-success {
+  font-size: 10px;
+  color: #059669;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.classic-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .classic-summary-card {
+    padding: 16px;
+  }
+  
+  .classic-share-input-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .classic-cost-total-value {
+    font-size: 16px;
+  }
+  
+  .classic-size-chart-table {
+    font-size: 9px;
+  }
+  
+  .classic-size-chart-cell,
+  .classic-size-chart-data {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .classic-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  
+  .classic-summary-value {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .classic-summary-value-subtle {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .classic-sizing-select {
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+  
+  .classic-cart-button {
+    font-size: 10px;
+    padding: 14px;
+  }
+}

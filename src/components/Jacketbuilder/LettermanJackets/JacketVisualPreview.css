@@ -1,0 +1,380 @@
+
+
+@font-face {
+  font-family: 'Stahls Athletic';
+  src: url('/font/Athletic-Regular-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Pro Block';
+  src: url('/font/Block.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jacketshop';
+  src: url('/font/BRUSHSCI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Old English';
+  src: url('/font/PirataOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stahls Vintage';
+  src: url('/font/stahls-tiffany-2000.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .jacket-preview-container {
+    height: 760px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  /* margin-top: 40px; */
+}
+
+@media (min-width: 768px) {
+  .viewport-frame {
+    min-height: 440px;
+  }
+}
+
+.viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.body-panel {
+  filter: url(#colorize-body);
+}
+
+.body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.pockets {
+  filter: url(#colorize-pocket);
+}
+
+.pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .jacket-preview-container {
+    padding: 16px;
+    height: 600px;
+  }
+  
+  .viewport-content{
+    padding-top:70px;
+  }
+
+  .viewport-frame {
+    min-height: 280px;
+  }
+  
+  .offer-price {
+    font-size: 20px;
+  }
+  
+  .brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+  
+  .pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+  
+  .view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .jacket-preview-container {
+    padding: 12px;
+    height: 440px;
+  }
+
+  .viewport-content{
+    padding-top:70px;
+  }
+  
+  .viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+  
+  .offer-price {
+    font-size: 16px;
+  }
+  
+  .offer-label {
+    font-size: 8px;
+  }
+  
+  .offer-retail {
+    font-size: 10px;
+  }
+  
+  .view-selectors {
+    gap: 6px;
+  }
+  
+  .view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}

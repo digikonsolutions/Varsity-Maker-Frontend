@@ -1,0 +1,25 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" width="666.2" height="557.9" viewBox="0 0 666.2 557.9">
+  <g id="felt">
+    <polygon id="felt" points="0 154 141 0 525.9 0 666.2 154 334 557.9 0 154" style="fill: #0730aa;"/>
+  </g>
+  <g id="outline">
+    <polygon id="OUTSIDETRIM" points="57.2 155.5 160 43.2 506.8 43.2 609 155.5 333.9 490 57.2 155.5" style="fill: #e89e27;"/>
+  </g>
+  <g id="X">
+    <polygon id="INSIDETRIM" points="85.9 156.2 333.9 456.1 580.5 156.2 497.3 64.8 169.5 64.8 85.9 156.2" style="fill: #030303;"/>
+    <g id="MAINCHENILLE">
+      <polygon points="100.5 156.2 324.7 429.5 252.3 156.2 100.5 156.2" style="fill: #dcddde;"/>
+      <polygon points="567.8 156.2 416.1 156.2 343.7 429.5 567.8 156.2" style="fill: #dcddde;"/>
+      <polygon points="261.8 156.2 334.5 429.5 406.6 156.2 261.8 156.2" style="fill: #dcddde;"/>
+      <polyline points="176.4 77.7 240.2 148.4 104.8 148.4 172.5 77.7" style="fill: #dcddde;"/>
+      <polyline points="336.8 77.7 400.6 148.4 265.2 148.4 332.9 77.7" style="fill: #dcddde;"/>
+      <polyline points="497.1 77.7 560.9 148.4 425.6 148.4 493.3 77.7" style="fill: #dcddde;"/>
+      <polyline points="411.8 148.4 348 77.7 483.3 77.7 415.7 148.4" style="fill: #dcddde;"/>
+      <polyline points="251.4 148.4 187.6 77.7 323 77.7 255.3 148.4" style="fill: #dcddde;"/>
+    </g>
+  </g>
+  <g id="rhinestones">
+    <polygon points="516 23 150 23 30 156.2 332.9 520 634 156.2 516 23" style="fill: none;"/>
+  </g>
+</svg>

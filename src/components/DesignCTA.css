@@ -1,0 +1,252 @@
+/* ================= MAIN CONTAINER SYSTEM ================= */
+.cta {
+  position: relative;
+  padding: 30px 24px;
+  overflow: hidden;
+  background: #ffffff;
+  width: 1400px;
+  margin: 0 auto;
+}
+
+/* ================= PREMIUM REFINED STAGE VIEWPORT ================= */
+.cta-stage {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 32px;
+  overflow: hidden;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  perspective: 1000px;
+}
+
+.cta-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Studio Moody Gradient Tint Overlay */
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(11, 19, 36, 0.65) 0%, 
+    rgba(11, 19, 36, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+/* ================= CORE CONTENT WRAPPER ================= */
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 40px;
+}
+
+/* Atelier High-End Tag */
+.cta-accent-tag {
+  display: inline-block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #caa24b;
+  font-weight: 700;
+  margin-bottom: 24px;
+  border: 1px solid rgba(202, 162, 75, 0.3);
+  padding: 6px 16px;
+  border-radius: 30px;
+  background: rgba(202, 162, 75, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+/* Typography Editorial Title */
+.cta-title {
+  margin: 0 0 20px 0;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.cta-char {
+  will-change: transform, opacity;
+}
+
+/* Description Prose Styling */
+.cta-text {
+  max-width: 680px;
+  margin: 0 auto 36px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+/* ================= ATELIER PERKS TECH HUD DESIGN ================= */
+.cta-perks-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 45px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 0;
+}
+
+.cta-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-perk-number {
+  font-size: 11px;
+  font-weight: 700;
+  color: #caa24b;
+  font-family: monospace;
+  border: 1px solid rgba(202, 162, 75, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cta-perk-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ================= HYPER MAGNETIC LAB BUTTON STUDIO ================= */
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 16px 36px;
+  border-radius: 40px;
+  background: transparent;
+  border: 1px solid #caa24b;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+
+.cta-btn-bg {
+  position: absolute;
+  inset: 0;
+  background: #caa24b;
+  transform: scaleX(1);
+  transform-origin: right center;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  border-radius: 40px;
+  z-index: 1;
+}
+
+.cta-btn-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+}
+
+.cta-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaArrow {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ================= INTERACTIVE STATES (HOVERS) ================= */
+.cta-btn:hover {
+  transform: scale(1.04);
+}
+
+.cta-btn:hover .cta-btn-bg {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.cta-btn:hover .cta-btn-text {
+  color: #caa24b;
+}
+
+.cta-btn:hover .ctaArrow {
+  transform: translate(3px, -3px) rotate(0deg);
+}
+
+/* ================= RESPONSIVE MODERN MEDIA VIEWPORTS ================= */
+@media (max-width: 992px) {
+  .cta-stage {
+    height: auto;
+    min-height: 550px;
+    padding: 60px 0;
+  }
+  .cta-title {
+    font-size: 42px;
+  }
+  .cta-perks-grid {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 60px 16px;
+  }
+  .cta-inner {
+    padding: 0 20px;
+  }
+  .cta-title {
+    font-size: 34px;
+  }
+  .cta-text {
+    font-size: 14px;
+  }
+  .cta-perks-grid {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+    max-width: 260px;
+    margin: 0 auto 30px;
+    padding: 14px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-title {
+    font-size: 28px;
+  }
+  .cta-btn {
+    padding: 14px 28px;
+  }
+  .cta-btn-text {
+    font-size: 12px;
+  }
+}

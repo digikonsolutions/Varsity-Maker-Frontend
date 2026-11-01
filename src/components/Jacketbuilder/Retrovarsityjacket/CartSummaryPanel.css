@@ -1,0 +1,590 @@
+/* ============================================
+   CART SUMMARY CONTAINER
+   ============================================ */
+.retro-vc-cart-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   SUCCESS MESSAGE
+   ============================================ */
+.retro-vc-success {
+  padding: 16px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.retro-vc-success-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.retro-vc-success-icon {
+  color: #059669;
+  flex-shrink: 0;
+}
+
+.retro-vc-success-text {
+  font-weight: 700;
+}
+
+.retro-vc-success-subtext {
+  color: #78716c;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.retro-vc-section-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+/* ============================================
+   SUMMARY CARD
+   ============================================ */
+.retro-vc-summary-card {
+  border: 1px solid #f1f5f9;
+  background-color: rgba(250, 250, 249, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.retro-vc-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .retro-vc-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.retro-vc-summary-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+@media (min-width: 768px) {
+  .retro-vc-summary-left {
+    padding-bottom: 0;
+    border-bottom: none;
+    padding-right: 16px;
+    border-right: 1px solid #f1f5f9;
+  }
+}
+
+.retro-vc-summary-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retro-vc-summary-subtitle {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: #caa35a;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+.retro-vc-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.retro-vc-summary-label {
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.retro-vc-summary-value {
+  font-weight: 700;
+  color: #0f172a;
+  text-align: right;
+}
+
+.retro-vc-summary-value-subtle {
+  font-weight: 600;
+  color: #57534e;
+  text-align: right;
+}
+
+.retro-vc-truncate {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.retro-vc-no-personalization {
+  color: #a8a29e;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  display: block;
+}
+
+/* ============================================
+   COSTING SECTION
+   ============================================ */
+.retro-vc-costing {
+  padding-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.retro-vc-cost-item {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.retro-vc-cost-label {
+  /* Default styling */
+}
+
+.retro-vc-cost-value {
+  /* Default styling */
+}
+
+.retro-vc-cost-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.retro-vc-cost-total-label {
+  /* Default styling */
+}
+
+.retro-vc-cost-total-value {
+  color: #caa35a;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ============================================
+   SIZING SECTION
+   ============================================ */
+.retro-vc-sizing {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retro-vc-sizing-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.retro-vc-sizing-control {
+  display: flex;
+  gap: 8px;
+}
+
+.retro-vc-sizing-select {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.retro-vc-sizing-select:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.retro-vc-sizing-select option {
+  font-weight: 500;
+}
+
+.retro-vc-sizing-chart-btn {
+  padding: 0 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.retro-vc-sizing-chart-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.retro-vc-chart-icon {
+  color: #caa35a;
+}
+
+.retro-vc-chart-text {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   SIZE CHART
+   ============================================ */
+.retro-vc-size-chart {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 12px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.retro-vc-size-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 8px;
+}
+
+.retro-vc-size-chart-title {
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+}
+
+.retro-vc-size-chart-sub {
+  font-size: 10px;
+  color: #a8a29e;
+  font-family: 'Courier New', monospace;
+}
+
+.retro-vc-size-chart-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.retro-vc-size-chart-table {
+  width: 100%;
+  text-align: left;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  border-collapse: collapse;
+}
+
+.retro-vc-size-chart-head {
+  background-color: #fafaf9;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.retro-vc-size-chart-cell {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.retro-vc-size-chart-body {
+  color: #0f172a;
+}
+
+.retro-vc-size-chart-body tr {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.retro-vc-size-chart-body tr:last-child {
+  border-bottom: none;
+}
+
+.retro-vc-size-chart-data {
+  padding: 8px;
+}
+
+.retro-vc-size-chart-bold {
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================
+   CART BUTTON
+   ============================================ */
+.retro-vc-cart-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.15);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.retro-vc-cart-button:hover:not(:disabled) {
+  background-color: #1e293b;
+  border-color: rgba(202, 163, 90, 0.3);
+}
+
+.retro-vc-cart-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.retro-vc-cart-button-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   SHARE SECTION
+   ============================================ */
+.retro-vc-share {
+  border: 1px solid #f1f5f9;
+  background-color: rgba(250, 250, 249, 0.2);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.retro-vc-share-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.retro-vc-share-icon {
+  color: #caa35a;
+}
+
+.retro-vc-share-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+}
+
+.retro-vc-share-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.retro-vc-share-input {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color 0.2s;
+}
+
+.retro-vc-share-input:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.retro-vc-share-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.retro-vc-share-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  cursor: pointer;
+}
+
+.retro-vc-share-submit:hover:not(:disabled) {
+  background-color: #1e293b;
+}
+
+.retro-vc-share-submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.retro-vc-share-success {
+  font-size: 10px;
+  color: #059669;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.retro-vc-anim-fade {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .retro-vc-summary-card {
+    padding: 16px;
+  }
+
+  .retro-vc-share-input-group {
+    grid-template-columns: 1fr;
+  }
+
+  .retro-vc-cost-total-value {
+    font-size: 16px;
+  }
+
+  .retro-vc-size-chart-table {
+    font-size: 9px;
+  }
+
+  .retro-vc-size-chart-cell,
+  .retro-vc-size-chart-data {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .retro-vc-summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .retro-vc-summary-value {
+    text-align: left;
+    width: 100%;
+  }
+
+  .retro-vc-summary-value-subtle {
+    text-align: left;
+    width: 100%;
+  }
+
+  .retro-vc-sizing-select {
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+
+  .retro-vc-cart-button {
+    font-size: 10px;
+    padding: 14px;
+  }
+}

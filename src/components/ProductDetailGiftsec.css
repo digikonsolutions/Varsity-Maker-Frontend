@@ -1,0 +1,53 @@
+.gift-section {
+  width: 100%;
+  background: #efefef;
+  padding: 70px 20px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   margin-top: -20px;
+}
+
+.gift-content {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.gift-title {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: #3d4350;
+  margin-bottom: 16px;
+  font-family: 'Cormorant Garamond', serif !important;
+  text-transform: uppercase;
+   margin-top: -10px;
+}
+
+.gift-subtitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+  color: #9b9b9b;
+  margin-bottom: 55px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: -8px;
+}
+
+.gift-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-image {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 30px 50px -10px rgba(0, 0, 0, 0.3);
+  margin-top: -10px;
+}

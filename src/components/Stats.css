@@ -1,0 +1,136 @@
+/* ================= MAISON EDITORIAL SECTION ================= */
+.ssMaisonStatsSection {
+  background: #fdfbf7; /* Premium soft ivory/cream background from reference images */
+  padding: 90px 24px;
+  position: relative;
+  border-top: 1px solid rgba(202, 162, 75, 0.12);
+  border-bottom: 1px solid rgba(202, 162, 75, 0.12);
+  margin-bottom: 30px;
+}
+
+.ssMaisonStatsContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ================= ROW STRUCTURE CARD ================= */
+.ssMaisonStatCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  padding: 10px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ssMaisonStatCard:hover {
+  transform: translateY(-4px);
+}
+
+/* ================= LINEAR THIN DIVIDERS ================= */
+.ssMaisonDivider {
+  width: 1px;
+  height: 70px;
+  background: rgba(20, 33, 61, 0.08); /* Minimalist ultra-thin architectural lines */
+  flex-shrink: 0;
+}
+
+/* ================= REFINED THIN CIRCLE ICONS ================= */
+.ssMaisonIconOuter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid rgba(202, 162, 75, 0.35); /* Elegant gold luxury border contour */
+  background: transparent;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ssMaisonIconInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #caa24b; /* Core Brand Premium Gold Accent */
+  font-size: 18px;
+  transition: all 0.4s ease;
+}
+
+.ssMaisonStatCard:hover .ssMaisonIconOuter {
+  background: #caa24b;
+  border-color: #caa24b;
+  box-shadow: 0 10px 25px rgba(202, 162, 75, 0.15);
+}
+
+.ssMaisonStatCard:hover .ssMaisonIconInner {
+  color: #ffffff;
+  transform: rotateY(180deg); /* High-end micromanaged presentation flip */
+}
+
+/* ================= TYPOGRAPHY MATRIX ================= */
+.ssMaisonTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ssMaisonValue {
+  font-size: 38px;
+  font-weight: 400;
+  color: #14213d;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.ssMaisonLabel {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase; /* Clean uniform uppercase design pattern */
+  letter-spacing: 2px;
+  color: #5c677d;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ================= MODERN ADAPTIVE BREAKPOINTS ================= */
+@media (max-width: 1024px) {
+  .ssMaisonStatsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+  .ssMaisonDivider {
+    display: none; /* Auto-remove columns styling lines on modern wrappers grid */
+  }
+  .ssMaisonStatCard {
+    border-bottom: 1px solid rgba(20, 33, 61, 0.04);
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ssMaisonStatsSection {
+    padding: 60px 16px;
+  }
+  .ssMaisonStatsContainer {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .ssMaisonValue {
+    font-size: 32px;
+  }
+  .ssMaisonLabel {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}

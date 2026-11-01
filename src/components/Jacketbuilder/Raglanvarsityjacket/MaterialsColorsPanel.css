@@ -1,0 +1,928 @@
+/* ============================================
+   MATERIALS & COLORS — editorial rows
+   Fonts: Montserrat (labels) + Poppins (text) only
+   ============================================ */
+.raglan-materials-container {
+  --ink:        #111111;
+  --ink-soft:   #3D3D3D;
+  --accent:     var(--gold);
+  --line:       #E6E2DC;
+  --line-soft:  #F0EDE8;
+  --muted:      #8A8378;
+  --paper:      #FBFAF8;
+  --stage:      #F5F3EF;
+
+  --display: 'Montserrat', system-ui, sans-serif;
+  --body:    'Poppins', system-ui, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0px !important;
+  font-family: var(--body);
+  color: var(--ink);
+}
+
+.raglan-materials-container button,
+.raglan-materials-container select,
+.raglan-materials-container input { font-family: inherit; }
+
+/* ============================================
+   SECTION ROW  (no card — a rule underneath)
+   ============================================ */
+.raglan-section-card {
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.raglan-section-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 0;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity .18s ease;
+}
+
+.raglan-section-header:hover { opacity: .72; }
+.raglan-section-header:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.raglan-section-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* title + summary sit on ONE line, like the reference */
+.raglan-section-header-left > div:last-child {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-width: 0;
+}
+
+/* numbered circle removed — completion shows as a small crimson tick */
+.raglan-section-number { display: none; }
+
+.raglan-section-number-completed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  flex-shrink: 0;
+}
+
+.raglan-number-text { display: none; }
+.raglan-check-icon { stroke-width: 3.5; }
+
+.raglan-section-title {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.raglan-section-status {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.raglan-status-completed { color: var(--accent); font-weight: 700; }
+.raglan-status-pending   { color: #BFB8AC; font-weight: 700; }
+.raglan-status-optional  { color: var(--muted); font-weight: 700; }
+
+.raglan-section-chevron {
+  color: #B9B2A6;
+  flex-shrink: 0;
+  transition: transform .25s ease, color .18s ease;
+}
+
+.raglan-section-chevron-active { transform: rotate(180deg); color: var(--accent); }
+
+/* ============================================
+   SECTION BODY
+   ============================================ */
+.raglan-section-content {
+  padding: 0 0 22px;
+  background: transparent;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: rowOpen .22s ease-out;
+}
+
+@keyframes rowOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.raglan-sub-label {
+  margin: 0 0 10px;
+  font-family: var(--body) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============================================
+   SWATCHES — rounded squares, ring on select
+   ============================================ */
+.raglan-color-grid,
+.raglan-color-grid-small {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 7px;
+  justify-items: stretch;
+}
+
+.raglan-color-btn,
+.raglan-color-btn-small {
+  position: relative;
+  width: 100%;
+  max-width: 34px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(17, 17, 17, .14);
+  box-shadow: none;
+  cursor: pointer;
+  display: block;
+  transition: transform .15s ease;
+}
+
+.raglan-color-btn:hover,
+.raglan-color-btn-small:hover { transform: translateY(-2px); }
+
+.raglan-color-btn:focus-visible,
+.raglan-color-btn-small:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* selected = outer ring with a white gap */
+.raglan-color-check-inner,
+.raglan-color-check-small {
+  position: absolute;
+  inset: -3px;
+  width: auto;
+  height: auto;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.raglan-color-check-icon-inner,
+.raglan-color-check-icon-small { display: none; }
+
+/* ============================================
+   MATERIAL / OPTION PILLS
+   ============================================ */
+.raglan-material-btns,
+.raglan-inserts-btns,
+.raglan-fasteners-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.raglan-material-btn,
+.raglan-material-btn-small,
+.raglan-inserts-btn,
+.raglan-fasteners-btn {
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color .18s ease, color .18s ease, background-color .18s ease;
+}
+
+.raglan-inserts-btn,
+.raglan-fasteners-btn { flex: 1; text-align: center; min-width: 96px; }
+
+.raglan-material-btn:hover,
+.raglan-material-btn-small:hover,
+.raglan-inserts-btn:hover,
+.raglan-fasteners-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.raglan-material-btn-active,
+.raglan-material-btn-small-active,
+.raglan-inserts-btn-active,
+.raglan-fasteners-btn-active {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.raglan-material-btn-disabled {
+  padding: 9px 14px;
+  border: 1px dashed var(--line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.raglan-inserts-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+
+/* ============================================
+   STYLE / MATERIAL CARDS
+   ============================================ */
+.raglan-style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0;
+}
+
+@media (min-width: 1440px) {
+  .raglan-style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.raglan-style-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.raglan-style-card:hover { border-color: var(--ink); }
+
+.raglan-style-card-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.raglan-style-image-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 110px;
+  border: 1px solid var(--line-soft);
+  border-radius: 4px;
+  background: var(--stage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.raglan-style-image { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.raglan-style-info { width: 100%; }
+
+.raglan-style-name {
+  margin: 0;
+  font-family: var(--body) !important;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.raglan-style-desc {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.45;
+  max-width: none;
+}
+
+/* ============================================
+   VISUAL PICKER CARDS  (pocket + knit styles)
+   ============================================ */
+.raglan-picker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.raglan-picker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  min-width: 68px;
+  padding: 11px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+
+.raglan-picker-card:hover { border-color: var(--ink); }
+
+.raglan-picker-card-active {
+  border-color: var(--ink);
+  background-color: var(--stage);
+  box-shadow: inset 0 -3px 0 var(--accent);
+}
+
+.raglan-picker-label {
+  font-family: var(--display);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.25;
+}
+
+.raglan-picker-card-active .raglan-picker-label { color: var(--ink); }
+
+.raglan-picker-current {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.raglan-picker-current span {
+  font-family: var(--display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ============================================
+   SELECT FIELD
+   ============================================ */
+.raglan-field-select {
+  width: 100%;
+  padding: 13px 40px 13px 14px;
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  margin-bottom: 16px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23111111' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.raglan-field-select:focus { outline: none; border-color: var(--ink); }
+
+/* ============================================
+   CHECKBOX ROW
+   ============================================ */
+.raglan-check-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+.raglan-check-row:hover { border-color: var(--ink); }
+.raglan-check-row-active { border-color: var(--ink); background-color: var(--stage); }
+
+.raglan-check-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1.5px solid #B9B2A6;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all .15s ease;
+}
+
+.raglan-check-box-active { border-color: var(--accent); background: var(--accent); }
+
+.raglan-check-label {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.raglan-check-help {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #C9C2B6;
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: help;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.raglan-hint-text {
+  margin: 8px 0 0;
+  font-family: var(--body);
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.raglan-option-block { margin-top: 16px; }
+
+/* ============================================
+   KNIT PREVIEW BLOCKS (legacy classes)
+   ============================================ */
+.raglan-knit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .raglan-knit-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.raglan-knit-btn {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color .18s ease;
+}
+
+.raglan-knit-btn:hover { border-color: var(--ink); }
+.raglan-knit-btn-active { border-color: var(--ink); background-color: var(--stage); }
+
+.raglan-knit-preview {
+  width: 32px;
+  height: 16px;
+  margin: 0 auto 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+}
+
+.raglan-knit-rainbow { width: 100%; height: 100%; display: flex; }
+.raglan-knit-rainbow-bar { flex: 1; }
+.raglan-red { background-color: #dc2626; }
+.raglan-yellow { background-color: #eab308; }
+.raglan-blue { background-color: #3b82f6; }
+.raglan-purple { background-color: #a855f7; }
+.raglan-gold { background-color: #d4af37; }
+.raglan-white { background-color: #fff; }
+
+.raglan-knit-solid { width: 100%; height: 100%; background-color: var(--ink); }
+
+.raglan-knit-single {
+  width: 100%; height: 100%; background-color: var(--ink);
+  display: flex; align-items: center; padding: 0 2px;
+}
+
+.raglan-knit-stripe { width: 100%; height: 2px; background-color: #fff; }
+
+.raglan-knit-double,
+.raglan-knit-feather {
+  width: 100%; height: 100%; background-color: var(--ink);
+  display: flex; flex-direction: column; justify-content: space-around; padding: 2px 0;
+}
+
+.raglan-knit-stripe-double { width: 100%; height: 1.5px; background-color: #fff; }
+.raglan-knit-feather-bar { height: 2px; }
+
+.raglan-knit-label {
+  display: block;
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+/* ============================================
+   LINING CARDS (legacy classes)
+   ============================================ */
+.raglan-lining-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.raglan-lining-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+.raglan-lining-card:hover { border-color: var(--ink); }
+.raglan-lining-card-active { border-color: var(--ink); background-color: var(--stage); }
+
+.raglan-lining-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.raglan-lining-desc {
+  margin: 5px 0 0;
+  font-family: var(--body);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ============================================
+   LOCK + NEXT
+   ============================================ */
+.raglan-lock-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 26px;
+}
+
+.raglan-lock-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.raglan-lock-alert-icon { color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+
+.raglan-lock-alert-title {
+  margin: 0 0 4px;
+  font-family: var(--display);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.raglan-lock-alert-text {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--muted);
+  text-transform: none;
+}
+
+.raglan-lock-alert-highlight { color: var(--accent); font-weight: 600; }
+
+.raglan-next-btn {
+  width: 100%;
+  padding: 17px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.raglan-next-btn-active { background-color: var(--ink); color: #fff; }
+.raglan-next-btn-active:hover { background-color: var(--accent); }
+
+.raglan-next-btn-locked {
+  background-color: transparent;
+  color: #BFB8AC;
+  border-color: var(--line);
+  cursor: not-allowed;
+}
+
+.raglan-lock-icon { color: #BFB8AC; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .raglan-section-header { padding: 17px 0; }
+  .raglan-section-content { padding: 0 0 22px; }
+  .raglan-style-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .raglan-lining-grid { grid-template-columns: 1fr; }
+  .raglan-inserts-btn, .raglan-fasteners-btn { min-width: 0; }
+  .raglan-color-grid, .raglan-color-grid-small { gap: 6px; }
+}
+
+@media (max-width: 400px) {
+  .raglan-section-title { font-size: 12.5px; }
+  .raglan-section-status { font-size: 10.5px; }
+  .raglan-material-btn, .raglan-inserts-btn, .raglan-fasteners-btn { font-size: 9.5px; padding: 8px 11px; }
+  .raglan-color-grid, .raglan-color-grid-small { gap: 5px; }
+  .raglan-next-btn { font-size: 10.5px; padding: 15px; }
+}
+
+/* pricing CSS */
+/**
+ * MaterialsColorsPanel.pricing.css
+ * Only the new pricing bits — your existing MaterialsColorsPanel.css is untouched.
+ * Import order matters: this file is imported AFTER the base stylesheet.
+ */
+
+/* ── inline price badge ── */
+.raglan-price-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  white-space: nowrap;
+  margin-left: 6px;
+}
+
+.raglan-price-tag-plus  { background: #F1EDE5; color: #6B5B3E; }
+.raglan-price-tag-minus { background: #E7F2EA; color: #2F6B44; }
+.raglan-price-tag-free  { background: #F3F3F1; color: #8A8378; }
+
+/* keep badges readable on selected (dark) buttons */
+.raglan-material-btn-active .raglan-price-tag,
+.raglan-fasteners-btn-active .raglan-price-tag,
+.raglan-style-card-active .raglan-price-tag,
+.raglan-picker-card-active .raglan-price-tag {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* ── buttons need to hold label + badge ── */
+.raglan-material-btn,
+.raglan-fasteners-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.raglan-btn-label { display: inline-block; }
+
+.raglan-style-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.raglan-picker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.raglan-picker-card .raglan-price-tag {
+  margin-left: 0;
+  font-size: 9px;
+  padding: 2px 5px;
+}
+
+/* ── section header subtotal ── */
+.raglan-section-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.raglan-section-subtotal {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4A4A46;
+  letter-spacing: 0.01em;
+}
+
+/* ── premium colour swatch marker ── */
+.raglan-color-btn-premium { position: relative; }
+
+.raglan-color-fee-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #1F1D1A;
+  color: #F5D07A;
+  font-family: 'Poppins', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 12px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── price summary bar ── */
+.raglan-price-bar {
+  border: 1px solid #E6E2DC;
+  border-radius: 10px;
+  background: #FBFAF8;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.raglan-price-bar-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.raglan-price-bar-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1F1D1A;
+}
+
+.raglan-price-bar-hint {
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #8A8378;
+}
+
+.raglan-price-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.raglan-price-bar-total {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1F1D1A;
+  font-variant-numeric: tabular-nums;
+}
+
+.raglan-price-bar-chevron {
+  color: #8A8378;
+  transition: transform 0.18s ease;
+}
+
+.raglan-price-bar-chevron-open { transform: rotate(180deg); }
+
+.raglan-price-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px 14px;
+  border-top: 1px solid #EFEBE4;
+}
+
+.raglan-price-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #4A4A46;
+  border-bottom: 1px dashed #EFEBE4;
+}
+
+.raglan-price-line-label { flex: 1; }
+
+.raglan-price-line-amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #1F1D1A;
+}
+
+.raglan-price-line-amount.raglan-is-minus { color: #2F6B44; }
+
+.raglan-price-line-total {
+  border-bottom: none;
+  padding-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1F1D1A;
+}
+
+/* ── next button price ── */
+.raglan-next-btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+.raglan-next-btn-price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 480px) {
+  .raglan-price-bar-total { font-size: 19px; }
+  .raglan-price-tag { font-size: 9px; padding: 2px 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raglan-price-bar-chevron { transition: none; }
+}

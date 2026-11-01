@@ -1,0 +1,518 @@
+/* ============================================
+   APP CONTAINER
+   ============================================ */
+.band-app-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  user-select: none;
+  padding-bottom: 48px;
+}
+
+/* ============================================
+   NOTIFICATION BANNER
+   ============================================ */
+.band-notification-banner {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  padding: 14px 24px;
+  background-color: #0f172a;
+  color: white;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 448px;
+  animation: bandFadeIn 0.5s ease-out;
+}
+
+.band-notification-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+}
+
+.band-notification-text {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.band-app-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(231, 229, 228, 0.5);
+  padding: 16px 24px;
+}
+
+.band-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.band-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.band-brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e293b;
+}
+
+.band-brand-letter {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.band-brand-title {
+  font-size: 16px;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.band-brand-subtitle {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.2em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.band-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #0f172a;
+}
+
+.band-promo-tag {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: #fffbeb;
+  border-radius: 9999px;
+  border: 1px solid #fcd34d;
+}
+
+@media (min-width: 640px) {
+  .band-promo-tag {
+    display: flex;
+  }
+}
+
+.band-promo-icon {
+  color: #d97706;
+}
+
+.band-promo-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: #92400e;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.band-cart-indicator {
+  position: relative;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.band-cart-indicator:hover {
+  background-color: #f1f5f9;
+}
+
+.band-cart-icon {
+  color: #0f172a;
+}
+
+.band-cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #caa35a;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: bandBounce 1s infinite;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.band-main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 80px;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .band-main-content {
+    padding: 24px 32px;
+    grid-template-columns: 5fr 7fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================
+   PREVIEW COLUMN
+   ============================================ */
+.band-preview-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .band-preview-column {
+    position: sticky;
+    top: 150px;
+    align-self: flex-start;
+  }
+}
+
+.band-helper-tip {
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.band-helper-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.band-helper-text {
+  font-size: 10px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.band-helper-text b {
+  color: #0f172a;
+}
+
+/* ============================================
+   CONFIG COLUMN
+   ============================================ */
+.band-config-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================
+   TAB NAVIGATION
+   ============================================ */
+.band-tab-navigation {
+  display: flex;
+  padding: 6px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.band-tab-button {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .band-tab-button {
+    font-size: 12px;
+  }
+}
+
+.band-tab-button-active {
+  background-color: #0f172a;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.band-tab-button-inactive {
+  color: #64748b;
+}
+
+.band-tab-button-inactive:hover {
+  background-color: #f8fafc;
+}
+
+.band-tab-icon-active {
+  color: #caa35a;
+}
+
+.band-tab-icon-inactive {
+  color: #94a3b8;
+}
+
+/* ============================================
+   PANEL CONTAINER
+   ============================================ */
+.band-panel-container {
+  flex: 1;
+  background-color: white;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.2s;
+}
+
+.band-panel-container:focus-within {
+  border-color: #d6d3d1;
+}
+
+.band-panel-content {
+  animation: bandFadeIn 0.3s ease-out;
+}
+
+.band-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.band-panel-title {
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.band-panel-subtitle {
+  font-size: 10px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 4px 0 0 0;
+}
+
+.band-step-badge {
+  font-size: 9px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background-color: #0f172a;
+  border-bottom: 2px solid #caa35a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes bandFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bandPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bandBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.band-animate-fade-in {
+  animation: bandFadeIn 0.5s ease-out;
+}
+
+
+.band-animate-bounce {
+  animation: bandBounce 1s infinite;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+::selection {
+  background-color: rgba(202, 163, 90, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .band-app-header {
+    padding: 12px 16px;
+  }
+  
+  .band-panel-container {
+    padding: 16px;
+  }
+  
+  .band-main-content {
+    padding: 16px;
+  }
+  
+  .band-brand-title {
+    font-size: 14px;
+  }
+  
+  .band-brand-subtitle {
+    font-size: 8px;
+  }
+  
+  .band-brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .band-brand-letter {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .band-tab-button {
+    font-size: 8px;
+    padding: 10px 0;
+  }
+  
+  .band-tab-button svg {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .band-step-badge {
+    font-size: 7px;
+    padding: 4px 8px;
+  }
+  
+  .band-panel-title {
+    font-size: 12px;
+  }
+}

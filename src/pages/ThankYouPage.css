@@ -1,0 +1,304 @@
+/* Using your exact variables from index.css to create high-end harmony */
+:root {
+  --brand-gold: #caa35a;
+  --brand-dark: #0f172a;
+  --brand-white: #ffffff;
+  --text-muted: #64748b;
+  --bg-slate-light: #f8fafc;
+  --border-subtle: #e2e8f0;
+}
+
+/* Base Layout Wrapper */
+.tyContainer {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-slate-light);
+  padding: 24px;
+  padding-top: 140px !important;
+  padding-bottom: 60px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Premium Card Architecture */
+.tyCard {
+  background: var(--brand-white);
+  max-width: 760px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.02);
+  border: 1px solid var(--border-subtle);
+  padding: 48px 40px;
+  text-align: center;
+}
+
+/* Gold Medallion Icon Indicator */
+.tyIconSuccess {
+  width: 72px;
+  height: 72px;
+  background-color: rgba(202, 163, 90, 0.12);
+  color: var(--brand-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px auto;
+  border: 1px solid rgba(202, 163, 90, 0.25);
+}
+
+.tyIconSuccess svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* Typography Hierarchy */
+.tySubHeader {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.tyTitle {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--brand-dark);
+  margin: 0 0 14px 0;
+}
+
+.tyDescription {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.tyHighlightText {
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+/* Minimalist Styled Separator */
+.tyDividerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+.tyDividerLine {
+  height: 1px;
+  width: 60px;
+  background-color: var(--border-subtle);
+}
+
+.tyDividerDot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--brand-gold);
+  border-radius: 50%;
+}
+
+/* High-Contrast Luxury Box for Courier Codes */
+.tyTrackingBox {
+  background: var(--brand-dark);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+.tyTrackingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tyLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tyBadgeStatus {
+  background-color: var(--brand-gold);
+  color: var(--brand-dark);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.tyTrackingValueRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tyTrackingCode {
+  font-family: 'SFMono-Regular', Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--brand-white);
+  letter-spacing: 1px;
+}
+
+/* Premium Copy Action Buttons */
+.tyCopyBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tyCopyBtn:hover {
+  background: var(--brand-gold);
+  color: var(--brand-dark);
+  border-color: var(--brand-gold);
+}
+
+/* Instant visual feedback when copied */
+.tyCopyBtn.copiedState {
+  background: #10b981 !important;
+  color: white !important;
+  border-color: #10b981 !important;
+}
+
+.copySvgIcon {
+  width: 14px;
+  height: 14px;
+}
+
+.tyInfoText {
+  margin: 14px 0 0 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.4;
+}
+
+/* Informational Info Tiles */
+.tyInfoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.tyInfoItem {
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: left;
+  background: var(--bg-slate-light);
+}
+
+.tyInfoItem h4 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.tyInfoItem p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Footer Control Elements */
+.tyActionContainer {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 14px;
+}
+
+/* Filled Main CTA Button (Brand Dark/Gold Hover) */
+.tyBtnPrimary {
+  background: var(--brand-dark);
+  color: var(--brand-white);
+  border: 1px solid var(--brand-dark);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tyBtnPrimary:hover {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold);
+  color: var(--brand-dark);
+  transform: translateY(-1px);
+}
+
+/* Outlined Elegant CTA Button */
+.tyBtnSecondary {
+  background: transparent;
+  color: var(--brand-dark);
+  border: 1px solid var(--border-subtle);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tyBtnSecondary:hover {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: var(--brand-dark);
+}
+
+/* Structural Layout Animation Profiles */
+.animateFadeUp {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animateScaleIn {
+  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Dynamic Layout Adjustments for Medium to Large Viewports */
+@media (min-width: 480px) {
+  .tyActionContainer {
+    flex-direction: row;
+  }
+  .tyBtnPrimary, .tyBtnSecondary {
+    flex: 1;
+  }
+}

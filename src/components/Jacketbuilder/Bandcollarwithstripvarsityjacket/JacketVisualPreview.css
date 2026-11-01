@@ -1,0 +1,320 @@
+/* ============================================
+   JACKET PREVIEW CONTAINER
+   ============================================ */
+.stripe-jacket-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 510px;
+  width: 100%;
+  background-color: white;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .stripe-jacket-preview-container {
+    height: 600px;
+  }
+}
+
+/* ============================================
+   SVG FILTERS (Hidden)
+   ============================================ */
+.stripe-svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ============================================
+   BRAND WATERMARK
+   ============================================ */
+.stripe-brand-watermark {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: rgba(15, 23, 42, 0.3);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================================
+   PRICING BANNER
+   ============================================ */
+.stripe-pricing-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stripe-offer-label {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.1em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.stripe-offer-price {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  color: #0f172a;
+}
+
+.stripe-offer-retail {
+  font-size: 12px;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+/* ============================================
+   VIEWPORT FRAME
+   ============================================ */
+.stripe-viewport-frame {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  position: relative;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .stripe-viewport-frame {
+    min-height: 440px;
+  }
+}
+
+.stripe-viewport-content {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 420px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+/* ============================================
+   JACKET CANVAS (Layered Images)
+   ============================================ */
+.stripe-jacket-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.stripe-layer-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s;
+}
+
+.stripe-bottom-trim {
+  filter: url(#colorize-bottom);
+}
+
+.stripe-bottom-trim-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.stripe-sleeves {
+  filter: url(#colorize-sleeves);
+}
+
+.stripe-sleeves-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+.stripe-body-panel {
+  filter: url(#colorize-body);
+}
+
+.stripe-body-panel-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.stripe-shoulder-inserts {
+  filter: url(#colorize-shoulders);
+}
+
+.stripe-shoulder-inserts-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+.stripe-pockets {
+  filter: url(#colorize-pocket);
+}
+
+.stripe-pockets-overlay {
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SVG OVERLAY
+   ============================================ */
+.stripe-svg-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================
+   VIEW SELECTORS
+   ============================================ */
+.stripe-view-selectors {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  z-index: 10;
+}
+
+.stripe-view-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.stripe-view-btn-active {
+  background-color: #0f172a;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.2);
+}
+
+.stripe-view-btn-inactive {
+  background-color: #fafaf9;
+  color: #78716c;
+}
+
+.stripe-view-btn-inactive:hover {
+  background-color: #f1f5f9;
+  color: #44403c;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.stripe-animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .stripe-jacket-preview-container {
+    padding: 16px;
+    height: 400px;
+  }
+
+  .stripe-viewport-frame {
+    min-height: 280px;
+  }
+
+  .stripe-offer-price {
+    font-size: 20px;
+  }
+
+  .stripe-brand-watermark {
+    font-size: 8px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .stripe-pricing-banner {
+    top: 12px;
+    right: 12px;
+  }
+
+  .stripe-view-btn {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stripe-jacket-preview-container {
+    padding: 12px;
+    height: 340px;
+  }
+
+  .stripe-viewport-frame {
+    min-height: 200px;
+    margin-top: 20px;
+  }
+
+  .stripe-offer-price {
+    font-size: 16px;
+  }
+
+  .stripe-offer-label {
+    font-size: 8px;
+  }
+
+  .stripe-offer-retail {
+    font-size: 10px;
+  }
+
+  .stripe-view-selectors {
+    gap: 6px;
+  }
+
+  .stripe-view-btn {
+    font-size: 8px;
+    padding: 4px 8px;
+  }
+}

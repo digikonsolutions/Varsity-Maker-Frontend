@@ -1,0 +1,402 @@
+/* --- Modern Architectural System --- */
+.hiw-page-wrapper {
+  background-color: var(--base-light);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  color: var(--dark-navy);
+}
+
+.hiw-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.context-center, .clean-stack-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clean-stack-center {
+  flex-direction: column;
+}
+
+
+.hiw-hero-showcase {
+  padding: 160px 0 100px 0;
+  background-image: radial-gradient(circle at 90% 10%, rgba(197, 168, 128, 0.04) 0%, transparent 60%);
+  position: relative;
+}
+
+.hiw-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Minimalist Tagline Architecture */
+.hiw-tagline-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.hiw-tagline {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.hiw-tagline-line {
+  height: 1px;
+  width: 50px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* Typography Refinement */
+.hiw-main-title {
+  color: var(--dark-navy);
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.hiw-title-italic {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hiw-intro-text {
+  color: var(--muted-text);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 460px;
+  font-weight: 300;
+}
+
+/* Exhibition Media Frame */
+.hiw-hero-media-column {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hiw-hero-media-frame {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: transparent;
+}
+
+/* Sleek Asymmetric Backdrop Plate */
+.hiw-frame-backdrop-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(224, 201, 165, 0.12) 0%, rgba(166, 142, 107, 0.02) 100%);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  border-radius: 8px;
+  z-index: 1;
+  transform: translate(-12px, 12px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiw-image-reveal-wrapper {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.12);
+}
+
+.tool-screenshot {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tailor-Inspired Structural Markers */
+.hiw-frame-corner {
+  position: absolute;
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  z-index: 3;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.hiw-frame-corner.top-left {
+  top: 0;
+  left: 0;
+}
+
+.hiw-frame-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+
+.hiw-hero-media-frame:hover .hiw-frame-backdrop-glow {
+  border-color: rgba(197, 168, 128, 0.5);
+}
+
+/* --- High Fidelity Responsive Rules --- */
+@media (max-width: 1200px) {
+  .hiw-hero-showcase { padding: 100px 0 70px 0; }
+  .hiw-hero-grid { gap: 50px; }
+  .hiw-main-title { font-size: 4rem; }
+}
+
+@media (max-width: 991px) {
+  .hiw-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+  
+  .hiw-tagline-wrapper {
+    justify-content: center;
+  }
+  
+  .hiw-intro-text {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .hiw-hero-media-column {
+    justify-content: center;
+  }
+
+  .hiw-hero-media-frame {
+    max-width: 600px;
+    padding: 15px;
+  }
+
+  .hiw-frame-backdrop-glow {
+    transform: translate(-8px, 8px);
+  }
+}
+
+@media (max-width: 576px) {
+  .hiw-main-title { font-size: 3rem; }
+  .hiw-intro-text { font-size: 1.05rem; }
+}
+
+/* --- Modern Reference Process Flow Section --- */
+.hiw-process-section {
+  padding: 80px 0 120px 0;
+  position: relative;
+  width: 100%;
+}
+
+.hiw-process-flow-container {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
+}
+
+/* Dynamic Curved Path Connector Vector */
+.hiw-svg-track-vector {
+  position: absolute;
+  top: 40px;
+  bottom: 40px;
+  left: 15px; /* Aligned straight through the nodes */
+  width: 45px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hiw-process-card-row {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 35px;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Node Custom Sentinel Style */
+.hiw-node-sentinel {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  width: 45px;
+}
+
+.hiw-step-circle-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold) 100%); /* Using a clean premium variant matching reference style or your active brand accent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 14px var(--gold);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hiw-process-card-row:hover .hiw-step-circle-badge {
+  transform: scale(1.12);
+}
+
+/* Refined Premium Rounded Info Cards */
+.hiw-process-main-card {
+  flex-grow: 1;
+  background: #ffffff; /* Clean stark contrast white background panels */
+  border-radius: 20px; /* Modern curved bounding boxes */
+  padding: 35px 50px;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.01);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.hiw-process-card-row:hover .hiw-process-main-card {
+  transform: translateX(6px);
+  box-shadow: 0 20px 50px rgba(166, 142, 107, 0.08);
+}
+
+/* Inner Elements Layout details */
+.hiw-card-asset-quadrant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiw-card-inline-vector {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.05));
+}
+
+.hiw-card-step-title {
+  color: var(--dark-navy);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.hiw-card-step-desc {
+  color: var(--muted-text);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* --- Minimalist Luxury CTA Section --- */
+.hiw-action-gate {
+  padding: 60px 0 140px 0;
+}
+
+.hiw-cta-inner-panel {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  padding-top: 60px;
+}
+
+.hiw-cta-line-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background-color: var(--gold);
+}
+
+.hiw-cta-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--dark-navy);
+  margin-bottom: 40px;
+}
+
+.hiw-shop-button-premium {
+  background: var(--dark-navy);
+  color: #fff;
+  border: 1px solid var(--dark-navy);
+  padding: 22px 64px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius:15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.hiw-shop-button-premium:hover {
+  background: transparent;
+  color: var(--dark-navy);
+  transform: translateY(-3px);
+}
+
+/* --- Premium Layout Responsive Adaptations --- */
+@media (max-width: 1200px) {
+  .hiw-main-title { font-size: 3.5rem; }
+}
+
+@media (max-width: 991px) {
+  .hiw-container { padding: 0 30px; }
+  .hiw-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  
+  .hiw-process-main-card {
+    padding: 30px;
+    grid-template-columns: 70px 1fr;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hiw-process-card-row {
+    gap: 15px;
+  }
+  .hiw-svg-track-vector {
+    left: 12px;
+  }
+  .hiw-node-sentinel {
+    width: 30px;
+  }
+  .hiw-step-circle-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .hiw-process-main-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 25px 20px;
+    text-align: center;
+  }
+  .hiw-card-inline-vector {
+    max-height: 65px;
+  }
+}

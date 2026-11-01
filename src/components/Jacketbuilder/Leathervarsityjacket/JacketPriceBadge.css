@@ -1,0 +1,231 @@
+/**
+ * JacketPriceBadge.css
+ * Self-contained. Nothing here touches the jacket SVG or existing preview rules.
+ */
+
+/* The badge anchors to the preview frame, so the frame must be a positioning
+   context. Harmless if your stylesheet already sets this. */
+.leather-viewport-frame {
+  position: relative;
+}
+
+.leather-jpb-root {
+  position: absolute;
+  z-index: 6;
+  width: 232px;
+  max-width: calc(100% - 24px);
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.leather-jpb-top-right    { top: 14px; right: 14px; }
+.leather-jpb-top-left     { top: 14px; left: 14px; }
+.leather-jpb-bottom-right { bottom: 14px; right: 14px; }
+.leather-jpb-bottom-left  { bottom: 14px; left: 14px; }
+
+/* ── collapsed badge ── */
+.leather-jpb-badge {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.10);
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.leather-jpb-badge:hover {
+  border-color: rgba(17, 17, 17, 0.22);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.16);
+}
+
+.leather-jpb-badge:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+.leather-jpb-badge-open {
+  border-radius: 10px 10px 0 0;
+  border-bottom-color: transparent;
+}
+
+.leather-jpb-badge-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.leather-jpb-label {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #8A8378;
+}
+
+.leather-jpb-total {
+  display: inline-block;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111111;
+  font-variant-numeric: tabular-nums;
+  transform-origin: left center;
+}
+
+.leather-jpb-chevron {
+  flex: none;
+  color: #8A8378;
+  transition: transform .18s ease;
+}
+
+.leather-jpb-chevron-open { transform: rotate(180deg); }
+
+/* ── the +/− flash ── */
+.leather-jpb-delta {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.28);
+  pointer-events: none;
+}
+
+.leather-jpb-delta-minus { background: #2F6B44; }
+
+/* ── expanded breakdown ── */
+.leather-jpb-panel {
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.10);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.14);
+}
+
+.leather-jpb-panel-inner {
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px 12px 12px;
+}
+
+.leather-jpb-group + .leather-jpb-group { margin-top: 12px; }
+
+.leather-jpb-group-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0 5px;
+  border-bottom: 1px solid #EFEBE4;
+}
+
+.leather-jpb-group-title {
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.leather-jpb-group-sub {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4A4A46;
+  font-variant-numeric: tabular-nums;
+}
+
+.leather-jpb-lines { list-style: none; margin: 0; padding: 0; }
+
+.leather-jpb-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #6b6b66;
+  border-bottom: 1px dashed #F2EEE7;
+}
+
+.leather-jpb-line:last-child { border-bottom: none; }
+
+.leather-jpb-line-label {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.leather-jpb-line-amount {
+  flex: none;
+  font-weight: 600;
+  color: #111111;
+  font-variant-numeric: tabular-nums;
+}
+
+.leather-jpb-line-amount.leather-is-minus { color: #2F6B44; }
+
+.leather-jpb-empty {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #A8A29A;
+}
+
+.leather-jpb-grand {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1.5px solid #111111;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.leather-jpb-grand strong {
+  font-size: 16px;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── small screens ── */
+@media (max-width: 640px) {
+  .leather-jpb-root { width: 190px; }
+  .leather-jpb-top-right, .leather-jpb-top-left { top: 10px; }
+  .leather-jpb-top-right, .leather-jpb-bottom-right { right: 10px; }
+  .leather-jpb-top-left, .leather-jpb-bottom-left { left: 10px; }
+  .leather-jpb-total { font-size: 18px; }
+  .leather-jpb-panel-inner { max-height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leather-jpb-chevron { transition: none; }
+}

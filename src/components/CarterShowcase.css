@@ -1,0 +1,219 @@
+/* FULLSCREEN IMMERSIVE HERO SECTION */
+.carterS-fullscreen-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /* Takes full window viewport height automatically */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #0b0f19; /* High end fallback canvas color */
+  padding: 10px 40px;
+}
+
+/* BACKGROUND VIDEO STRUCTURE SETUP */
+.carterS-bg-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carterS-bg-intrinsic-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CINEMATIC BLENDING LAYER FOR READABILITY */
+.carterS-bg-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  /* Dark rich gradient from left side to blend text beautifully over video frames */
+  background: linear-gradient(90deg, 
+    rgba(11, 15, 25, 0.95) 0%, 
+    rgba(11, 15, 25, 0.8) 40%, 
+    rgba(11, 15, 25, 0.4) 100%
+  );
+  pointer-events: none;
+}
+
+/* FOREGROUND STRUCTURAL FRAME */
+.carterS-content-overlay {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.carterS-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.carterS-left {
+  max-width: 620px;
+}
+
+/* TYPOGRAPHY COMPONENTS */
+.carterS-kicker {
+  letter-spacing: 3px;
+  opacity: 0.9;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #caa35a;
+  text-transform: uppercase;
+}
+
+.carterS-title {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 950;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.carterS-underline {
+  width: 65px;
+  height: 4px;
+  background: #caa35a;
+  border-radius: 999px;
+  margin: 20px 0 28px;
+}
+
+.carterS-sub {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.carterS-text {
+  margin: 0 0 40px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  font-size: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* CALL TO ACTION BUTTON INTERFACES */
+.carterS-actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.carterS-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carterS-primary {
+  background: #caa35a;
+  color: #ffffff;
+  border: 1.5px solid #caa35a;
+  min-width: 190px;
+  box-shadow: 0 4px 20px rgba(202, 163, 90, 0.3);
+}
+
+.carterS-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  min-width: 250px;
+}
+
+.carterS-btn:hover {
+  transform: translateY(-3px);
+}
+
+.carterS-primary:hover {
+  box-shadow: 0 8px 25px rgba(202, 163, 90, 0.5);
+}
+
+.carterS-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+.carterS-ic {
+  display: inline-flex;
+  align-items: center;
+}
+
+.carterS-arrow {
+  display: inline-block;
+  transition: transform 220ms ease;
+}
+
+.carterS-btn:hover .carterS-arrow {
+  transform: rotate(45deg);
+}
+
+/* RIGHT COLUMN DESIGN METRICS INDICATOR STACK */
+.carterS-right-blank-zone {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.carterS-progress-dots-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carterS-progress-bar-line {
+  width: 4px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  transition: all 0.4s ease;
+}
+
+.carterS-progress-bar-line.active-line {
+  background: #caa35a;
+  height: 60px;
+  box-shadow: 0 0 10px #caa35a;
+}
+
+/* RESPONSIVE MEDIA QUERIES CONTROLS */
+@media (max-width: 1024px) {
+  .carterS-fullscreen-wrapper { padding: 60px 24px; min-height: auto; }
+  .carterS-bg-overlay-gradient {
+    background: linear-gradient(180deg, 
+      rgba(11, 15, 25, 0.95) 0%, 
+      rgba(11, 15, 25, 0.85) 60%, 
+      rgba(11, 15, 25, 0.7) 100__
+    );
+  }
+  .carterS-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .carterS-left { margin: 0 auto; text-align: center; }
+  .carterS-underline { margin: 20px auto 28px; }
+  .carterS-actions { justify-content: center; }
+  .carterS-title { font-size: 48px; }
+  .carterS-right-blank-zone { display: none; } /* Hide layout markers on compact devices */
+}
+
+@media (max-width: 520px) {
+  .carterS-fullscreen-wrapper { padding: 60px 16px; }
+  .carterS-title { font-size: 36px; }
+  .carterS-btn { width: 100%; min-width: auto; }
+}

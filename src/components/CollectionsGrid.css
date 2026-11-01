@@ -1,0 +1,284 @@
+
+:root {
+  --gold: #caa35a;
+  --dark-navy: #0f172a;
+  --charcoal: #1e293b;
+  --muted-text: #64748b;
+  --white: #ffffff;
+  --font-main: 'Montserrat', sans-serif;
+  --transition-luxury: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* GLOBAL RESET FOR LUXURY FEEL */
+.collections-page {
+  background-color: var(--white);
+  color: var(--dark-navy);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* STRUCTURE UTILITIES */
+.container-luxury-fluid {
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* CENTERED HEADING SECTION SYSTEM */
+.luxury-slider-header-centered {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gold-mini-tag {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.luxury-section-title {
+  font-size: 36px;
+  color: var(--dark-navy);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* SIGNATURE SECTION WRAPPER */
+.signature-masonry-section {
+  padding-top:0px !important;
+  padding: 60px 0;
+  background-color: var(--white);
+}
+
+/* SKELETON LOADING STATE MOCKS */
+.modern-skeleton-container { max-width: 1440px; margin: 0 auto; padding: 100px 80px; }
+.skeleton-header-box { height: 45px; width: 300px; background: #f1f5f9; margin-bottom: 40px; }
+.skeleton-large-box { width: 100%; height: 600px; background: #f1f5f9; }
+.error-state-box { padding: 60px; text-align: center; color: var(--muted-text); font-weight: 500; }
+
+/* OUTER WRAPPER FOR OVERLAY BUTTONS POSITIONING */
+.luxury-swiper-outer-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* EDGE NAVIGATION BUTTONS DESIGN */
+.lux-edge-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--dark-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 25;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  outline: none;
+}
+
+.lux-edge-prev {
+  left: -15px;
+}
+
+.lux-edge-next {
+  right: -15px;
+}
+
+.lux-edge-nav-btn:hover {
+  background-color: var(--dark-navy);
+  color: var(--white);
+  border-color: var(--dark-navy);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+}
+
+.lux-edge-nav-btn:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.luxury-swiper-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.luxury-discrete-swiper {
+  padding: 0 50px !important; /* Visual boundary for sliders */
+  overflow: visible !important;
+}
+
+/* --- PREMIUM INTERACTION LUXURY CARDS --- */
+.luxury-slider-card {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--charcoal);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.04);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.32;
+  overflow: hidden;
+}
+
+.lux-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0) 30%,
+    rgba(15, 23, 42, 0.5) 65%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.lux-card-content {
+  position: absolute;
+  inset: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: flex-end; 
+  z-index: 5;
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-text-side {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.lux-card-content::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  border: 1px solid #fff;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 15px;
+  transition: opacity 0.3s ease;
+}
+
+.lux-card-content:hover::before {
+  opacity: 1;
+}
+
+.lux-number {
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.lux-title {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.trinity-arrow-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+/* Card Interaction Triggers */
+.luxury-slider-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
+}
+
+.luxury-slider-card:hover .lux-img-wrapper img {
+  transform: scale(1.05);
+}
+
+.luxury-slider-card:hover .lux-card-content {
+  transform: translateY(0);
+}
+
+.luxury-slider-card:hover .trinity-arrow-btn {
+  background-color: var(--gold);
+  color: #fff;
+  border-color: transparent;
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE LAYERS */
+@media (max-width: 1024px) {
+  .luxury-slider-header-centered { margin-bottom: 40px; }
+  .lux-edge-nav-btn { width: 48px; height: 48px; }
+  .lux-edge-prev { left: -5px; }
+  .lux-edge-next { right: -5px; }
+}
+
+@media (max-width: 768px) {
+  .luxury-discrete-swiper {
+    padding: 0 20px !important;
+  }
+  .lux-card-content {
+    padding: 20px;
+    transform: translateY(0);
+  }
+  .lux-edge-nav-btn {
+    display: none; /* Mobile navigation is natively swipe-based */
+  }
+  .luxury-section-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 650px) {
+  .container-luxury-fluid { padding: 0 24px; }
+}

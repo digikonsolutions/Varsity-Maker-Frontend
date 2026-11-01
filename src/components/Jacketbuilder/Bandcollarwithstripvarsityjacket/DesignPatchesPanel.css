@@ -1,0 +1,759 @@
+/* ============================================
+   DESIGN CONTAINER
+   ============================================ */
+.stripe-design-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================
+   DESIGN SEGMENT
+   ============================================ */
+.stripe-design-segment {
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   SEGMENT HEADER
+   ============================================ */
+.stripe-segment-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: left;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.stripe-segment-header:hover {
+  background-color: #f8fafc;
+}
+
+.stripe-segment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stripe-segment-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #caa35a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(202, 163, 90, 0.1);
+  flex-shrink: 0;
+}
+
+.stripe-segment-check-icon {
+  color: #caa35a;
+  stroke-width: 3;
+}
+
+.stripe-segment-title {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  color: #0f172a;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+}
+
+.stripe-segment-subtitle {
+  font-size: 12px;
+  color: #78716c;
+  font-family: 'Courier New', monospace;
+  margin: 4px 0 0 0;
+}
+
+.stripe-segment-chevron {
+  color: rgba(15, 23, 42, 0.6);
+  transition: transform 0.3s;
+}
+
+.stripe-segment-chevron-active {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   SEGMENT CONTENT
+   ============================================ */
+.stripe-segment-content {
+  padding: 20px;
+  background-color: rgba(250, 250, 249, 0.5);
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stripe-segment-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin: 0 0 10px 0;
+}
+
+/* ============================================
+   DECOR GRID
+   ============================================ */
+.stripe-decor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.stripe-decor-btn {
+  padding: 12px 8px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.stripe-decor-btn:hover {
+  border-color: #caa35a;
+}
+
+.stripe-decor-btn-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+  font-weight: 700;
+}
+
+.stripe-decor-btn-inactive {
+  color: #475569;
+}
+
+.stripe-decor-icon-active {
+  color: #caa35a;
+}
+
+.stripe-decor-icon-inactive {
+  color: #94a3b8;
+}
+
+.stripe-decor-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+/* ============================================
+   TEXT OPTIONS
+   ============================================ */
+.stripe-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.stripe-text-options-row {
+  display: flex;
+  gap: 12px;
+}
+
+.stripe-text-options-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 6px;
+}
+
+.stripe-text-input-group {
+  flex: 1;
+}
+
+.stripe-text-input {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  transition: border-color 0.2s;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.stripe-text-input:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.stripe-text-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.stripe-font-group {
+  flex-shrink: 0;
+}
+
+.stripe-font-btns {
+  display: flex;
+  gap: 4px;
+  background-color: white;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.stripe-font-btn {
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.stripe-font-btn-active {
+  background-color: #0f172a;
+  color: white;
+}
+
+.stripe-font-btn-inactive {
+  color: #475569;
+}
+
+.stripe-font-btn-inactive:hover {
+  background-color: #f1f5f9;
+}
+
+/* ============================================
+   COLOR GRID
+   ============================================ */
+.stripe-color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .stripe-color-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+.stripe-color-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.stripe-color-btn:hover {
+  transform: scale(1.05);
+}
+
+.stripe-color-check {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stripe-color-check-icon {
+  color: #1e293b;
+  stroke-width: 4;
+}
+
+/* ============================================
+   EMBLEM OPTIONS
+   ============================================ */
+.stripe-emblem-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.stripe-emblem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stripe-emblem-btn {
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.stripe-emblem-btn:hover {
+  border-color: #caa35a;
+}
+
+.stripe-emblem-btn-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.stripe-emblem-btn-inactive {
+  /* Default styles */
+}
+
+.stripe-emblem-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #caa35a;
+  font-weight: 700;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.stripe-emblem-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ============================================
+   PATCH OPTIONS
+   ============================================ */
+.stripe-patch-options {
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.stripe-patch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .stripe-patch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stripe-patch-btn {
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.stripe-patch-btn:hover {
+  border-color: #caa35a;
+}
+
+.stripe-patch-btn-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.stripe-patch-btn-inactive {
+  /* Default styles */
+}
+
+.stripe-patch-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.stripe-patch-name {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stripe-patch-category {
+  display: block;
+  font-size: 9px;
+  color: #a8a29e;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ============================================
+   BACK STYLE GRID
+   ============================================ */
+.stripe-back-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stripe-back-style-btn {
+  padding: 12px 8px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.stripe-back-style-btn:hover {
+  border-color: #caa35a;
+}
+
+.stripe-back-style-btn-active {
+  border-color: #0f172a;
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+  font-weight: 700;
+}
+
+.stripe-back-style-btn-inactive {
+  color: #475569;
+}
+
+.stripe-back-style-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+/* ============================================
+   BACK TEXT OPTIONS
+   ============================================ */
+.stripe-back-text-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.stripe-back-text-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .stripe-back-text-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stripe-back-text-input {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  transition: border-color 0.2s;
+}
+
+.stripe-back-text-input:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+.stripe-back-color-select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.stripe-back-color-select:focus {
+  outline: none;
+  border-color: #caa35a;
+}
+
+/* ============================================
+   NEXT BUTTON
+   ============================================ */
+.stripe-next-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #0f172a;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.1);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.stripe-next-btn:hover {
+  background-color: #1e293b;
+  border-color: rgba(202, 163, 90, 0.2);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stripe-animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .stripe-segment-header {
+    padding: 16px;
+  }
+  
+  .stripe-segment-content {
+    padding: 16px;
+  }
+  
+  .stripe-decor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stripe-emblem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stripe-text-options-row {
+    flex-direction: column;
+  }
+  
+  .stripe-color-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .stripe-back-style-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .stripe-patch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .stripe-segment-title {
+    font-size: 12px;
+  }
+  
+  .stripe-segment-subtitle {
+    font-size: 10px;
+  }
+  
+  .stripe-decor-btn {
+    padding: 8px 4px;
+  }
+  
+  .stripe-decor-label {
+    font-size: 8px;
+  }
+  
+  .stripe-color-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .stripe-patch-btn {
+    padding: 4px;
+  }
+  
+  .stripe-patch-img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .stripe-next-btn {
+    font-size: 10px;
+    padding: 14px;
+  }
+}
+
+
+
+/* Collar Selector Styles - Updated with Dropdown */
+.stripe-collar-select-wrapper {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.stripe-collar-dropdown-group {
+  margin-bottom: 16px;
+}
+
+.stripe-collar-select-dropdown {
+  width: 100%;
+  padding: 10px 14px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.stripe-collar-select-dropdown:focus {
+  outline: none;
+  border-color: #caa35a;
+  box-shadow: 0 0 0 3px rgba(202, 163, 90, 0.15);
+}
+
+.stripe-collar-select-dropdown:hover {
+  border-color: #94a3b8;
+}
+
+.stripe-collar-color-group {
+  margin-top: 12px;
+}
+
+.stripe-collar-preview-wrapper {
+  margin-top: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.stripe-collar-preview-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 8px;
+}
+
+.stripe-collar-preview-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  padding: 8px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.stripe-collar-preview-svg-large {
+  width: 200px;
+  height: 120px;
+}
+
+.stripe-collar-preview-svg-large svg {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 120px;
+}
+
+/* ... rest of your existing CSS ... */

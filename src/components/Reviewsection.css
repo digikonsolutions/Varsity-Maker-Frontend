@@ -1,0 +1,922 @@
+/* ============================================
+   REVIEW SYSTEM — Global Styles
+   Fonts: Montserrat + Gonia (via Google Fonts)
+   Palette: #caa35a / #ffffff / #0f172a
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* Gonia is a premium font — fallback to serif if not self-hosted */
+@font-face {
+  font-family: 'Gonia';
+  src: local('Gonia');
+  /* Replace with actual path if self-hosting:
+     src: url('/fonts/Gonia.woff2') format('woff2'); */
+  font-display: swap;
+}
+
+/* ---- CSS Variables ---- */
+:root {
+  --gold:        #caa35a;
+  --gold-light:  #e2c07d;
+  --gold-dim:    #a07e3f;
+  --gold-glow:   rgba(202, 163, 90, 0.18);
+  --white:       #ffffff;
+  --off-white:   #f5f0e8;
+  --dark:        #0f172a;
+  --dark-card:   #161f35;
+  --dark-border: #1e2d48;
+  --dark-muted:  #2a3a58;
+  --text-primary: #e8dcc8;
+  --text-muted:  #8a9ab8;
+  --text-faint:  #4a5a78;
+  --danger:      #e05252;
+  --success:     #4ade80;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+
+  --shadow-gold: 0 0 24px rgba(202, 163, 90, 0.15);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  --transition:  all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --font-display: 'Gonia', 'Playfair Display', Georgia, serif;
+  --font-body:    'Montserrat', sans-serif;
+}
+
+/* ---- Base Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+.review-section {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px;
+  position: relative;
+  background: var(--dark);
+  font-family: 'Montserrat', sans-serif;
+  padding: 70px 160px;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+
+
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.review-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.review-header-left h2 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.review-header-left h2 span {
+  color: var(--gold);
+}
+
+.review-header-left .review-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* ---- Summary Stats ---- */
+.review-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.stat-rating-big {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.stat-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.stat-stars svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--gold);
+}
+
+.stat-stars svg.empty {
+  fill: var(--dark-muted);
+}
+
+.stat-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* Divider line */
+.review-divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 60%);
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   REVIEW FORM
+   ============================================ */
+.review-form-wrapper {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.review-form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.review-form-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--white);
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+.form-title span {
+  color: var(--gold);
+}
+
+/* Form Grid */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.form-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-input,
+.form-textarea {
+  background: var(--dark);
+  border: 1px solid var(--dark-muted);
+  border-radius: var(--radius-md);
+  color: var(--text-primary) !important;
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 12px 16px;
+  width: 100%;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+  color: var(--white) !important;
+}
+/* ==========================================================================
+   FINAL FIX: WRITTEN TEXT (WHITE) VS PLACEHOLDER (LIGHT GOLD-GRAY)
+   ========================================================================== */
+
+/* 1. Typing Text Color (Always Pure White) */
+.review-section .form-input,
+.review-section .form-textarea,
+.replies-section input,
+.replies-section textarea {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: var(--dark) !important;
+}
+
+/* 2. Focus Text Color (Stays Pure White) */
+.review-section .form-input:focus,
+.review-section .form-textarea:focus,
+.replies-section input:focus,
+.replies-section textarea:focus {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background-color: var(--dark) !important;
+}
+
+/* 3. Placeholder Text (Beautiful Light Golden-Gray - NOT White) */
+.review-section .form-input::placeholder,
+.review-section .form-textarea::placeholder,
+.replies-section input::placeholder,
+.replies-section textarea::placeholder {
+  color: rgba(232, 220, 200, 0.45) !important;
+  -webkit-text-fill-color: rgba(232, 220, 200, 0.45) !important; /* Forces Safari/Chrome placeholder fix */
+  opacity: 1 !important;
+}
+
+/* 4. Placeholder on Focus (Fades out gently so your white typed text stands out) */
+.review-section .form-input:focus::placeholder,
+.review-section .form-textarea:focus::placeholder,
+.replies-section input:focus::placeholder,
+.replies-section textarea:focus::placeholder {
+  color: rgba(232, 220, 200, 0.2) !important;
+  -webkit-text-fill-color: rgba(232, 220, 200, 0.2) !important;
+}
+
+/* 5. Browser Autofill Style Lock */
+.review-section .form-input:-webkit-autofill,
+.review-section .form-textarea:-webkit-autofill,
+.replies-section input:-webkit-autofill,
+.replies-section textarea:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--dark) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Star Rating Input */
+.star-rating-input {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.star-rating-input button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: var(--transition);
+  transform: scale(1);
+  line-height: 1;
+}
+
+.star-rating-input button:hover {
+  transform: scale(1.25);
+}
+
+.star-rating-input svg {
+  width: 24px;
+  height: 24px;
+  transition: var(--transition);
+}
+
+.star-rating-input .star-filled {
+  fill: var(--gold);
+  filter: drop-shadow(0 0 4px var(--gold));
+}
+
+.star-rating-input .star-empty {
+  fill: var(--dark-muted);
+}
+
+.star-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+  font-style: italic;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  outline: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  color: var(--dark);
+  box-shadow: 0 4px 16px rgba(202, 163, 90, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  box-shadow: 0 6px 24px rgba(202, 163, 90, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--dark-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: var(--gold-glow);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(224, 82, 82, 0.3);
+  padding: 6px 14px;
+  font-size: 11px;
+}
+
+.btn-danger:hover {
+  background: rgba(224, 82, 82, 0.1);
+  border-color: var(--danger);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 11px;
+}
+
+/* ============================================
+   REVIEW CARD
+   ============================================ */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.review-card {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-slow);
+  animation: slideUp 0.4s ease both;
+}
+
+.review-card:hover {
+  border-color: rgba(202, 163, 90, 0.25);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-card-body {
+  padding: 24px;
+}
+
+/* Avatar + Meta */
+.review-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-dim), var(--dark-muted));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  flex-shrink: 0;
+  border: 2px solid var(--dark-muted);
+  transition: var(--transition);
+}
+
+.review-card:hover .avatar {
+  border-color: var(--gold);
+}
+
+.user-info-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.user-info-date {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* Stars display */
+.review-stars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.review-stars svg {
+  width: 15px;
+  height: 15px;
+}
+
+.review-stars .star-filled {
+  fill: var(--gold);
+}
+
+.review-stars .star-empty {
+  fill: var(--dark-muted);
+}
+
+.rating-badge {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold);
+  background: var(--gold-glow);
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(202, 163, 90, 0.25);
+}
+
+/* Review comment */
+.review-comment {
+  font-size: 13px;
+  color: white !important;
+  line-height: 1.75;
+  font-weight: 400;
+  position: relative;
+  padding-left: 14px;
+}
+
+.review-comment::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  border-radius: 2px;
+}
+
+/* Review Actions */
+.review-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dark-border);
+}
+
+.reply-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  padding: 6px 0;
+}
+
+.reply-toggle-btn:hover {
+  color: var(--gold);
+}
+
+.reply-toggle-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.reply-count-badge {
+  background: var(--gold-glow);
+  color: var(--gold);
+  border: 1px solid rgba(202, 163, 90, 0.25);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+/* ============================================
+   REPLIES SECTION
+   ============================================ */
+.replies-section {
+  background: rgba(15, 23, 42, 0.6);
+  border-top: 1px solid var(--dark-border);
+  padding: 20px 24px;
+}
+
+.replies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.reply-card {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.reply-card:hover {
+  border-color: rgba(202, 163, 90, 0.15);
+}
+
+.reply-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dark-muted), var(--text-faint));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  border: 1px solid var(--dark-muted);
+}
+
+.reply-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.reply-name {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.reply-date {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.reply-text {
+  font-size: 12px;
+  color: white;
+  line-height: 1.65;
+}
+
+/* Reply Form */
+.reply-form-wrapper {
+  border-top: 1px solid var(--dark-border);
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.reply-form-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.reply-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.reply-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ============================================
+   LOADING / EMPTY STATES
+   ============================================ */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  position: relative;
+  z-index: 1;
+}
+
+.spinner-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--dark-muted);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  border: 2px dashed var(--dark-muted);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--text-faint);
+}
+
+.empty-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.empty-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.empty-desc {
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+.toast-container {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  min-width: 280px;
+  max-width: 360px;
+  box-shadow: var(--shadow-card);
+  animation: toastIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.toast.exiting {
+  animation: toastOut 0.25s ease both;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toastOut {
+  to   { opacity: 0; transform: translateY(8px) scale(0.95); }
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.toast.success .toast-icon { color: var(--success); }
+.toast.error   .toast-icon { color: var(--danger); }
+
+.toast-dot {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+.toast.success .toast-dot { background: var(--success); }
+.toast.error   .toast-dot { background: var(--danger); }
+
+.toast {
+  position: relative;
+  overflow: hidden;
+}
+
+.toast-msg {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .review-section { padding: 32px 16px; }
+
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .review-stats {
+    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .stat-rating-big { font-size: 2.4rem; }
+
+  .form-row,
+  .reply-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .review-form-wrapper { padding: 20px; }
+  .review-card-body    { padding: 18px; }
+  .replies-section     { padding: 16px 18px; }
+
+  .toast-container { bottom: 16px; right: 16px; left: 16px; }
+  .toast           { min-width: unset; }
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.text-gold   { color: var(--gold); }
+.text-muted  { color: var(--text-muted); }
+.text-danger { color: var(--danger); }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-2       { gap: 8px; }

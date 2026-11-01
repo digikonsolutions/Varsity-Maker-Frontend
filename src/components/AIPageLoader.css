@@ -1,0 +1,162 @@
+/* FULLPAGE BLURRED DARK CORE CANVAS */
+.ai-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #060813; /* Ultra deep space dark background */
+  z-index: 999999; /* Hamesha har cheez ke upar rahega */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* AI DIGITAL GRID SYSTEM BACKGROUND */
+.ai-loader-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(202, 162, 75, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(202, 162, 75, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+/* CYBERPUNK LASER SCAN LINE EFFECT */
+.ai-loader-laser-scan {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #caa24b, transparent);
+  box-shadow: 0 0 20px #caa24b;
+  opacity: 0.4;
+  top: 0;
+  animation: aiLaserSweep 2.5s infinite linear;
+}
+
+@keyframes aiLaserSweep {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+/* CENTER HUB CONTAINER */
+.ai-loader-center-hub {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* NEON SHIELD RINGS */
+.ai-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.ai-ring-outer {
+  width: 130px;
+  height: 130px;
+  border-top-color: #caa24b;
+  border-bottom-color: rgba(202, 162, 75, 0.1);
+  animation: aiSpinClockwise 1.5s infinite linear;
+}
+
+.ai-ring-inner {
+  width: 110px;
+  height: 110px;
+  border-left-color: #ffffff;
+  border-right-color: rgba(255, 255, 255, 0.1);
+  top: 10px;
+  animation: aiSpinCounter 1s infinite linear;
+}
+
+/* AI ICON PORTAL */
+.ai-core-icon-frame {
+  width: 90px;
+  height: 90px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(202, 162, 75, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  box-shadow: 0 0 35px rgba(202, 162, 75, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.ai-icon-pulse {
+  font-size: 32px;
+  color: #caa24b;
+  animation: aiCorePulse 1.5s infinite ease-in-out;
+}
+
+/* INTERACTION TYPOGRAPHY PANEL */
+.ai-loader-text-group {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ai-loader-title {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* NEON PROGRESS FILL HUD */
+.ai-loading-bar-wrapper {
+  width: 180px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ai-loading-bar-fill {
+  height: 100%;
+  width: 40%;
+  background: #caa24b;
+  box-shadow: 0 0 10px #caa24b;
+  border-radius: 100px;
+  position: absolute;
+  animation: aiBarFlow 1.8s infinite ease-in-out;
+}
+
+.ai-loader-status-ticker {
+  color: #475569;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* KEYFRAMES MATHEMATICS ENGINE */
+@keyframes aiSpinClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes aiSpinCounter {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes aiCorePulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; filter: drop-shadow(0 0 2px #caa24b); }
+  50% { transform: scale(1.08); opacity: 1; filter: drop-shadow(0 0 12px #caa24b); }
+}
+
+@keyframes aiBarFlow {
+  0% { left: -45%; width: 30%; }
+  50% { width: 60%; }
+  100% { left: 105%; width: 20%; }
+}

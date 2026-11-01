@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   BOMBER BUILDER — LIGHT THEME & WIDER CUSTOMIZER
+   (Same design as Sailor builder, bomber- prefix)
+   ============================================ */
+.bomber-app-container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  user-select: none;
+  padding-bottom: var(--space-8);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bomber-app-container button { font-family: inherit; }
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.bomber-notification-banner {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: calc(100% - 32px);
+  max-width: 480px;
+  padding: 14px var(--space-5);
+  background-color: var(--navy-900);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold-600);
+  box-shadow: var(--shadow-md);
+  animation: bomber-app-dropIn .3s var(--ease);
+}
+
+.bomber-notification-icon { color: var(--gold-500); flex-shrink: 0; }
+
+.bomber-notification-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--grey-100);
+}
+
+/* ============================================
+   SUB-HERO BANNER
+   ============================================ */
+.bomber-subhero {
+  position: relative;
+  background: linear-gradient(135deg, var(--white) 0%, var(--grey-050) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-7) var(--gutter);
+  text-align: center;
+  overflow: hidden;
+}
+
+.bomber-subhero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(168, 135, 63, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.bomber-subhero-content {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bomber-subhero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px var(--space-4);
+  background: var(--gold-100);
+  border: 1px solid rgba(168, 135, 63, 0.3);
+  border-radius: 999px;
+  color: var(--gold-600);
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.bomber-subhero-title {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--navy-900);
+  line-height: 1.15;
+}
+
+.bomber-subhero-subtitle {
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-body);
+  font-size: var(--text-lead);
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.bomber-subhero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.bomber-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px var(--space-4);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--navy-700);
+  box-shadow: var(--shadow-sm);
+}
+
+.bomber-feature-pill svg { color: var(--gold-600); }
+
+/* ============================================
+   MAIN LAYOUT (Wider grid distribution)
+   ============================================ */
+.bomber-main-content {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 15px;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .bomber-main-content {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    gap: 15px;
+    align-items: start;
+  }
+}
+
+/* ============================================
+   PREVIEW COLUMN
+   ============================================ */
+.bomber-preview-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .bomber-preview-column { position: sticky; top: var(--space-6); }
+}
+
+.bomber-preview-stage-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.bomber-helper-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--gold-100);
+  border: 1px solid rgba(168, 135, 63, 0.25);
+  border-radius: var(--radius-sm);
+}
+
+.bomber-helper-icon { color: var(--gold-600); flex-shrink: 0; margin-top: 2px; }
+
+.bomber-helper-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--navy-800);
+}
+
+.bomber-helper-text b { color: var(--navy-900); font-weight: 600; }
+
+/* ============================================
+   CONFIG COLUMN (WIDER & WHITE WITH SOFT GOLDEN GRADIENT)
+   ============================================ */
+.bomber-config-column {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--white) 0%, #FAF7F0 100%);
+  border: 1px solid rgba(168, 135, 63, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-7);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+}
+
+.bomber-builder-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.bomber-builder-super {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 4px;
+}
+
+.bomber-builder-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--navy-900);
+}
+
+.bomber-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.bomber-reset-btn:hover { border-color: var(--gold-600); color: var(--navy-900); background: var(--gold-100); }
+
+/* ============================================
+   TABS NAVIGATION
+   ============================================ */
+.bomber-tab-navigation {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--grey-100);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: var(--space-5);
+  gap: 4px;
+}
+
+.bomber-tab-button {
+  position: relative;
+  padding: var(--space-3) var(--space-2);
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-small);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s var(--ease);
+}
+
+.bomber-tab-button-active {
+  background: var(--gold-600);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.bomber-tab-button-inactive {
+  color: var(--grey-600);
+}
+
+.bomber-tab-button-inactive:hover {
+  color: var(--navy-900);
+  background: var(--white);
+}
+
+.bomber-tab-icon-active { color: var(--white); }
+.bomber-tab-icon-inactive { color: var(--gold-600); }
+
+/* ============================================
+   PANEL HEADER
+   ============================================ */
+.bomber-panel-container {
+  position: relative;
+}
+
+.bomber-panel-content { animation: bomber-app-fadeIn .24s var(--ease); }
+
+.bomber-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.bomber-panel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--navy-900);
+}
+
+.bomber-panel-subtitle {
+  margin: 4px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.bomber-step-badge {
+  flex-shrink: 0;
+  padding: 4px var(--space-3);
+  background: var(--gold-100);
+  border: 1px solid rgba(168, 135, 63, 0.3);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+}
+
+/* ============================================
+   MOTION & ANIMATIONS
+   ============================================ */
+@keyframes bomber-app-fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bomber-app-dropIn {
+  from { opacity: 0; transform: translate(-50%, -16px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bomber-app-container *, .bomber-app-container *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   SCROLLBAR & SELECTION
+   ============================================ */
+.bomber-app-container ::-webkit-scrollbar { width: 6px; height: 6px; }
+.bomber-app-container ::-webkit-scrollbar-track { background: var(--grey-050); }
+.bomber-app-container ::-webkit-scrollbar-thumb { background: var(--grey-400); border-radius: 8px; }
+.bomber-app-container ::-webkit-scrollbar-thumb:hover { background: var(--gold-600); }
+.bomber-app-container ::selection { background-color: var(--gold-100); color: var(--navy-900); }
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+@media (max-width: 768px) {
+  .bomber-subhero { padding: var(--space-6) var(--space-4); }
+  .bomber-main-content { padding: var(--space-5) var(--space-3); gap: 15px; }
+  .bomber-config-column { padding: var(--space-4); }
+  .bomber-preview-stage-wrapper { padding: var(--space-4); }
+  .bomber-tab-button { font-size: var(--text-label); padding: var(--space-3) var(--space-2); gap: 4px; }
+}
+
+@media (max-width: 480px) {
+  .bomber-tab-button span { display: none; }
+  .bomber-tab-button { justify-content: center; padding: var(--space-3); }
+  .bomber-subhero-features { display: none; }
+}

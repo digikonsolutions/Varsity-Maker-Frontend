@@ -1,0 +1,123 @@
+/* Light Modern Aesthetic - Matches image_06032a.png */
+.clean-faq-section {
+  background-color: #fdfbf7; /* Very light off-white background */
+  padding: 30px 24px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clean-faq-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.clean-faq-title {
+  color: #0f172a; 
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+}
+
+/* Accordion Rows */
+.clean-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; 
+}
+
+.clean-faq-item {
+  background: #fff; 
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+}
+
+.clean-faq-item:hover {
+  background: #e2e8f0; 
+  transform: translateY(-1px);
+}
+
+.clean-faq-item.active {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); 
+}
+
+/* Inner Question Row */
+.clean-faq-question-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  gap: 16px;
+}
+
+.clean-faq-question {
+  color: #1e293b; /* Refined dark grey for maximum readability */
+  font-size: 1rem;
+  font-weight: 500; /* Regular yet punchy weight matching image_06032a.png */
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Expand Icon Architecture */
+.clean-faq-icon {
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  background: transparent;
+}
+
+/* Plus rotates smoothly into an X/Close state */
+.clean-faq-item.active .clean-faq-icon {
+  transform: rotate(45deg); 
+  color: #0f172a;
+}
+
+/* Modern Dynamic CSS Grid for Height Expansion */
+.clean-faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clean-faq-item.active .clean-faq-answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.clean-faq-answer-content {
+  overflow: hidden;
+}
+
+.clean-faq-answer-content p {
+  color: #475569; /* Soft body text */
+  font-size: 0.925rem;
+  line-height: 1.6;
+  padding: 0 24px 20px 24px; /* Clean spacing padding */
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+  .clean-faq-title {
+    font-size: 1.85rem;
+    margin-bottom: 30px;
+  }
+  
+  .clean-faq-question-bar {
+    padding: 16px 18px;
+  }
+  
+  .clean-faq-answer-content p {
+    padding: 0 18px 16px 18px;
+  }
+}

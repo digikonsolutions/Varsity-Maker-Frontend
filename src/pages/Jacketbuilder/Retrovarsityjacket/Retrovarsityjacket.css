@@ -1,0 +1,517 @@
+/* ============================================
+   APP SHELL
+   ============================================ */
+.vjc-shell {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  user-select: none;
+  padding-bottom: 48px;
+}
+
+/* ============================================
+   TOAST NOTIFICATION
+   ============================================ */
+.vjc-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  padding: 14px 24px;
+  background-color: #0f172a;
+  color: white;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 448px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.vjc-toast-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+}
+
+.vjc-toast-label {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ============================================
+   TOPBAR / HEADER
+   ============================================ */
+.vjc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(231, 229, 228, 0.5);
+  padding: 16px 24px;
+}
+
+.vjc-topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vjc-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vjc-brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e293b;
+}
+
+.vjc-brand-initial {
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.vjc-brand-name {
+  font-size: 16px;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.vjc-brand-tagline {
+  font-size: 10px;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.2em;
+  color: #caa35a;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+.vjc-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #0f172a;
+}
+
+.vjc-promo {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: #fffbeb;
+  border-radius: 9999px;
+  border: 1px solid #fcd34d;
+}
+
+@media (min-width: 640px) {
+  .vjc-promo {
+    display: flex;
+  }
+}
+
+.vjc-promo-icon {
+  color: #d97706;
+}
+
+.vjc-promo-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #92400e;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vjc-cart-btn {
+  position: relative;
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.vjc-cart-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.vjc-cart-glyph {
+  color: #0f172a;
+}
+
+.vjc-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #caa35a;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: bounce 1s infinite;
+}
+
+/* ============================================
+   MAIN STAGE
+   ============================================ */
+.vjc-stage {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 24px 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 80px;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .vjc-stage {
+    padding: 24px 32px;
+    grid-template-columns: 5fr 7fr;
+    gap: 32px;
+  }
+}
+
+/* ============================================
+   PREVIEW PANE
+   ============================================ */
+.vjc-preview-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .vjc-preview-pane {
+    position: sticky;
+    top: 150px;
+    align-self: flex-start;
+  }
+}
+
+.vjc-tip {
+  padding: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.vjc-tip-icon {
+  color: #caa35a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.vjc-tip-text {
+  font-size: 10px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.vjc-tip-text b {
+  color: #0f172a;
+}
+
+/* ============================================
+   CONFIG PANE
+   ============================================ */
+.vjc-config-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================
+   TAB NAVIGATION
+   ============================================ */
+.vjc-tabs {
+  display: flex;
+  padding: 6px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vjc-tab {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: 12px;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .vjc-tab {
+    font-size: 12px;
+  }
+}
+
+.vjc-tab-on {
+  background-color: #0f172a;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ring: 2px solid rgba(15, 23, 42, 0.1);
+}
+
+.vjc-tab-off {
+  color: #64748b;
+}
+
+.vjc-tab-off:hover {
+  background-color: #f8fafc;
+}
+
+.vjc-tab-glyph-on {
+  color: #caa35a;
+}
+
+.vjc-tab-glyph-off {
+  color: #94a3b8;
+}
+
+/* ============================================
+   PANEL
+   ============================================ */
+.vjc-panel {
+  flex: 1;
+  background-color: white;
+  border: 1px solid rgba(214, 211, 209, 0.6);
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.2s;
+}
+
+.vjc-panel:focus-within {
+  border-color: #d6d3d1;
+}
+
+.vjc-panel-body {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.vjc-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.vjc-panel-title {
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.vjc-panel-sub {
+  font-size: 10px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 4px 0 0 0;
+}
+
+.vjc-step-chip {
+  font-size: 9px;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background-color: #0f172a;
+  border-bottom: 2px solid #caa35a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.vjc-anim-fade {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.vjc-anim-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================================
+   SELECTION COLOR
+   ============================================ */
+::selection {
+  background-color: rgba(202, 163, 90, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 640px) {
+  .vjc-topbar {
+    padding: 12px 16px;
+  }
+
+  .vjc-panel {
+    padding: 16px;
+  }
+
+  .vjc-stage {
+    padding: 16px;
+  }
+
+  .vjc-brand-name {
+    font-size: 14px;
+  }
+
+  .vjc-brand-tagline {
+    font-size: 8px;
+  }
+
+  .vjc-brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .vjc-brand-initial {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .vjc-tab {
+    font-size: 8px;
+    padding: 10px 0;
+  }
+
+  .vjc-tab svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .vjc-step-chip {
+    font-size: 7px;
+    padding: 4px 8px;
+  }
+
+  .vjc-panel-title {
+    font-size: 12px;
+  }
+}

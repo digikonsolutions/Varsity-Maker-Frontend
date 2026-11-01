@@ -1,0 +1,184 @@
+/* ==========================================================================
+   CINEMATIC MINIMALIST BLOG HERO
+   ========================================================================== */
+
+.ct-cinema-hero {
+  position: relative;
+  width: 100%;
+  height: 90vh; /* Premium cinematic tall layout */
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end; /* Align content to the bottom-left like reference */
+  justify-content: flex-start;
+  padding: 80px 6% 100px 6%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #0d0e12;
+}
+
+/* 1. Full-Cover Cinematic Background Image */
+.ct-cinema-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%; /* Keeps focus on the main elements */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 2. Premium Bottom Gradient Overlay (Exact cinematic fade) */
+.ct-cinema-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 3. Main Container */
+.ct-cinema-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Content wrapper with precise alignment */
+.ct-cinema-content {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px; /* Clean spacing */
+}
+
+/* 4. Glassmorphic pill badge */
+.ct-cinema-tag {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+/* 5. Stunning Bold Sans-Serif Typography */
+.ct-cinema-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* 6. High Readability Slate Description */
+.ct-cinema-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e2e8f0; /* Perfect light gray to avoid pure white harshness */
+  margin: 0 0 16px 0;
+  max-width: 580px;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* 7. Reference Style Slider Pagination Dots */
+.ct-cinema-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ct-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ct-dot.active {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: scale(1.1);
+}
+
+.ct-dot:hover {
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   PERFECT RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .ct-cinema-hero {
+    height: 80vh;
+    padding: 80px 6% 80px 6%;
+  }
+
+  .ct-cinema-title {
+    font-size: 42px;
+  }
+
+  .ct-cinema-desc {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ct-cinema-hero {
+    height: 75vh;
+    padding: 60px 24px 60px 24px;
+    align-items: flex-end;
+  }
+
+  .ct-cinema-content {
+    align-items: flex-start;
+  }
+
+  .ct-cinema-title {
+    font-size: 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .ct-cinema-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .ct-cinema-hero {
+    height: 70vh;
+  }
+  
+  .ct-cinema-title {
+    font-size: 28px;
+  }
+
+  .ct-cinema-tag {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+}

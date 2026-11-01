@@ -1,0 +1,302 @@
+:root {
+  --v-maker-slate-deep-bg: #0b0f19;
+  --v-maker-gold-premium: #caa24b;
+  --v-maker-card-dark: #131926;
+  --v-maker-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* STACKED FULLSCREEN WRAPPER */
+.v-maker-clean-stacked-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.v-maker-studio-container-block {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Perfect spacing between top header, middle video, and bottom controls */
+}
+
+/* 1. TOP HEADER (COMPLETELY OUTSIDE VIDEO) */
+.v-maker-studio-outside-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v-maker-studio-mini-pill {
+  background: rgba(202, 162, 75, 0.12);
+  border: 1px solid rgba(202, 162, 75, 0.25);
+  color: var(--v-maker-gold-premium);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.v-maker-pill-icon-pulse {
+  color: #ef4444;
+  animation: vMakerPulse 1.5s infinite ease-in-out;
+}
+
+@keyframes vMakerPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.v-maker-studio-main-title {
+  font-size: 42px;
+  font-weight: 200;
+  line-height: 1.2;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.v-maker-title-gold-accent {
+  color: var(--v-maker-gold-premium);
+  font-weight: 400;
+}
+
+.v-maker-studio-description-prose {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--blue);
+  margin: 0;
+}
+
+/* 2. CENTER ZONE - BOXED CANVAS EMBEDDED VIDEO */
+.v-maker-isolated-video-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%; /* Locked premium height layout */
+  background: #020617;
+  overflow: hidden;
+}
+
+.v-maker-embedded-stage-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border:none;
+}
+
+/* INSIDE GRADIENT FOR CLEAN CORNERS */
+.v-maker-canvas-inner-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(11, 15, 25, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* HUD EMBEDDED AT THE BOTTOM OF THE VIDEO ACCURATELY */
+.v-maker-studio-interactive-hud-modern {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(16px);
+  z-index: 10;
+}
+
+.v-maker-hud-btn {
+  background: transparent;
+  border: none;
+  color: rgba(248, 250, 252, 0.75);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+  font-size: 13px;
+}
+
+.v-maker-hud-btn span {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.v-maker-hud-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.v-maker-hud-separator {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 3. BOTTOM FOOTER PANEL (OUTSIDE VIDEO) */
+.v-maker-studio-outside-footer-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* FLAT HORIZONTAL TABS SYSTEM */
+.v-maker-horizontal-tabs-scroll {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.v-maker-workshop-tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--v-maker-glass-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  background: var(--v-maker-card-dark);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.v-maker-tab-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.v-maker-card-icon-frame {
+  font-size: 16px;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+}
+
+.v-maker-card-text-group h4 {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.v-maker-tab-active {
+  border-color: var(--v-maker-gold-premium);
+  background: #1a2333;
+  box-shadow: 0 8px 24px rgba(202, 162, 75, 0.1);
+}
+
+.v-maker-tab-active .v-maker-card-icon-frame {
+  color: var(--v-maker-gold-premium);
+}
+
+.v-maker-tab-status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--v-maker-gold-premium);
+  border-radius: 50%;
+}
+
+.v-maker-workshop-tab-item:hover {
+  background: #172030;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* CTA LAYOUT ACTION FOOTER */
+.v-maker-action-footer-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.v-maker-studio-btn-ultimate {
+  width: 100%;
+  max-width: 420px;
+  height: 54px;
+  background: var(--v-maker-gold-premium);
+  color: #0b0f19;
+  border: none;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.v-maker-studio-btn-ultimate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(202, 162, 75, 0.3);
+  background: #d4ae56;
+}
+
+.v-maker-btn-arrow-move {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.v-maker-studio-btn-ultimate:hover .v-maker-btn-arrow-move {
+  transform: translateX(4px);
+}
+
+.v-maker-studio-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.v-maker-trust-icon {
+  color: #10b981;
+}
+
+/* MEDIA RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .v-maker-horizontal-tabs-scroll { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .v-maker-isolated-video-canvas { height: 420px; }
+  .v-maker-studio-main-title { font-size: 34px; }
+}
+
+@media (max-width: 768px) {
+  .v-maker-clean-stacked-section { padding: 40px 20px; }
+  .v-maker-horizontal-tabs-scroll { grid-template-columns: 1fr; gap: 10px; }
+  .v-maker-isolated-video-canvas { height: 320px; border-radius: 16px; }
+  .v-maker-studio-main-title { font-size: 28px; }
+  .v-maker-studio-interactive-hud-modern { width: 90%; justify-content: space-around; }
+  .v-maker-hud-btn span { display: none; }
+  .v-maker-hud-separator { display: none; }
+  .v-maker-studio-btn-ultimate { max-width: 100%; }
+}

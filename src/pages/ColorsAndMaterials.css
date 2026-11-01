@@ -1,0 +1,464 @@
+:root {
+  --gold: #caa35a;
+  --white: #ffffff;
+  --blue: #0f172a;
+  --gray-light: #f8fafc;
+  --gray-border: #e2e8f0;
+  --text-muted: #64748b;
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Master Boutique Canvas Wrapper */
+.boutique-page-container {
+  background-color: var(--white);
+  color: var(--blue);
+  min-height: 100vh;
+  padding: 6rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+  padding-top:100px;
+
+}
+
+/* Minimalist Editorial Header */
+.boutique-main-header {
+  max-width: 100%;
+  margin: 0 auto 6rem auto;
+  text-align: center;
+  padding: 140px 1.5rem 100px 1.5rem; 
+  background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.6)), url('./colorsmaterials.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.boutique-pre-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.boutique-main-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #ffffff; 
+  margin: 0;
+}
+.boutique-title-divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 1.5rem auto;
+}
+.boutique-lead-paragraph {
+  color: rgba(255, 255, 255, 0.85); 
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom:40px;
+}
+
+/* Vertical Sections Layout Stack */
+.boutique-sections-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.boutique-material-section {
+  animation: boutiqueEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Luxury Material Hero Block */
+.boutique-hero-panel {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  border: 1px solid var(--gray-border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--white);
+}
+.boutique-hero-details {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.boutique-section-pill {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.boutique-material-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+}
+.boutique-material-desc {
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin: 0 0 2rem 0;
+}
+
+/* Spec Pill List Row styling */
+.boutique-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+.boutique-spec-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gray-light);
+  border: 1px solid var(--gray-border);
+  padding: 0.6rem 0.85rem;
+  border-radius: 4px;
+}
+.boutique-pill-icon-frame {
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.boutique-pill-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* Media Showcase Framing */
+.boutique-hero-media {
+  border-left: 1px solid var(--gray-border);
+  background: var(--gray-light);
+}
+.boutique-image-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+.boutique-canvas-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.boutique-hero-panel:hover .boutique-canvas-img {
+  transform: scale(1.04);
+}
+.boutique-image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+/* Swatches Luxury Architecture Grid */
+.boutique-swatches-panel {
+  margin-top: 2.5rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 4px;
+  padding: 2.5rem;
+  background: var(--white);
+}
+.boutique-swatches-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-border);
+  padding-bottom: 1.25rem;
+  gap: 1.5rem;
+}
+.boutique-swatches-title-block h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin: 0 0 0.25rem 0;
+}
+.boutique-swatches-title-block p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.boutique-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.boutique-meta-tag {
+  background: var(--gray-light);
+  border: 1px solid var(--gray-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+/* Editorial Minimalist Color Grids */
+.boutique-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+.boutique-color-card {
+  transition: var(--transition-smooth);
+}
+.boutique-color-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.boutique-color-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+}
+.boutique-color-fallback-circle {
+  width: 100%;
+  height: 100%;
+  background: var(--gray-light);
+}
+.boutique-color-hover-curtain {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.boutique-hover-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--white);
+  color: var(--blue);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transform: translateY(4px);
+  transition: transform 0.3s ease;
+  cursor:pointer;
+}
+.boutique-color-card:hover .boutique-color-img {
+  transform: scale(1.05);
+}
+.boutique-color-card:hover .boutique-color-hover-curtain {
+  opacity: 1;
+}
+.boutique-color-card:hover .boutique-hover-label {
+  transform: translateY(0);
+}
+.boutique-color-meta h5 {
+  text-align:center;
+  letter-spacing:0px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin: 0 0 0.15rem 0;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.boutique-color-meta p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Elegant Section Divider Line */
+.boutique-section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gray-border) 20%, var(--gray-border) 80%, transparent);
+  margin: 5rem 0 2rem 0;
+}
+
+/* Minimal Screen Loading Engine */
+.boutique-loader-screen {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+}
+.boutique-spinner-container {
+  text-align: center;
+}
+.boutique-minimal-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--gray-border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  animation: boutiqueSpin 0.8s linear infinite;
+}
+.boutique-loader-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Core System Keyframes */
+@keyframes boutiqueSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes boutiqueEntrance {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   SOLID RESPONSIVE MEDIA QUERIES (Ultra Optimized)
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .boutique-page-container { padding: 4rem 1.5rem; }
+  .boutique-hero-details { padding: 2.5rem; }
+}
+
+@media (max-width: 991px) {
+  .boutique-main-title { font-size: 2.25rem; }
+  .boutique-sections-layout { gap: 4rem; }
+  .boutique-hero-panel { grid-template-columns: 1fr; }
+  .boutique-hero-media { border-left: none; border-top: 1px solid var(--gray-border); }
+  .boutique-image-canvas { min-height: 300px; }
+  .boutique-swatches-panel { padding: 2rem; }
+}
+
+@media (max-width: 767px) {
+  .boutique-page-container { padding: 3rem 1rem; }
+  .boutique-main-header { margin-bottom: 4rem; }
+  .boutique-hero-details { padding: 1.75rem; }
+  .boutique-material-title { font-size: 1.75rem; }
+  .boutique-swatches-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .boutique-colors-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; }
+  .boutique-section-divider { margin: 4rem 0 1rem 0; }
+}
+
+@media (max-width: 479px) {
+  .boutique-main-title { font-size: 1.85rem; }
+  .boutique-lead-paragraph { font-size: 0.9rem; }
+  .boutique-spec-grid { grid-template-columns: 1fr; }
+  .boutique-colors-grid { grid-template-columns: repeat(2, 1fr); } /* Perfect 2-column list on small mobile devices */
+}
+
+.yarl__container {
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,.92) !important;
+}
+
+.yarl__slide_image {
+  border-radius: 12px;
+}
+
+.yarl__button {
+  filter: drop-shadow(0 0 10px rgba(255,255,255,.25));
+}
+
+
+
+
+
+
+
+
+
+
+/* CTA Container */
+.colors-hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap; /* Responsive friendly */
+}
+
+/* Base Button Styles */
+.colors-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 9999px; /* Pill shape */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* 1. Online Jacket Builder (Premium Solid Dark Button) */
+.colors-btn-primary-hero {
+  background-color: #ffffff;
+  color: #0c0f12;
+  border: 1px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.colors-btn-primary-hero:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.colors-btn-primary-hero:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 2. Browse Materials (Sleek Glassmorphism Button) */
+.colors-btn-glass {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.colors-btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.colors-btn-glass:active {
+  transform: translateY(0) scale(0.98);
+}

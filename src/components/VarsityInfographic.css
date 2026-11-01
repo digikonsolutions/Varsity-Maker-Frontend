@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Section: Varsity Infographic Anatomy - Soft Minimalist Style
+   ========================================================================== */
+
+.v-maker-infographic-section {
+  width: 100%;
+  background: #0f172a; /* Deep Navy Baseline */
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.v-maker-infographic-container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ================= CORNER META HEADER ================= */
+.infographic-header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 60px;
+  gap: 12px;
+}
+
+.info-section-tagline {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #caa35a; /* Premium Gold Accent */
+  font-weight: 700;
+}
+
+.info-section-title {
+  font-size: 46px;
+  font-weight: 100;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ================= CANVAS ARCHITECTURE ================= */
+.infographic-canvas-container {
+  width: 100%;
+  position: relative;
+}
+
+.infographic-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 730px 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Feature Panels Common */
+.info-feature-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  z-index: 5;
+}
+
+/* Individual Feature Item Interlock */
+.info-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Alignment rules for perfect left/right symmetry */
+.left-panel .info-feature-item {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.right-panel .info-feature-item {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Text Meta Blocks */
+.info-text-meta h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.info-text-meta p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+  max-width: 290px;
+}
+
+/* Premium Pointer Number Circles */
+.info-pointer-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #caa35a;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================= CENTRAL PREMIUM FOUR-CORNER FADED VIDEO FRAME ================= */
+.info-video-center-canvas {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.info-video-mask-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4-Way Smooth Absolute Vignette Overlay to blend corners into background */
+.info-video-4way-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 20%, rgba(15, 23, 42, 0.2) 50%, rgba(15, 23, 42, 0.8) 100%, #0f172a 100%);
+  box-shadow: inset 0 0 60px 40px #0f172a;
+}
+
+.info-core-stream-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luxury Gold Ambient Backdrop Glow Layer */
+.info-video-ambient-glow {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(202, 162, 75, 0.15) 0%, rgba(202, 162, 75, 0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* ================= HOVER METRICS INTERACTION ENGINE ================= */
+.info-feature-item:hover .info-pointer-circle {
+  background: #caa35a;
+  border-color: #caa35a;
+  color: #0f172a;
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(202, 162, 75, 0.45);
+}
+
+.info-feature-item:hover .info-text-meta h5 {
+  color: #caa35a;
+}
+
+/* Video lens scales subtly when text structures trigger a hover */
+.infographic-wrapper:has(.info-feature-item:hover) .info-core-stream-asset {
+  transform: scale(1.05);
+}
+
+/* ================= CORE RESPONSIVE ARCHITECTURE MATRIX ================= */
+@media (max-width: 1250px) {
+  .infographic-wrapper {
+    grid-template-columns: 1fr 400px 1fr;
+    gap: 20px;
+  }
+  .info-video-center-canvas {
+    height: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .infographic-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .info-video-center-canvas {
+    grid-row: 1; 
+    height: 450px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .info-feature-panel {
+    gap: 45px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .left-panel .info-feature-item {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: 600px) {
+  .v-maker-infographic-section {
+    padding: 90px 0;
+  }
+  
+  .v-maker-infographic-container {
+    padding: 0 24px;
+  }
+  
+  .info-section-title {
+    font-size: 34px;
+  }
+  
+  .info-video-center-canvas {
+    height: 320px;
+  }
+  
+  .info-video-mask-frame {
+    border-radius: 24px;
+  }
+  
+  .info-video-4way-vignette {
+    box-shadow: inset 0 0 30px 15px #0f172a;
+  }
+  
+  .info-pointer-circle {
+    width: 46px;
+    height: 46px;
+    font-size: 13px;
+  }
+}
